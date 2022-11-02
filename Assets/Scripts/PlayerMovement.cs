@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
      public Rigidbody2D rb; 
+     public Collider2D baseColl;
      Vector2 movement;
 
       public float moveSpeed = 0.2f;

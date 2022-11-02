@@ -479,6 +479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 379722860}
+  baseColl: {fileID: 379722862}
   moveSpeed: 5
   anim: {fileID: 379722861}
 --- !u!50 &379722860
@@ -903,7 +904,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f2e6a6275b564a4ea94a7de4edbabc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 2032967555}
+  useDoor: {fileID: 2032967555}
+  player: {fileID: 379722859}
 --- !u!1 &1195994541
 GameObject:
   m_ObjectHideFlags: 0
@@ -1731,3 +1733,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 873e96b30190d4547be745552cd62d28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorColl: {fileID: 2032967553}

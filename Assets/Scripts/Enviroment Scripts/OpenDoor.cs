@@ -4,13 +4,15 @@ using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
 {
-   [SerializeField] private UseDoor door;
+   [SerializeField] private UseDoor useDoor;
+   [SerializeField] private PlayerMovement player;
+
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.F)){
-            door.OpenDoor();
+        if(player.baseColl.IsTouching(useDoor.doorColl) && Input.GetKeyDown(KeyCode.F)){
+            useDoor.OpenDoor();
         }
     }
 }
