@@ -8,22 +8,22 @@ public class LevelLoader : MonoBehaviour
     [SerializeField] private GoDownstairs downstairs;
    [SerializeField] private PlayerMovement player;
 
-   public TMP_Text stairs;
+   public TMP_Text stairsMSG;
     public Animator transition;
     void Start(){
-        stairs.enabled= false;
+        stairsMSG.enabled= false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(player.baseColl.IsTouching(downstairs.downstairsColl)){
-            stairs.enabled=true;
+            stairsMSG.enabled=true;
             LoadLivingRoom();
         }
     }
     public void LoadLivingRoom(){
-        TransitionLivingRoom(SceneManager.GetActiveScene().buildIndex + 1);
+        StartCoroutine(TransitionLivingRoom(SceneManager.GetActiveScene().buildIndex + 1));
     }
     IEnumerator TransitionLivingRoom(int levelIndex){
         transition.SetTrigger("Start");
