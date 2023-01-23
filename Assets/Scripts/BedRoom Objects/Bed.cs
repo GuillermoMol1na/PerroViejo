@@ -6,7 +6,7 @@ public class Bed : MonoBehaviour
     public Sprite bedUnmade;
     public Collider2D bedColl;
     [SerializeField] private PlayerMovement player;
-    [SerializeField] private RedArrowBed redArrow;
+    [SerializeField] private RedArrowObj redArrow;
     // Start is called before the first frame update
     void Start()
     {

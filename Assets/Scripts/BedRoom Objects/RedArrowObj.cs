@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class RedArrowBed : MonoBehaviour
+public class RedArrowObj : MonoBehaviour
 {
     public void RedArrowVanish(){
         gameObject.SetActive(false);
