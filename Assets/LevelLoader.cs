@@ -5,8 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] private GoDownstairs downstairs;
+[SerializeField] private Stairs stairs;
    [SerializeField] private PlayerMovement player;
+
+
 
    public TMP_Text stairsMSG;
     public Animator transition;
@@ -17,14 +19,17 @@ public class LevelLoader : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(player.baseColl.IsTouching(downstairs.downstairsColl)){
+        if(player.baseColl.IsTouching(stairs.stairsColl)){
             stairsMSG.enabled=true;
             LoadLivingRoom();
         }
+        
     }
     public void LoadLivingRoom(){
         StartCoroutine(TransitionLivingRoom(SceneManager.GetActiveScene().buildIndex + 1));
     }
+    
+    
     IEnumerator TransitionLivingRoom(int levelIndex){
         transition.SetTrigger("Start");
 
@@ -32,4 +37,5 @@ public class LevelLoader : MonoBehaviour
 
         SceneManager.LoadScene(levelIndex);
     }
+
 }   

@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LivingRoom.unity
     guid: b77d42f0f3e68fe468f2ee8ecedff195
+  - enabled: 1
+    path: Assets/Scenes/BookshelfD0.unity
+    guid: 1e1b9c8f6f5b4c94ebbfb480899d0c8b
   m_configObjects: {}
