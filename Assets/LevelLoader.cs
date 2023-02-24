@@ -8,7 +8,7 @@ public class LevelLoader : MonoBehaviour
 [SerializeField] private Stairs stairs;
    [SerializeField] private PlayerMovement player;
 
-
+    private Vector2 targetPosition = new Vector2(5.08f,3.84f);
 
    public TMP_Text stairsMSG;
     public Animator transition;

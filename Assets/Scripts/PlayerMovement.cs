@@ -10,8 +10,8 @@ public class PlayerMovement : MonoBehaviour
 
       public float moveSpeed = 0.2f;
       public Animator anim;
+      private GameMaster gm;
 
-    // Start is called before the first frame update
 
  
 
