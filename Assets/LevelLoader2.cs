@@ -10,10 +10,12 @@ public class LevelLoader2 : MonoBehaviour
 
 [SerializeField] private Bookshelf bookshelf;
 
-   public TMP_Text stairsMSG;
+   public TMP_Text downStairs;
+   public TMP_Text upStairs;
     public Animator transition;
     void Start(){
-        stairsMSG.enabled= false;
+        downStairs.enabled= false;
+        upStairs.enabled= false;
     }
 
     // Update is called once per frame
@@ -23,17 +25,17 @@ public class LevelLoader2 : MonoBehaviour
             LoadBook();
         }
         if(player.baseColl.IsTouching(stairs.stairsColl)){
-            stairsMSG.enabled=true;
+            upStairs.enabled=true;
             LoadBedRoom();
         }
         
     }
     public void LoadBedRoom(){
-        StartCoroutine(TransitionBedRoom(0));
+        StartCoroutine(TransitionBedRoom(SceneManager.GetActiveScene().buildIndex -1));
     }
     
     public void LoadBook(){
-        StartCoroutine(TransitionBookshelf(2));
+        StartCoroutine(TransitionBookshelf(SceneManager.GetActiveScene().buildIndex +1));
     }
     IEnumerator TransitionBedRoom(int levelIndex){
         transition.SetTrigger("Start");

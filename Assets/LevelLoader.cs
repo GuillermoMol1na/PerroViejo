@@ -10,17 +10,19 @@ public class LevelLoader : MonoBehaviour
 
     private Vector2 targetPosition = new Vector2(5.08f,3.84f);
 
-   public TMP_Text stairsMSG;
+   public TMP_Text downStairs;
+   public TMP_Text upStairs;
     public Animator transition;
     void Start(){
-        stairsMSG.enabled= false;
+        downStairs.enabled= false;
+        upStairs.enabled= false;
     }
 
     // Update is called once per frame
     void Update()
     {
         if(player.baseColl.IsTouching(stairs.stairsColl)){
-            stairsMSG.enabled=true;
+            downStairs.enabled=true;
             LoadLivingRoom();
         }
         
