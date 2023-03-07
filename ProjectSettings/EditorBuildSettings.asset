@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BookshelfD0.unity
     guid: 1e1b9c8f6f5b4c94ebbfb480899d0c8b
+  - enabled: 1
+    path: Assets/Scenes/PCMenu.unity
+    guid: 7bd996105b0e28d4daa4dae8a38f6819
   m_configObjects: {}

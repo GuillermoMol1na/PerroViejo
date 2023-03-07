@@ -7,6 +7,9 @@ TagManager:
   - Background
   - GM
   - InitialPos
+  - MsgBox
+  - MessageManager
+  - LevelLoader
   layers:
   - Default
   - TransparentFX
