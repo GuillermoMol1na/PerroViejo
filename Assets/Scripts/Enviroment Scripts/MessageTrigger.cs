@@ -1,10 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MessageTrigger : MonoBehaviour
 {
-    public Messages message;
+    private Messages message;
     private MessageManager msgManager;
     private GameObject MsgBox;
     private bool showit= false;
@@ -12,6 +10,7 @@ public class MessageTrigger : MonoBehaviour
     void Start(){
         msgManager = FindObjectOfType<MessageManager>();
         MsgBox = GameObject.FindGameObjectWithTag("MsgBox");
+
         MsgBox.SetActive(showit);
     }
     void Update(){
@@ -32,5 +31,9 @@ public class MessageTrigger : MonoBehaviour
             showit= !showit;
             MsgBox.SetActive(showit);
         }
+    }
+    public void UsetheMessages(Messages newMessages){
+        message = newMessages;
+        Debug.Log("Nuevos mensajes recibidos");
     }
 }

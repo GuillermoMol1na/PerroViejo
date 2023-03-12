@@ -22,6 +22,9 @@ public class Bookshelf : MonoBehaviour
         if(playerCol.IsTouching(BookShelfColl) && Input.GetKeyDown(KeyCode.F)){
             thelevelLoader.LoadBook();
         }
+        if(!gm.usedRedArrowBook){
+            redArrow.RedArrowAppear();
+        }
     }
 
 

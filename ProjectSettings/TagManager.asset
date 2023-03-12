@@ -10,6 +10,7 @@ TagManager:
   - MsgBox
   - MessageManager
   - LevelLoader
+  - TextDialog
   layers:
   - Default
   - TransparentFX

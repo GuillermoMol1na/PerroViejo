@@ -1,9 +1,9 @@
 using UnityEngine;
 
-public class Checkpoint_Bed : MonoBehaviour
+public class Checkpoint_Minibar : MonoBehaviour
 {
     private GameMaster  gm;
-    public Collider2D bedColl;
+    public Collider2D miniBarColl;
     private PlayerMovement player;
     // Start is called before the first frame update
     void Start()
@@ -11,11 +11,13 @@ public class Checkpoint_Bed : MonoBehaviour
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         player= PlayerMovement.FindObjectOfType<PlayerMovement>();
     }
-    void Update(){
-        if(player.baseColl.IsTouching(bedColl) && Input.GetKeyDown(KeyCode.F)){
-            gm.BedMade= true;
-            Debug.Log("Se ha guardado la cama HECHA");
+
+    // Update is called once per frame
+    void Update()
+    {
+         if(player.baseColl.IsTouching(miniBarColl) && Input.GetKeyDown(KeyCode.F)){
+            gm.glassfull= false;
+            Debug.Log("Se ha vaciado el vaso");
         }
     }
-
 }
