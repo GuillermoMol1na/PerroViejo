@@ -19,27 +19,12 @@ private GameMaster  gm;
         upStairs.enabled= false;
        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
-
-    // Update is called once per frame
-    /*void Update()
-    {
-        if(player.baseColl.IsTouching(bookshelf.BookShelfColl) && Input.GetKeyDown(KeyCode.F)){  
-            
-            LoadBook();
-        }
-        if(player.baseColl.IsTouching(stairs.stairsColl)){
-            
-            LoadBedRoom();
-        }
-    }*/
     public void LoadBedRoom(){
         upStairs.enabled=true;
         StartCoroutine(TransitionBedRoom(SceneManager.GetActiveScene().buildIndex -1));
     }
     
     public void LoadBook(){
-        gm.usedRedArrowBook= true;
-        gm.usedRedArrowPC=false;
         StartCoroutine(TransitionBookshelf(SceneManager.GetActiveScene().buildIndex +1));
     }
     public void LoadPC(){

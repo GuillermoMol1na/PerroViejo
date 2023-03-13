@@ -1,4 +1,3 @@
-
 using UnityEngine;
 
 public class Bookshelf : MonoBehaviour
@@ -20,6 +19,8 @@ public class Bookshelf : MonoBehaviour
     }
     void Update(){
         if(playerCol.IsTouching(BookShelfColl) && Input.GetKeyDown(KeyCode.F)){
+            gm.usedRedArrowBook= true;
+            gm.usedRedArrowPC=false;
             thelevelLoader.LoadBook();
         }
         if(!gm.usedRedArrowBook){
