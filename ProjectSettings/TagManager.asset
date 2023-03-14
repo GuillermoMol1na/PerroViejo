@@ -10,7 +10,8 @@ TagManager:
   - MsgBox
   - MessageManager
   - LevelLoader
-  - TextDialog
+  - Trgg_Messag
+  - Stairs
   layers:
   - Default
   - TransparentFX

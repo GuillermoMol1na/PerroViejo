@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
@@ -8,8 +6,14 @@ public class OpenDoor : MonoBehaviour
    [SerializeField] private PlayerMovement player;
    [SerializeField] private Bed bed;
  
-   [SerializeField] private MessageTrigger msgTrigg;
-    // Update is called once per frame
+   private MessageTrigger msgTrigg;
+    private string[] makebedMssg = {"Deberías hacer tu cama antes de bajar primero",
+                                    "En serio"};
+    private Messages mkBedMsg = new Messages();
+    void Start(){
+        mkBedMsg.Include(makebedMssg);
+        msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
+    }
     void Update()
     {
         if(player.baseColl.IsTouching(useDoor.doorColl) && Input.GetKeyDown(KeyCode.F)){
@@ -17,6 +21,7 @@ public class OpenDoor : MonoBehaviour
                 useDoor.OpenDoor();
             }
             else{
+            msgTrigg.UsetheMessages(mkBedMsg);
             msgTrigg.TriggerMessage();
             }
         }

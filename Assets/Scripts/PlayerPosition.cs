@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerPosition : MonoBehaviour
 {
     private Vector3 BedroominitialPos = new Vector3(-0.01f, 3.65f, 0f);
-    private Vector3 LivingRoominitialPos = new Vector3(5.08f,3.84f,0f);
+    private Vector3 LivingRoominitialPos = new Vector3(5.09f,3.23f,0f);
     
     
     private GameMaster gm;

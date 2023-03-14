@@ -9,11 +9,20 @@ public class Stairs : MonoBehaviour
     void Start(){
         thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
         playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
+        stairsColl = GameObject.FindGameObjectWithTag("Stairs").GetComponent<Collider2D>();
     }
+
     void Update(){
         if(playerCol.IsTouching(stairsColl))
             thelevelLoader.LoadBedRoom();
 
+
     }
+    /*void OnCollisionStay(Collision collisionInfo) {
+     if (collisionInfo.gameObject.tag == "Player") {
+         thelevelLoader.LoadBedRoom();
+     }*/
+
+
 
 }

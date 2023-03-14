@@ -9,6 +9,8 @@ public class Minibar : MonoBehaviour
     private GameMaster  gm;
     private PlayerMovement player;
     [SerializeField] private RedArrowObj redArrow;
+    public delegate void ActivateBookshelfArrow();
+    public static event ActivateBookshelfArrow activatebRedArr;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class Minibar : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = GlassFull;
         else{
             this.gameObject.GetComponent<SpriteRenderer>().sprite = GlassEmpty;
+            redArrow.RedArrowVanish();
         }
         
     }
@@ -28,7 +31,10 @@ public class Minibar : MonoBehaviour
         if(player.baseColl.IsTouching(minibarColl) && Input.GetKeyDown(KeyCode.F) && !confirm){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = GlassEmpty;
             redArrow.RedArrowVanish();
-            gm.usedRedArrowBook=false;
+            //gm.usedRedArrowBook=false;
+            if(activatebRedArr!= null){
+                activatebRedArr();
+            }
             confirm=true;
         }
     }

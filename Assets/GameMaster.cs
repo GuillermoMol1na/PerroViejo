@@ -6,9 +6,11 @@ public class GameMaster : MonoBehaviour
     public Vector2 lastCheckpointPosBedRoom;
     public Vector2 lastCheckpointPosLivingRoom;
     public bool BedMade;
-    public bool glassfull;
-    public bool usedRedArrowBook;
-    public bool usedRedArrowPC;
+    public bool glassfull,usedRedArrowBook,usedRedArrowPC;
+
+    void Start(){
+        glassfull=usedRedArrowBook=usedRedArrowPC=true;
+    }
 
     
 

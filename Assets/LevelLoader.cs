@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader : MonoBehaviour
 {
-[SerializeField] private Stairs stairs;
+     private Collider2D stairsColl;
    [SerializeField] private PlayerMovement player;
 
     private Vector2 targetPosition = new Vector2(5.08f,3.84f);
@@ -16,12 +16,13 @@ public class LevelLoader : MonoBehaviour
     void Start(){
         downStairs.enabled= false;
         upStairs.enabled= false;
+        stairsColl = GameObject.FindGameObjectWithTag("Stairs").GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(player.baseColl.IsTouching(stairs.stairsColl)){
+        if(player.baseColl.IsTouching(stairsColl)){
             downStairs.enabled=true;
             LoadLivingRoom();
         }

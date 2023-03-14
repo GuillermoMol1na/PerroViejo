@@ -23,9 +23,18 @@ public class Bookshelf : MonoBehaviour
             gm.usedRedArrowPC=false;
             thelevelLoader.LoadBook();
         }
-        if(!gm.usedRedArrowBook){
+        /*if(!gm.usedRedArrowBook){
             redArrow.RedArrowAppear();
-        }
+        }*/
+    }
+    void OnEnable(){
+        Minibar.activatebRedArr += ActivatetheArrow;
+    }
+    void OnDisable(){
+        Minibar.activatebRedArr -= ActivatetheArrow;
+    }
+    void ActivatetheArrow(){
+        redArrow.RedArrowAppear();
     }
 
 

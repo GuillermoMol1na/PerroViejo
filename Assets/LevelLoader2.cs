@@ -9,7 +9,6 @@ public class LevelLoader2 : MonoBehaviour
 [SerializeField] private PlayerMovement player;
 [SerializeField] private Bookshelf bookshelf;
 [SerializeField] private PersonalComputer computer;
-private GameMaster  gm;
 
    public TMP_Text downStairs;
    public TMP_Text upStairs;
@@ -17,7 +16,6 @@ private GameMaster  gm;
     void Start(){
         downStairs.enabled= false;
         upStairs.enabled= false;
-       gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
     }
     public void LoadBedRoom(){
         upStairs.enabled=true;
