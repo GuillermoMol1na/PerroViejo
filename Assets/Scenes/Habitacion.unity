@@ -2149,8 +2149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55171eb98ca68ae4386d6d6e08bc37a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stairs: {fileID: 0}
-  player: {fileID: 379722859}
   downStairs: {fileID: 2034269149}
   upStairs: {fileID: 482732633}
   transition: {fileID: 146991273}

@@ -12,6 +12,7 @@ TagManager:
   - LevelLoader
   - Trgg_Messag
   - Stairs
+  - TheText
   layers:
   - Default
   - TransparentFX
