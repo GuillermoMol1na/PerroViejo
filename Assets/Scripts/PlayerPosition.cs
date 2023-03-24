@@ -13,14 +13,14 @@ void Start(){
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         switch(sceneIndex){
-                case 0:
+                case 1:
                 if(gm.lastCheckpointPosBedRoom.x != 0f && gm.lastCheckpointPosBedRoom.y!= 0f){
                     transform.position = gm.lastCheckpointPosBedRoom;
                 }else{
                     transform.position = BedroominitialPos;
                 }
                 break;
-                case 1:
+                case 2:
                 if(gm.lastCheckpointPosLivingRoom.x != 0f && gm.lastCheckpointPosLivingRoom.y!= 0f){
                     transform.position = gm.lastCheckpointPosLivingRoom;
                 }else{
