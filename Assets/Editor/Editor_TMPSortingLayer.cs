@@ -12,8 +12,8 @@ public class Editor_TMPSortingLayer : Editor
         ScriptTMPSortingLayer script = (ScriptTMPSortingLayer)target;
         script.sortingLayer = EditorGUILayout.IntField("Sorting layer", script.sortingLayer);
         TextMeshProUGUI t = script.gameObject.GetComponent<TextMeshProUGUI>();
-       /* if (t != null){
+        if (t != null){
             t.canvas.sortingOrder = script.sortingLayer;
-        }*/
+        }
     }
 }
