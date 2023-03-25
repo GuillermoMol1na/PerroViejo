@@ -13,6 +13,9 @@ TagManager:
   - Trgg_Messag
   - Stairs
   - TheText
+  - CanvasApp
+  - EmailWindow
+  - OptionsTab
   layers:
   - Default
   - TransparentFX

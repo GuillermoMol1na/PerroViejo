@@ -10,12 +10,6 @@ public class LevelLoader3 : MonoBehaviour
     void Start(){
     stairsMSG.enabled= false;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void LoadLivingRoom(){
         StartCoroutine(TransitionLiving(1));
     }
