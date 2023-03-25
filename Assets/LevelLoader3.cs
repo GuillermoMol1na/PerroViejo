@@ -11,7 +11,7 @@ public class LevelLoader3 : MonoBehaviour
     stairsMSG.enabled= false;
     }
     public void LoadLivingRoom(){
-        StartCoroutine(TransitionLiving(1));
+        StartCoroutine(TransitionLiving(SceneManager.GetActiveScene().buildIndex -1));
     }
     
 

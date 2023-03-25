@@ -14,10 +14,10 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other){
         if(other.CompareTag("Player")){
             switch(sceneIndex){
-                case 0:
+                case 1:
                     gm.lastCheckpointPosBedRoom = transform.position;
                 break;
-                case 1:
+                case 2:
                     gm.lastCheckpointPosLivingRoom = transform.position;
                     Debug.Log("La nueva posición de checkpoint es: "+gm.lastCheckpointPosLivingRoom );
                 break;
