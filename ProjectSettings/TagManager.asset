@@ -16,6 +16,10 @@ TagManager:
   - CanvasApp
   - EmailWindow
   - OptionsTab
+  - Transition
+  - AntivirusWindow
+  - TrashWindow
+  - InternetWindow
   layers:
   - Default
   - TransparentFX

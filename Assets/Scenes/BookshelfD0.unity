@@ -837,7 +837,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d3d9cb5af60f7340bf6e2a0ef4105b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lastCheckpointPos: {x: 0, y: 0}
+  lastCheckpointPosBedRoom: {x: 0, y: 0}
+  lastCheckpointPosLivingRoom: {x: 0, y: 0}
+  BedMade: 0
+  glassfull: 0
+  usedRedArrowBook: 0
+  usedRedArrowPC: 0
 --- !u!4 &497410263
 Transform:
   m_ObjectHideFlags: 0
@@ -1559,7 +1564,7 @@ GameObject:
   - component: {fileID: 4194003257847673855}
   m_Layer: 0
   m_Name: Crossfade
-  m_TagString: Untagged
+  m_TagString: Transition
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1727,7 +1732,7 @@ GameObject:
   - component: {fileID: 4194003259379131991}
   - component: {fileID: 4194003259379131992}
   m_Layer: 0
-  m_Name: LevelLoader 3
+  m_Name: LevelLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1761,7 +1766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cba7b9e195b0b344288578236a248ad6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  transition: {fileID: 4194003257847673855}
   stairsMSG: {fileID: 4194003259735007371}
 --- !u!222 &4194003259735007368
 CanvasRenderer:
