@@ -8,6 +8,7 @@ public class Email_App : MonoBehaviour
 {
     private GameObject emailWindow;
     private GameObject backBtn;
+    private GameObject scrollEmail;
     private bool isActive;
     public TMP_Text emailContent;
     public TMP_Text emailUser;
@@ -17,6 +18,7 @@ public class Email_App : MonoBehaviour
     {
         emailWindow = GameObject.FindGameObjectWithTag("EmailWindow");
         backBtn = GameObject.FindGameObjectWithTag("BackBtn");
+        scrollEmail = this.transform.Find("Scroll_Email").gameObject;
         isActive = false;
         emailWindow.SetActive(isActive);
         backBtn.SetActive(isActive);
@@ -24,12 +26,20 @@ public class Email_App : MonoBehaviour
     }
 
     public void OpenEmails(){
-        isActive=!isActive;
+        isActive=true;
+        backBtn.SetActive(false);
         emailWindow.SetActive(isActive);
     }
     public void CloseEmails(){
-        isActive=!isActive;
+        isActive=false;
         emailWindow.SetActive(isActive);
+    }
+    public void ShowHideScrollEmail(){
+        isActive=!isActive;
+        scrollEmail.SetActive(isActive);
+        emailAppTitle.enabled=isActive;
+        emailUser.enabled=!isActive;
+        backBtn.SetActive(!isActive);
     }
 
     void OnEnable(){
@@ -39,10 +49,11 @@ public class Email_App : MonoBehaviour
         Email.showEmail -= DisplaytheEmail;
     }
 
-    void DisplaytheEmail(string thecontact){
+    void DisplaytheEmail(string thecontact, string theemail){
         emailContent.enabled = emailUser.enabled =true;
 
         emailUser.text = thecontact;
+        emailContent.text = theemail;
 
         emailAppTitle.enabled=false;
         backBtn.SetActive(true);
