@@ -23,10 +23,11 @@ public class Email : MonoBehaviour
         titleEmail = this.transform.Find("TextContact").gameObject.GetComponent<TMP_Text>();
     }
     public void OpenEmail(){
-        emailApp.ShowHideScrollEmail();
+        /*emailApp.ShowHideScrollEmail();
         if(showEmail != null){
             showEmail(titleEmail.text, emailStorage.theEmails[emailIndex]);
-        }
+        }*/
+        Debug.Log("Y SE MUESTRA EL EMAIL");
     }
     public void CloseEmail(){
         emailApp.ShowHideScrollEmail();
