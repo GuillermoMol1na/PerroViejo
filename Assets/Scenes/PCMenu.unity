@@ -1554,7 +1554,7 @@ GameObject:
   - component: {fileID: 389759985}
   m_Layer: 0
   m_Name: Email_Manager
-  m_TagString: Untagged
+  m_TagString: Email_Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1572,6 +1572,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   emailBckround: {fileID: -9547261, guid: e34bf8af4c9528d4fb7cf29fb1bddeca, type: 3}
+  notRead: {fileID: -1750085182, guid: ea83a4977278f2c418c7a0bf9ec46c90, type: 3}
+  isRead: {fileID: 734623741, guid: ea83a4977278f2c418c7a0bf9ec46c90, type: 3}
   pixelFont: {fileID: 11400000, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
 --- !u!4 &389759986
 Transform:
@@ -7257,7 +7259,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793229424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4050}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 45, y: 45, z: 45}
   m_ConstrainProportionsScale: 0
   m_Children: []

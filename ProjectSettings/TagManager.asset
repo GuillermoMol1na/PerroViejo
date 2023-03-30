@@ -21,6 +21,7 @@ TagManager:
   - TrashWindow
   - InternetWindow
   - BackBtn
+  - Email_Manager
   layers:
   - Default
   - TransparentFX
