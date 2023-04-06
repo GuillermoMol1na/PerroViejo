@@ -22,6 +22,7 @@ TagManager:
   - InternetWindow
   - BackBtn
   - Email_Manager
+  - Internet_Minigame_1
   layers:
   - Default
   - TransparentFX
