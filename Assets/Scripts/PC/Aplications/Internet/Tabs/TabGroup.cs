@@ -10,7 +10,10 @@ public class TabGroup : MonoBehaviour
     private Sprite tabHover;
     private Sprite tabActive;
     public TabButton selectedTab;
+    List<TabButton> sublist;
     public List<GameObject> objectsToSwap;
+    int obj;
+    int listsize;
     public void TabSystem(TabButton button){
         tabIdle=Resources.Load<Sprite>("Internet_Browser_2");
         tabHover=Resources.Load<Sprite>("Tab_Alternatives_0");
@@ -21,6 +24,33 @@ public class TabGroup : MonoBehaviour
 
         tabButtons.Add(button);
     }
+    public void WindowSystem(GameObject window){
+
+        if(objectsToSwap==null){
+            objectsToSwap= new List<GameObject>();
+        }
+
+        objectsToSwap.Add(window);
+    }
+    public void RemoveTab(TabButton button){
+        tabButtons.Remove(button);
+        obj = button.transform.GetSiblingIndex();
+        listsize= tabButtons.Count-1;
+        objectsToSwap[obj].SetActive(false);
+        objectsToSwap.RemoveAt(obj);
+        ResetTabs();
+
+        sublist = tabButtons.GetRange(obj,listsize);
+        foreach(TabButton tab in sublist){
+            tab.MoveTab();
+        }
+    }
+    /*public void RemoveObject(GameObject theobject){
+        obj=objectsToSwap.IndexOf(theobject);
+        //objectsToSwap[obj].SetActive(false);
+        objectsToSwap.Remove(theobject);
+    }*/
+
     public void OnTabEnter(TabButton button){
         ResetTabs();
         if(selectedTab == null || button != selectedTab)

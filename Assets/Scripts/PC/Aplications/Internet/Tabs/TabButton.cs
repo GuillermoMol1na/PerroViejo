@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -8,6 +6,8 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
 {
     public TabGroup tabGroup;
     public Image background;
+    private float move= -7342f;
+    private float currentX;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -24,16 +24,20 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         tabGroup.OnTabExit(this);
     }
 
+    public void DeleteTab(){
+        tabGroup.RemoveTab(this);
+        this.gameObject.SetActive(false);
+        Destroy(this);
+    }
+    public void MoveTab(){
+        currentX= this.transform.localPosition.x;
+        this.transform.localPosition= new Vector3(currentX+move,0f,0f);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         background = GetComponent<Image>();
         tabGroup.TabSystem(this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
