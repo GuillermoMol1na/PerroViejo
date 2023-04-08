@@ -5,7 +5,11 @@ public class InterWind : MonoBehaviour
     public TabGroup tabGroup;
     void Start()
     {
-        this.gameObject.SetActive(false);
+        if(this.transform.name == "FirstElement"){
+            this.gameObject.SetActive(true);
+        }else{
+            this.gameObject.SetActive(false);
+        }
         tabGroup.WindowSystem(this.gameObject);
     }
     public void DeleteWind(){

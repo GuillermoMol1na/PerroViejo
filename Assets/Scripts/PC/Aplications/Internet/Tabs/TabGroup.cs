@@ -14,14 +14,16 @@ public class TabGroup : MonoBehaviour
     public List<GameObject> objectsToSwap;
     int obj;
     int listsize;
-    public void TabSystem(TabButton button){
+    
+    void Start(){
         tabIdle=Resources.Load<Sprite>("Internet_Browser_2");
         tabHover=Resources.Load<Sprite>("Tab_Alternatives_0");
         tabActive=Resources.Load<Sprite>("Tab_Alternatives_1");
+    }
+    public void TabSystem(TabButton button){   
         if(tabButtons==null){
             tabButtons= new List<TabButton>();
         }
-
         tabButtons.Add(button);
     }
     public void WindowSystem(GameObject window){
@@ -45,12 +47,6 @@ public class TabGroup : MonoBehaviour
             tab.MoveTab();
         }
     }
-    /*public void RemoveObject(GameObject theobject){
-        obj=objectsToSwap.IndexOf(theobject);
-        //objectsToSwap[obj].SetActive(false);
-        objectsToSwap.Remove(theobject);
-    }*/
-
     public void OnTabEnter(TabButton button){
         ResetTabs();
         if(selectedTab == null || button != selectedTab)
