@@ -9,7 +9,7 @@ public class Internet_1_Controller : MonoBehaviour
     private GameObject theWindow;
     private GameObject theTab;
     //Must be changed to 6255
-    private float tabPosX = 1044;
+    private float tabPosX = -6298;
     private int nameOrder=1;
     private Sprite tabSprite;
     //Must move to the creation of tabs script
@@ -29,22 +29,11 @@ public class Internet_1_Controller : MonoBehaviour
  
             theWindow= new GameObject("Window"+nameOrder.ToString());
             theTab= new GameObject("Tab"+nameOrder.ToString());
-            //Just adding the window to the TabGroup
-            //theTabGroup.objectsToSwap.Add(theWindow);
             //Creating the Window
-            RectTransform transWin = theWindow.AddComponent<RectTransform>();
-            transWin.anchoredPosition = new Vector2(0f, 0f);
-            
-            transWin.sizeDelta = new Vector2(86266.13f, 42037f);
-            transWin.pivot = new Vector2(0.5f, 0.5f);
-            transWin.localScale = new Vector3(1f/45,1f/45,1f/45);
-            Image imageWin= theWindow.AddComponent<Image>();
-            imageWin.GetComponent<Image>().color = new Color32(0,255,225,100); 
-            InterWind interWindow= theWindow.AddComponent<InterWind>();
-            interWindow.tabGroup = theTabGroup;
+            theWindow= TabCreator.createTabWindow(theWindow, theTabGroup);
             //Creating the Tab
             theTab = TabCreator.createTabBtn(theTab, theTabGroup, tabSprite);
-        
+            //Setting the parents
             theWindow.transform.SetParent(objWindow.transform);
             theTab.transform.SetParent(interTab.transform);
             //The transform of Tab is setted here

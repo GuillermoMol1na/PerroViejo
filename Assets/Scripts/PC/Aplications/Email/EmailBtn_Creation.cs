@@ -10,7 +10,7 @@ public class EmailBtn_Creation
     private Image image;
     private Image imageRead;
     private Button buton;
-    public GameObject CreateBtn(GameObject email, int index, Sprite background){
+    public GameObject CreateBtn(GameObject email, int index, Sprite background, string emailText){
 
             trans = email.AddComponent<RectTransform>();
             trans.anchoredPosition = new Vector2(0f, 0f);
@@ -20,6 +20,7 @@ public class EmailBtn_Creation
             trans.sizeDelta = new Vector2(49045.09f, 6976.12f);
             //Adding the EmailScript
             emailScript = email.AddComponent<Email>();
+            emailScript.SetEmail(emailText);
              //Adding the image
             image = email.AddComponent<Image>();
             image.sprite = background;

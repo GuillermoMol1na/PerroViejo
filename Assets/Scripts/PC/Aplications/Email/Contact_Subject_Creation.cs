@@ -3,17 +3,12 @@ using UnityEngine.UI;
 using TMPro;
 public class Contact_Subject_Creation
 {
-    private Email_Storage eStorage = new Email_Storage();
-    private string[] contacts;
-    private string[] subjects;
+
     private GameObject contactTMP;
     private GameObject subjectTMP;
 
-    public Contact_Subject_Creation(){
-        contacts = eStorage.theContacts;
-        subjects = eStorage.theSubjects;
-    }
-    public GameObject createCon(TMP_FontAsset pixelFont, int index){
+
+    public GameObject createCon(TMP_FontAsset pixelFont, int index, string contactoString){
             contactTMP =  new GameObject("TextContact");
             TMP_Text contactText = contactTMP.AddComponent<TextMeshProUGUI>();
             RectTransform transTMP = contactTMP.GetComponent<RectTransform>();
@@ -27,10 +22,10 @@ public class Contact_Subject_Creation
             contactText.fontSize= 2000f;
             contactText.color = new Color32(108,108,108,255);
             contactText.GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.Left;
-            contactText.text=contacts[index];
+            contactText.text=contactoString;
             return contactTMP;
     }
-    public GameObject createSub(TMP_FontAsset pixelFont, int index){
+    public GameObject createSub(TMP_FontAsset pixelFont, int index, string subjectString){
             subjectTMP =  new GameObject("TextSubject");
             TMP_Text subjectText = subjectTMP.AddComponent<TextMeshProUGUI>();
             RectTransform transTMP = subjectTMP.GetComponent<RectTransform>();
@@ -44,7 +39,7 @@ public class Contact_Subject_Creation
             subjectText.fontSize= 3000f;
             subjectText.color = new Color32(50,50,50,255);
             subjectText.GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.Left;
-            subjectText.text=subjects[index];
+            subjectText.text=subjectString;
             return subjectTMP;
     }
 }

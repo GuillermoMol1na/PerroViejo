@@ -7,7 +7,9 @@ public class Create_Tab
     private TabButton tabScript;
     private Image tabImage;
     private Button tabButton;
-
+    private RectTransform transWin;
+    private Image imageWin;
+    private InterWind interWindow;
 
     public GameObject createTabBtn(GameObject theTab,TabGroup theTabGroup,  Sprite tabSprite){
             transTab = theTab.AddComponent<RectTransform>();
@@ -27,5 +29,18 @@ public class Create_Tab
             tabButton = theTab.AddComponent<Button>();
             tabButton.targetGraphic=tabImage;
         return theTab;
+    }
+    public GameObject createTabWindow(GameObject theWindow, TabGroup theTabGroup){
+            transWin = theWindow.AddComponent<RectTransform>();
+            transWin.anchoredPosition = new Vector2(0f, 0f);
+            
+            transWin.sizeDelta = new Vector2(86266.13f, 42037f);
+            transWin.pivot = new Vector2(0.5f, 0.5f);
+            transWin.localScale = new Vector3(1f/45,1f/45,1f/45);
+            imageWin= theWindow.AddComponent<Image>();
+            imageWin.GetComponent<Image>().color = new Color32(255,255,255,255); 
+            interWindow= theWindow.AddComponent<InterWind>();
+            interWindow.tabGroup = theTabGroup;
+        return theWindow;
     }
 }

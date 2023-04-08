@@ -15,7 +15,7 @@ public class Email : MonoBehaviour
     public delegate void ShowEmail(string thecontact, string theemail);
     public static event ShowEmail showEmail;
     private Email_Storage emailStorage = new Email_Storage();
-  
+    private string theemailtoDisplay;
     private Image icon;
     
     void Start(){
@@ -29,12 +29,15 @@ public class Email : MonoBehaviour
     public void OpenEmail(){
         emailApp.ShowHideScrollEmail();
         if(showEmail != null){
-            showEmail(titleEmail.text, emailStorage.theEmails[emailIndex]);
+            showEmail(titleEmail.text, theemailtoDisplay);
         }
         icon.sprite = Resources.Load<Sprite>("UIIcons_16");
         Debug.Log("Y SE MUESTRA EL EMAIL");
     }
     public void CloseEmail(){
         emailApp.ShowHideScrollEmail();
+    }
+    public void SetEmail(string theText){
+        theemailtoDisplay= theText;
     }
 }
