@@ -34,4 +34,8 @@ public class Internet_App : MonoBehaviour
         isActive=!isActive;
         internetWindow.SetActive(isActive);
     }
+    public void CloseMinigame(){
+        isActive=!isActive;
+        miniGame_1.SetActive(isActive);
+    }
 }
