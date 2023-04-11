@@ -4495,7 +4495,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 791.3607, y: -371.12}
+  m_AnchoredPosition: {x: 0, y: -490.83}
   m_SizeDelta: {x: -1582.7119, y: -981.65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1129856233
@@ -7670,6 +7670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tabGroup: {fileID: 324474900}
+  imageOfSprite: {fileID: 0}
 --- !u!1 &1922826914
 GameObject:
   m_ObjectHideFlags: 0
