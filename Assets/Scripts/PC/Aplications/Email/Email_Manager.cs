@@ -6,7 +6,7 @@ public class Email_Manager : MonoBehaviour
 {
     public Sprite emailBckround;
     public Sprite notRead;
-    public TMP_FontAsset pixelFont;
+    private TMP_FontAsset pixelFont;
     private GameObject emailWindow;
     private GameObject emailContent;
     private GameObject email;
@@ -25,6 +25,7 @@ public class Email_Manager : MonoBehaviour
         //Locating the parent
         emailWindow = GameObject.FindGameObjectWithTag("EmailWindow");
         emailContent = emailWindow.transform.Find("Scroll_Email").transform.Find("Email_Content").gameObject;
+        pixelFont = Resources.Load<TMPro.TMP_FontAsset>("Fonts/Pixel_Font");
         //Getting the day
         switch(PlayerPrefs.GetInt("day")){
         case 0:

@@ -40,4 +40,16 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         background = GetComponent<Image>();
         tabGroup.TabSystem(this);
     }
+    void OnEnable(){
+        InterWind.closeTheTab += CheckTabforClose;
+    }
+    void OnDisable(){
+        InterWind.closeTheTab -= CheckTabforClose;
+    }
+
+    void CheckTabforClose(int winIndex){
+        if(this.transform.GetSiblingIndex() == winIndex){
+            DeleteTab();
+        }
+    }
 }

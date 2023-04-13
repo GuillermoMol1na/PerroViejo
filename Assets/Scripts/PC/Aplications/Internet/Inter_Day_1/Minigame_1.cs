@@ -10,6 +10,7 @@ public class Minigame_1 : MonoBehaviour
     private Sprite[] reals;
     private Sprite[] fakesShuffled;
     private Sprite theReal;
+    public int theRealIndex;
     private System.Random rand;
     private object[] loadedFakeIcons;
     private object[] loadedRealIcons;
@@ -40,14 +41,14 @@ public class Minigame_1 : MonoBehaviour
         return reals[rand.Next(0,3)];
     }*/
     public Sprite[] Reshuffle(){
-    Sprite[] newList = new Sprite[fakes.Length+1];
-    Debug.Log("el nuevo Arreglo tiene: "+fakes.Length);
+    Sprite[] newList = new Sprite[15];
     fakes = fakes.OrderBy(x=>rand.Next(0,22)).ToArray();
     theReal = reals[rand.Next(0,3)];
-    int ind = rand.Next(0,newList.Length);
-        for(int i=0; i<newList.Length;i++){
+    int ind = rand.Next(0,15);
+        for(int i=0; i<15;i++){
             if(i==ind){
                 newList[i]=theReal;
+                theRealIndex=i;
             }
             else if(i>ind){
                 newList[i]=fakes[i-1];
