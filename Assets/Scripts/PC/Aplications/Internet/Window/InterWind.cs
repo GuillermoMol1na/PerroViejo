@@ -12,7 +12,6 @@ public class InterWind : MonoBehaviour
     public TabGroup tabGroup;
     private DownloadLink creation = new DownloadLink();
     private TMP_FontAsset pixelFont;
-    private string nameWindow;
     public delegate void CloseRespectiveTab(int childIndex);
     public static event CloseRespectiveTab closeTheTab;
     void Start()
@@ -28,10 +27,9 @@ public class InterWind : MonoBehaviour
             AddTheLinks(theMinigame.Reshuffle());
         }
         tabGroup.WindowSystem(this.gameObject);
-
-        nameWindow = this.name.Substring(this.name.Length -1);
     }
     public void DeleteWind(){
+        Debug.Log("Se está eliminando la VENTANA con posición: "+this.transform.GetSiblingIndex() );
         closeTheTab(this.transform.GetSiblingIndex());
         this.gameObject.SetActive(false);
         Destroy(this);

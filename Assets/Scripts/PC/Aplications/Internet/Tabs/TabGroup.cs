@@ -32,19 +32,25 @@ public class TabGroup : MonoBehaviour
         }
 
         objectsToSwap.Add(window);
+        Debug.Log("Ahora la lista tiene un tamaño de: "+objectsToSwap.Count );
     }
     public void RemoveTab(TabButton button){
         tabButtons.Remove(button);
         obj = button.transform.GetSiblingIndex();
         listsize= tabButtons.Count-1;
+        Debug.Log("Por supuesto se elimina el TAB con índice: "+obj );
+        Debug.Log("HAciendo que la lista tenga un tamaño de: "+listsize );
+        if(listsize > obj){
+            sublist = tabButtons.GetRange(obj,listsize);
+            Debug.Log("EL RANGO ES: "+tabButtons.GetRange(obj,listsize));
+            foreach(TabButton tab in sublist){
+                tab.MoveTab();
+            }   
+        }
         objectsToSwap[obj].SetActive(false);
         objectsToSwap.RemoveAt(obj);
         ResetTabs();
-
-        sublist = tabButtons.GetRange(obj,listsize);
-        foreach(TabButton tab in sublist){
-            tab.MoveTab();
-        }
+      
     }
     public void OnTabEnter(TabButton button){
         ResetTabs();
