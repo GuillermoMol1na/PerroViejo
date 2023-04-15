@@ -37,19 +37,22 @@ public class TabGroup : MonoBehaviour
     public void RemoveTab(TabButton button){
         tabButtons.Remove(button);
         obj = button.transform.GetSiblingIndex();
-        listsize= tabButtons.Count-1;
+        listsize= tabButtons.Count;
+        
         Debug.Log("Por supuesto se elimina el TAB con índice: "+obj );
         Debug.Log("HAciendo que la lista tenga un tamaño de: "+listsize );
+        
         if(listsize > obj){
-            sublist = tabButtons.GetRange(obj,listsize);
-            Debug.Log("EL RANGO ES: "+tabButtons.GetRange(obj,listsize));
+            sublist = tabButtons.GetRange(obj,listsize-1);
             foreach(TabButton tab in sublist){
                 tab.MoveTab();
             }   
         }
-        objectsToSwap[obj].SetActive(false);
-        objectsToSwap.RemoveAt(obj);
-        ResetTabs();
+        //objectsToSwap[obj].SetActive(false);
+        //objectsToSwap.RemoveAt(obj);
+        if(objectsToSwap.Count != tabButtons.Count){
+            Debug.Log("Un momento, LAS LISTAS NO SON DEL MISMO TAMAÑO: "+objectsToSwap.Count+", "+tabButtons.Count );
+        }
       
     }
     public void OnTabEnter(TabButton button){
@@ -78,5 +81,16 @@ public class TabGroup : MonoBehaviour
             if(selectedTab != null && button == selectedTab) { continue ; }
                 button.background.sprite = tabIdle;
         }
+    }
+    void OnEnable(){
+        Internet_App.emptyLists += EmptyTabWinLists;
+    }
+    void OnDisable(){
+        Internet_App.emptyLists -= EmptyTabWinLists;
+    }
+
+    void EmptyTabWinLists(){
+        objectsToSwap.Clear();
+        tabButtons.Clear();
     }
 }

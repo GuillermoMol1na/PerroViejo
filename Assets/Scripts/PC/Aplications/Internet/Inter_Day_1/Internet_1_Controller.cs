@@ -8,7 +8,6 @@ public class Internet_1_Controller : MonoBehaviour
     private GameObject interTab;
     private GameObject theWindow;
     private GameObject theTab;
-    //Must be changed to 6255
     private float tabPosX = -6298;
     private int nameOrder=1;
     private Sprite tabSprite;
@@ -25,9 +24,9 @@ public class Internet_1_Controller : MonoBehaviour
         theTabGroup = interTab.GetComponent<TabGroup>();
         tabSprite= Resources.Load<Sprite>("Internet_Browser_2");
     }
-    public void NewTabwindow(){
+    public void NewTabwindow(string theName){
  
-            theWindow= new GameObject("Window"+nameOrder.ToString());
+            theWindow= new GameObject(theName+nameOrder.ToString());
             theTab= new GameObject("Tab"+nameOrder.ToString());
             //Creating the Window
             theWindow= TabCreator.createTabWindow(theWindow, theTabGroup);
@@ -42,5 +41,9 @@ public class Internet_1_Controller : MonoBehaviour
             
             tabPosX =tabPosX+ 7342f;
             nameOrder = nameOrder+1;
+    }
+    public void TabhasbeenRemoved(){
+        tabPosX =tabPosX - 7342f;
+        nameOrder = nameOrder-1;
     }
 }

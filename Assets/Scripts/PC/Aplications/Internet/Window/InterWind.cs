@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using TMPro;
+using UnityEngine.UI;
 
 public class InterWind : MonoBehaviour
 {
@@ -20,8 +21,9 @@ public class InterWind : MonoBehaviour
         internetController = Internet_1_Controller.FindObjectOfType<Internet_1_Controller>();
         pixelFont = Resources.Load<TMPro.TMP_FontAsset>("Fonts/Pixel_Font");
         
-        if(this.transform.name == "FirstElement"){
+        if(this.transform.name.Contains("Mistake")){
             this.gameObject.SetActive(true);
+            CreatetheFailWindow();
         }else{
             this.gameObject.SetActive(false);
             AddTheLinks(theMinigame.Reshuffle());
@@ -31,6 +33,7 @@ public class InterWind : MonoBehaviour
     public void DeleteWind(){
         Debug.Log("Se está eliminando la VENTANA con posición: "+this.transform.GetSiblingIndex() );
         closeTheTab(this.transform.GetSiblingIndex());
+        internetController.TabhasbeenRemoved();
         this.gameObject.SetActive(false);
         Destroy(this);
     }
@@ -44,17 +47,13 @@ public class InterWind : MonoBehaviour
 
         thePosition = creation.givePosition(i);
 
-        //Addinf the Event Trigger
-        //theTab = GameObject.Find("Tab"+i+1);
-        //TabButton tabBut= theTab.GetComponent<TabButton>();
-
         EventTrigger trigger = link.AddComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
         if(theMinigame.theRealIndex == i){
-            entry.callback.AddListener( (eventData) => { internetController.NewTabwindow();} );
+            entry.callback.AddListener( (eventData) => { internetController.NewTabwindow("Window");} );
         }else{
-            entry.callback.AddListener( (eventData) => { DeleteWind();} );
+            entry.callback.AddListener( (eventData) => { internetController.NewTabwindow("Mistake"); DeleteWind();} );
         }
         
         trigger.triggers.Add(entry);
@@ -67,6 +66,21 @@ public class InterWind : MonoBehaviour
         textObject.transform.SetParent(this.transform);
         textObject.transform.localPosition=new Vector3(526.72f, 85f, 0);
 
+    }
+    public void CreatetheFailWindow(){
+        //GameObject baseE = new GameObject("Mistake_Window");
+        GameObject icon = new GameObject("Icon");
+        RectTransform transicon= icon.AddComponent<RectTransform>();
+        Image iconImage = icon.AddComponent<Image>();
+        Vector2 dimensions = theMinigame.RealAnti().bounds.size*5f;
+        transicon.sizeDelta = dimensions;
+        //transicon.localPosition = new Vector3(0.0012818f, 15369f,0f);
+        iconImage.sprite = theMinigame.RealAnti();
+
+        icon.transform.SetParent(this.transform);
+        icon.transform.localPosition = new Vector3(0.0012818f, 15369f,0f);
+        //baseE.transform.SetParent(this.transform);
+        
     }
 
 }
