@@ -22,7 +22,6 @@ public class DownloadLink
         linkSize= theSpriteSent[i].bounds.size*2.5f;
         imgtrans.sizeDelta = linkSize;
         halfHeight= theSpriteSent[i].bounds.size.y * 60f;
-        //buttonLink = link.AddComponent<Button>();
         
         //Adding the image
         imageOfSprite = link.AddComponent<Image>();
@@ -41,7 +40,7 @@ public class DownloadLink
             break;
             case 6:
                 posX=-126.25f;
-                posY = -3083f;
+                posY = -710f;
             break;
             case 9:
                 posX=30397;
@@ -59,7 +58,7 @@ public class DownloadLink
         GameObject textObject = new GameObject("Page_text");
         TMP_Text pageText = textObject.AddComponent<TextMeshProUGUI>();
         RectTransform transTMP = textObject.GetComponent<RectTransform>();
-        transTMP.sizeDelta = new Vector2(783.03f, 854.39f);
+        transTMP.sizeDelta = new Vector2(783.03f, 335f);
         transTMP.pivot=new Vector2(0.5f, 0.5f);
         pageText.font = pixelFont;
         pageText.fontSize= 50f;

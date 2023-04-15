@@ -8,7 +8,7 @@ public class Internet_1_Controller : MonoBehaviour
     private GameObject interTab;
     private GameObject theWindow;
     private GameObject theTab;
-    private float tabPosX = -6298;
+    private float tabPosX = -12928;
     private int nameOrder=1;
     private Sprite tabSprite;
     //Must move to the creation of tabs script

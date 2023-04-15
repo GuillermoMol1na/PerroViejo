@@ -9,9 +9,8 @@ public class Minigame_1 : MonoBehaviour
     private Sprite[] fakes;
     private Sprite[] reals;
     private Sprite[] fakesShuffled;
-    private Sprite[] fakeAntivirus;
     private Sprite theReal;
-    private Sprite theAntivirus;
+    private Sprite websiteLogo;
     public int theRealIndex;
     private System.Random rand;
     private object[] loadedFakeIcons;
@@ -27,12 +26,8 @@ public class Minigame_1 : MonoBehaviour
         reals = new Sprite[loadedRealIcons.Length];
         loadedRealIcons.CopyTo (reals,0);
         rand = new System.Random();
-        //Load the Fake Antivirus Icon
-        loadedFakeAnti = Resources.LoadAll ("Fake_Antivirus",typeof(Sprite)) ;
-        fakeAntivirus = new Sprite[loadedFakeAnti.Length];
-        loadedFakeAnti.CopyTo(fakeAntivirus,0);
-        //Load the real Antivirus Icon
-        theAntivirus = Resources.Load("AntiVirus_Icon") as Sprite;
+        //Load the Logo of the website
+        websiteLogo = Resources.Load("FreeMusic_Logo") as Sprite;
 
     }
     /*public Sprite[] FakeSprite(){
@@ -68,11 +63,7 @@ public class Minigame_1 : MonoBehaviour
         }
         return newList;
     }
-    public Sprite RandomFakeAnti(){
-        int rando = rand.Next(0,fakeAntivirus.Length);
-        return fakeAntivirus[rando];
-    }
-    public Sprite RealAnti(){
-        return theAntivirus;
+    public Sprite WebsiteLogo(){
+        return websiteLogo;
     }
 }
