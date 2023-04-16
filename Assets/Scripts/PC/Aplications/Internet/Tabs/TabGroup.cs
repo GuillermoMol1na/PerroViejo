@@ -48,7 +48,10 @@ public class TabGroup : MonoBehaviour
         }
         objectsToSwap[obj].SetActive(false);
         objectsToSwap.RemoveAt(obj);
-      
+
+        if(this.transform.childCount == 1){
+            this.transform.GetChild(0).GetComponent<TabButton>().FirstTabPosition();
+        }
     }
     public void OnTabEnter(TabButton button){
         ResetTabs();

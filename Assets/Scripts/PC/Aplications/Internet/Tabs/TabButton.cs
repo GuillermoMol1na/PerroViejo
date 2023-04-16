@@ -18,9 +18,9 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     {
         tabGroup.OnTabSelected(this);
         Debug.Log("Posición local del Tab es: "+this.transform.localPosition);
-        if(this.transform.GetSiblingIndex()==0){
+        /*if(this.transform.GetSiblingIndex()==0){
             FirstTabPosition();
-        }
+        }*/
     }
 
     public void OnPointerEnter(PointerEventData eventData)
