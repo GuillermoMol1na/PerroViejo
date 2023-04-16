@@ -35,7 +35,7 @@ public class InterWind : MonoBehaviour
         closeTheTab(this.transform.GetSiblingIndex());
         internetController.TabhasbeenRemoved();
         this.gameObject.SetActive(false);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
     public void AddTheLinks(Sprite[] thesprite){
         creation.SetSprites(thesprite);

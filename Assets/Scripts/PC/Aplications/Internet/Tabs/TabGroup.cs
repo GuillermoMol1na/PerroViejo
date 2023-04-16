@@ -24,35 +24,30 @@ public class TabGroup : MonoBehaviour
             tabButtons= new List<TabButton>();
         }
         tabButtons.Add(button);
+
     }
     public void WindowSystem(GameObject window){
 
         if(objectsToSwap==null){
             objectsToSwap= new List<GameObject>();
         }
-
+        //Adding the new windowtab to the list
         objectsToSwap.Add(window);
-        Debug.Log("Ahora la lista tiene un tamaño de: "+objectsToSwap.Count );
     }
     public void RemoveTab(TabButton button){
         tabButtons.Remove(button);
         obj = button.transform.GetSiblingIndex();
         listsize= tabButtons.Count;
-        
-        Debug.Log("Por supuesto se elimina el TAB con índice: "+obj );
-        Debug.Log("HAciendo que la lista tenga un tamaño de: "+listsize );
-        
+        /*Debug.Log("Por supuesto se elimina el TAB con índice: "+obj );
+        Debug.Log("HAciendo que la lista tenga un tamaño de: "+listsize );*/
         if(listsize > obj){
             sublist = tabButtons.GetRange(obj,listsize-1);
             foreach(TabButton tab in sublist){
                 tab.MoveTab();
             }   
         }
-        //objectsToSwap[obj].SetActive(false);
-        //objectsToSwap.RemoveAt(obj);
-        if(objectsToSwap.Count != tabButtons.Count){
-            Debug.Log("Un momento, LAS LISTAS NO SON DEL MISMO TAMAÑO: "+objectsToSwap.Count+", "+tabButtons.Count );
-        }
+        objectsToSwap[obj].SetActive(false);
+        objectsToSwap.RemoveAt(obj);
       
     }
     public void OnTabEnter(TabButton button){
@@ -75,12 +70,14 @@ public class TabGroup : MonoBehaviour
                 objectsToSwap[i].SetActive(false);
             }
         }
+
     }
     public void ResetTabs(){
         foreach(TabButton button in tabButtons){
             if(selectedTab != null && button == selectedTab) { continue ; }
                 button.background.sprite = tabIdle;
         }
+
     }
     void OnEnable(){
         Internet_App.emptyLists += EmptyTabWinLists;
