@@ -30,7 +30,7 @@ public class Internet_App : MonoBehaviour
         case 1:
         isActive=!isActive;
         miniGame_1.SetActive(isActive);
-        internetController.NewTabwindow("Window");
+        internetController.NewTabwindow("Tutorial");
         break;
         }
 

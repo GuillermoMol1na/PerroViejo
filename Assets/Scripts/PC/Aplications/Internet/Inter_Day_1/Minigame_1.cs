@@ -1,8 +1,8 @@
 using UnityEngine;
 using System.Linq;
-using System;
 using System.Collections.Generic;
 using System.Security.Cryptography;   
+using TMPro;
 
 
 public class Minigame_1 : MonoBehaviour
@@ -12,6 +12,8 @@ public class Minigame_1 : MonoBehaviour
     private Sprite[] fakesShuffled;
     private Sprite theReal;
     private Sprite websiteLogo;
+    private Sprite btn;
+    private TMP_FontAsset pixelFont;
     public int theRealIndex;
     private System.Random rand;
     private object[] loadedFakeIcons;
@@ -38,6 +40,16 @@ public class Minigame_1 : MonoBehaviour
         loadedFakeIcons = Resources.LoadAll ("Fake_Links",typeof(Sprite)) ;
         fakes = new Sprite[loadedFakeIcons.Length];
         loadedFakeIcons.CopyTo (fakes,0);
+        //Load Font
+        pixelFont = Resources.Load<TMPro.TMP_FontAsset>("Fonts/Pixel_Font") as TMP_FontAsset;
+        if(pixelFont==null){
+            Debug.Log("REVISA ESTO, EL FONT QUIERO DECIR");
+        }
+        else{
+            Debug.Log("Nada que ver aquí amigos");
+        }
+        //Load Btn Icon
+        btn=Resources.Load<Sprite>("Internet_Browser_2");
         //Load Real download icons
         loadedRealIcons = Resources.LoadAll ("Real_Links",typeof(Sprite)) ;
         reals = new Sprite[loadedRealIcons.Length];
@@ -47,6 +59,7 @@ public class Minigame_1 : MonoBehaviour
         websiteLogo = Resources.Load("FreeMusic_Logo") as Sprite;
         //Get a list of the True Links
         OrganizeRealLinks();
+        
 
     }
     public Sprite[] Reshuffle(){
@@ -85,5 +98,11 @@ public class Minigame_1 : MonoBehaviour
     }
     public Sprite WebsiteLogo(){
         return websiteLogo;
+    }
+    public Sprite GetBtn(){
+        return btn;
+    }
+    public TMP_FontAsset GetFont(){
+        return pixelFont;
     }
 }

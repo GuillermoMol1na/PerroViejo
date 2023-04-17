@@ -1,34 +1,42 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-using TMPro;
 using System.Collections.Generic;
 using UnityEngine.UI;
+using TMPro;
 
 public class InterWind : MonoBehaviour
 {
     private Minigame_1 theMinigame;
     private Internet_1_Controller internetController;
     private GameObject link;
-    private GameObject theTab;
     private Vector2 thePosition;
     public TabGroup tabGroup;
     private DownloadLink creation = new DownloadLink();
     private Music_Link musicLink = new Music_Link();
+    private Tutorial_1 theTutorial = new Tutorial_1();
     private TMP_FontAsset pixelFont;
     public delegate void CloseRespectiveTab(int childIndex);
     public static event CloseRespectiveTab closeTheTab;
     void Start()
     {
         theMinigame = Minigame_1.FindObjectOfType<Minigame_1>();
+        pixelFont= theMinigame.GetFont();
         internetController = Internet_1_Controller.FindObjectOfType<Internet_1_Controller>();
-        pixelFont = Resources.Load<TMPro.TMP_FontAsset>("Fonts/Pixel_Font");
-        
-        if(this.transform.name.Contains("Website")){
-            this.gameObject.SetActive(true);
-            MusicWebsite();
-        }else{
-            this.gameObject.SetActive(false);
-            AddTheLinks(theMinigame.Reshuffle());
+    
+        switch(this.transform.name){
+            case string a when a.Contains("Tutorial"):
+                theTutorial.SetFont(pixelFont);
+                this.gameObject.SetActive(true);
+                Tutorial();
+            break;
+            case string b when b.Contains("Website"):
+                this.gameObject.SetActive(true);
+                MusicWebsite();
+            break;
+            default:
+                this.gameObject.SetActive(false);
+                AddTheLinks(theMinigame.Reshuffle());
+            break;
         }
         tabGroup.WindowSystem(this.gameObject);
     }
@@ -67,8 +75,7 @@ public class InterWind : MonoBehaviour
         textObject.transform.localPosition=new Vector3(526.72f, 13035f, 0);
 
     }
-    public void MusicWebsite(){
-        //GameObject baseE = new GameObject("Mistake_Window");
+    public void MusicWebsite(){ 
         GameObject icon = new GameObject("Logo");
         Vector2 dimensions = theMinigame.WebsiteLogo().bounds.size;
         icon = musicLink.WebsiteHeader(icon,dimensions,theMinigame.WebsiteLogo());
@@ -107,6 +114,22 @@ public class InterWind : MonoBehaviour
         icon.transform.localPosition = new Vector3(0.0012818f, 15369f,0f);
         antText.transform.localPosition = new Vector3(-25.00058f, 11236f, 0f);
         
+    }
+    public void Tutorial(){
+        //Declare the Text
+        GameObject tutorialT =new GameObject("Tutorial_TextPage");
+        tutorialT = theTutorial.TutorialText(tutorialT);
+        //Declare the Btton
+        GameObject acceptBtnObj = new GameObject("Btn");
+        acceptBtnObj = theTutorial.TutorialButton(acceptBtnObj, theMinigame.GetBtn());
+        GameObject textBtnObject= new GameObject("Btn_Text");
+        textBtnObject = theTutorial.TutorialTextBtn(textBtnObject);
+
+        tutorialT.transform.SetParent(this.transform);
+        acceptBtnObj.transform.SetParent(this.transform);
+        textBtnObject.transform.SetParent(acceptBtnObj.transform);
+        tutorialT.transform.localPosition=new Vector3(0f, 4616f, 0);
+        acceptBtnObj.transform.localPosition=new Vector3(-216f, -10765f, 0);
     }
 
 }
