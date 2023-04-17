@@ -12,27 +12,25 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     {
         background = GetComponent<Image>();
         tabGroup.TabSystem(this);
-
+        //Relocate tab if it's the only one
+        if(this.transform.GetSiblingIndex()==0){
+            FirstTabPosition();
+        }
     }
     public void OnPointerClick(PointerEventData eventData)
     {
         tabGroup.OnTabSelected(this);
         Debug.Log("Posición local del Tab es: "+this.transform.localPosition);
-        /*if(this.transform.GetSiblingIndex()==0){
-            FirstTabPosition();
-        }*/
-    }
 
+    }
     public void OnPointerEnter(PointerEventData eventData)
     {
         tabGroup.OnTabEnter(this);
     }
-
     public void OnPointerExit(PointerEventData eventData)
     {
         tabGroup.OnTabExit(this);
     }
-
     public void DeleteTab(){
         tabGroup.RemoveTab(this);
         this.gameObject.SetActive(false);
@@ -51,9 +49,7 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     void OnDisable(){
         InterWind.closeTheTab -= CheckTabforClose;
     }
-
     void CheckTabforClose(int winIndex){
-        
         if(this.transform.GetSiblingIndex() == winIndex){
             Debug.Log("Se está eliminando el TAB con posición: "+this.transform.GetSiblingIndex() );
             DeleteTab();

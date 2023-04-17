@@ -42,12 +42,6 @@ public class Minigame_1 : MonoBehaviour
         loadedFakeIcons.CopyTo (fakes,0);
         //Load Font
         pixelFont = Resources.Load<TMPro.TMP_FontAsset>("Fonts/Pixel_Font") as TMP_FontAsset;
-        if(pixelFont==null){
-            Debug.Log("REVISA ESTO, EL FONT QUIERO DECIR");
-        }
-        else{
-            Debug.Log("Nada que ver aquí amigos");
-        }
         //Load Btn Icon
         btn=Resources.Load<Sprite>("Internet_Browser_2");
         //Load Real download icons
@@ -59,8 +53,6 @@ public class Minigame_1 : MonoBehaviour
         websiteLogo = Resources.Load("FreeMusic_Logo") as Sprite;
         //Get a list of the True Links
         OrganizeRealLinks();
-        
-
     }
     public Sprite[] Reshuffle(){
     Sprite[] newList = new Sprite[15];

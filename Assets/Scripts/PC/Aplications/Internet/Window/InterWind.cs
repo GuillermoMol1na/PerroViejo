@@ -34,7 +34,7 @@ public class InterWind : MonoBehaviour
                 MusicWebsite();
             break;
             default:
-                this.gameObject.SetActive(false);
+                this.gameObject.SetActive(true);
                 AddTheLinks(theMinigame.Reshuffle());
             break;
         }
@@ -125,11 +125,28 @@ public class InterWind : MonoBehaviour
         GameObject textBtnObject= new GameObject("Btn_Text");
         textBtnObject = theTutorial.TutorialTextBtn(textBtnObject);
 
+        EventTrigger trigger3 = acceptBtnObj.AddComponent<EventTrigger>();
+        EventTrigger.Entry entry = new EventTrigger.Entry();
+        entry.eventID = EventTriggerType.PointerClick;
+        entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window");});
+        trigger3.triggers.Add(entry);
+
         tutorialT.transform.SetParent(this.transform);
         acceptBtnObj.transform.SetParent(this.transform);
         textBtnObject.transform.SetParent(acceptBtnObj.transform);
         tutorialT.transform.localPosition=new Vector3(0f, 4616f, 0);
         acceptBtnObj.transform.localPosition=new Vector3(-216f, -10765f, 0);
     }
+    /*void OnEnable(){
+        Internet_App.destroyInterWinds += DestroyThis;
+    }
+    void OnDisable(){
+        Internet_App.destroyInterWinds -= DestroyThis;
+    }
+
+    void DestroyThis(){
+        DeleteWind();
+        Debug.Log("Y TODO SE ELIMINÓ Y VIVIMOS ELICES PARA SIEMPRE");
+    }*/
 
 }
