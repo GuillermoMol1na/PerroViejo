@@ -15,14 +15,18 @@ public class InterWind : MonoBehaviour
     private Music_Link musicLink = new Music_Link();
     private Tutorial_1 theTutorial = new Tutorial_1();
     private TMP_FontAsset pixelFont;
+    private Timer_1 timer;
     public delegate void CloseRespectiveTab(int childIndex);
     public static event CloseRespectiveTab closeTheTab;
+    public delegate void ActivateTimer();
+    public static event ActivateTimer activateTimer;
+    public delegate void SetStrike();
+    public static event SetStrike setTheStrike;
     void Start()
     {
         theMinigame = Minigame_1.FindObjectOfType<Minigame_1>();
         pixelFont= theMinigame.GetFont();
         internetController = Internet_1_Controller.FindObjectOfType<Internet_1_Controller>();
-    
         switch(this.transform.name){
             case string a when a.Contains("Tutorial"):
                 theTutorial.SetFont(pixelFont);
@@ -63,7 +67,7 @@ public class InterWind : MonoBehaviour
         if(theMinigame.theRealIndex == i){
             entry.callback.AddListener( (eventData) => { internetController.NewTabwindow("Window");} );
         }else{
-            entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Website"); } );
+            entry.callback.AddListener( (eventData) => { /*DeleteWind(); internetController.NewTabwindow("Website");*/ setTheStrike(); } );
         }
         trigger.triggers.Add(entry);
         //Setting thew parent
@@ -128,7 +132,7 @@ public class InterWind : MonoBehaviour
         EventTrigger trigger3 = acceptBtnObj.AddComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
-        entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window");});
+        entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window"); activateTimer(); });
         trigger3.triggers.Add(entry);
 
         tutorialT.transform.SetParent(this.transform);
@@ -137,16 +141,5 @@ public class InterWind : MonoBehaviour
         tutorialT.transform.localPosition=new Vector3(0f, 4616f, 0);
         acceptBtnObj.transform.localPosition=new Vector3(-216f, -10765f, 0);
     }
-    /*void OnEnable(){
-        Internet_App.destroyInterWinds += DestroyThis;
-    }
-    void OnDisable(){
-        Internet_App.destroyInterWinds -= DestroyThis;
-    }
-
-    void DestroyThis(){
-        DeleteWind();
-        Debug.Log("Y TODO SE ELIMINÓ Y VIVIMOS ELICES PARA SIEMPRE");
-    }*/
 
 }

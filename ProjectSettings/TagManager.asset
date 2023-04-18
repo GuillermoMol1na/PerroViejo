@@ -23,6 +23,7 @@ TagManager:
   - BackBtn
   - Email_Manager
   - Internet_Minigame_1
+  - Internet_Content
   layers:
   - Default
   - TransparentFX

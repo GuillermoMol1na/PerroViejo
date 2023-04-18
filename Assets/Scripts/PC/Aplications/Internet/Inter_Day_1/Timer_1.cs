@@ -4,11 +4,18 @@ using TMPro;
 public class Timer_1 : MonoBehaviour
 {
     private GameObject child;
+    private GameObject[] strikes = new GameObject[3];
     public float timeValue = 20;
+    private int strikeCounter=0;
     public TMP_Text timerText;
     void Start(){
         timerText.transform.SetAsLastSibling();
-        child = this.transform.GetChild(0).gameObject;
+        child = this.transform.GetChild(3).gameObject;
+        for(int i =0;i<3;i++){
+            strikes[i] = this.transform.GetChild(i).gameObject;
+            strikes[i].SetActive(false);
+            Debug.Log("El objeto es: "+strikes[i].name);
+        }
         DeactivateTimer();
     }
     void Update()
@@ -41,4 +48,16 @@ public class Timer_1 : MonoBehaviour
         child.SetActive(false);
         this.gameObject.SetActive(false);
     }
+    public void SetStrike(){
+        strikes[strikeCounter].SetActive(true);
+        strikeCounter=strikeCounter+1;
+    }
+    void OnEnable(){
+        InterWind.activateTimer += ActivateTimer;
+        InterWind.setTheStrike += SetStrike;
+    }
+    void OnDisable(){
+        InterWind.setTheStrike -= SetStrike;
+    }
+
 }
