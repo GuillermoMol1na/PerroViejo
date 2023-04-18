@@ -16,6 +16,14 @@ TagManager:
   - CanvasApp
   - EmailWindow
   - OptionsTab
+  - Transition
+  - AntivirusWindow
+  - TrashWindow
+  - InternetWindow
+  - BackBtn
+  - Email_Manager
+  - Internet_Minigame_1
+  - Internet_Content
   layers:
   - Default
   - TransparentFX
@@ -23,7 +31,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Download_Links
   - 
   - 
   - 

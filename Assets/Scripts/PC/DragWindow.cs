@@ -19,7 +19,7 @@ public class DragWindow : MonoBehaviour, IDragHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        dragRectTransform.SetAsLastSibling();
+        dragRectTransform.SetSiblingIndex(4);
     }
 
     // Start is called before the first frame update

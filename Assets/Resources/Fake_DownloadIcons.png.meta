@@ -1,0 +1,621 @@
+fileFormatVersion: 2
+guid: 2355e56a111d53d4f9752004db78d941
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 1
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_0
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 655
+        width: 213
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d000c48358e43b498a36f7fbb0e9ec9
+      internalID: -431552574
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_1
+      rect:
+        serializedVersion: 2
+        x: 302
+        y: 662
+        width: 111
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fff4d9c43ceeba949b390253c63eb205
+      internalID: 408001369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 574
+        width: 165
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a718e4c258e22234b9373d0e6ed4f276
+      internalID: -1226709514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_3
+      rect:
+        serializedVersion: 2
+        x: 286
+        y: 606
+        width: 149
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24df7b8d319019f4db5e489476685130
+      internalID: 792072847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_4
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 510
+        width: 174
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ffa52a6b1feae9b448f8c6ebe49d55f0
+      internalID: 665323720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_5
+      rect:
+        serializedVersion: 2
+        x: 270
+        y: 526
+        width: 212
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79d09c043cd66a841b05333306d0e7ce
+      internalID: 389364165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 430
+        width: 212
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9af2dd6ecdb1d64eafa4a6a2f66b73a
+      internalID: 5967443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_7
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 431
+        width: 212
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60c074a0338d2e042b5f7872b1065373
+      internalID: -1305237260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_8
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 348
+        width: 212
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2783761d6c7bef648bb6f2e2c929069f
+      internalID: 565747528
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_9
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 349
+        width: 212
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83140b9392fd95d4e836150d025eac8c
+      internalID: 1416424503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_10
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 302
+        width: 145
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a78180e7a4127c04abda8bafebb7f274
+      internalID: 233851268
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_11
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 237
+        width: 221
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 473b11ea455eef6499cb681763ed6297
+      internalID: -1261274141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_12
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 269
+        width: 74
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddeb7583a1516ae42bb2cab05eb87cb5
+      internalID: -1917817708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_21
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 226
+        width: 142
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23597a4474074d24ebbcc42aeb3cce9c
+      internalID: 665206101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_22
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 156
+        width: 174
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77c8d446e468a82489f7da7af606b404
+      internalID: 1454611114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_23
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 161
+        width: 231
+        height: 51
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87ab1de707a84554ead49ca07972b9ea
+      internalID: 657168697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_24
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 113
+        width: 109
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 251d37aebbd765c4bbf0694ea728973b
+      internalID: 1355086420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_25
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 129
+        width: 90
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b77d87e1ae5c094f9c95028060c96cd
+      internalID: -593303556
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_33
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 62
+        width: 148
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ece9086d76d7d8744af2287f68497368
+      internalID: 188002211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_34
+      rect:
+        serializedVersion: 2
+        x: 272
+        y: 78
+        width: 182
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8935454bc124846469206bafe02f546c
+      internalID: -496817452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_35
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 12
+        width: 213
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e782d3919e6fba4a82ec8800f4a26c1
+      internalID: 1496822722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Fake_DownloadIcons_36
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 23
+        width: 118
+        height: 35
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 630a94203e294464e960e488a69570b6
+      internalID: 1007458449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      Fake_DownloadIcons_0: -431552574
+      Fake_DownloadIcons_10: 233851268
+      Fake_DownloadIcons_26: 918156732
+      Fake_DownloadIcons_15: -2080323796
+      Fake_DownloadIcons_31: -722071124
+      Fake_DownloadIcons_20: -353312390
+      Fake_DownloadIcons_21: 665206101
+      Fake_DownloadIcons_8: 565747528
+      Fake_DownloadIcons_12: -1917817708
+      Fake_DownloadIcons_30: -1035727308
+      Fake_DownloadIcons_4: 665323720
+      Fake_DownloadIcons_33: 188002211
+      Fake_DownloadIcons_5: 389364165
+      Fake_DownloadIcons_14: -1473041416
+      Fake_DownloadIcons_11: -1261274141
+      Fake_DownloadIcons_7: -1305237260
+      Fake_DownloadIcons_9: 1416424503
+      Fake_DownloadIcons_13: 1548320642
+      Fake_DownloadIcons_16: 2068207577
+      Fake_DownloadIcons_36: 1007458449
+      Fake_DownloadIcons_23: 657168697
+      Fake_DownloadIcons_17: -746783296
+      Fake_DownloadIcons_6: 5967443
+      Fake_DownloadIcons_19: 1251715852
+      Fake_DownloadIcons_27: -108995339
+      Fake_DownloadIcons_3: 792072847
+      Fake_DownloadIcons_18: 1911647776
+      Fake_DownloadIcons_28: -2125641889
+      Fake_DownloadIcons_32: -1826075099
+      Fake_DownloadIcons_35: 1496822722
+      Fake_DownloadIcons_34: -496817452
+      Fake_DownloadIcons_22: 1454611114
+      Fake_DownloadIcons_24: 1355086420
+      Fake_DownloadIcons_2: -1226709514
+      Fake_DownloadIcons_29: -1984849670
+      Fake_DownloadIcons_1: 408001369
+      Fake_DownloadIcons_25: -593303556
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
