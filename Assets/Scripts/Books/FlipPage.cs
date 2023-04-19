@@ -3,49 +3,53 @@ using TMPro;
 
 public class FlipPage : MonoBehaviour
 {
-    private int numPages=3;
+    private TMP_Text titles;
+    public TMP_Text theText;
+    private string theTitle;
+    private string[] informationOftheDay;
+    private int infoSize;
     private int index=0;
-    private TMP_Text[] pageArr;
-    public TMP_Text Pag1;
-    public TMP_Text Pag2;
-    public TMP_Text Pag3;
-    // Start is called before the first frame update
+    private BookStorage theStorage = new BookStorage();
     void Start(){
-        pageArr = new TMP_Text[numPages];
-        pageArr[0] = Pag1;
-        pageArr[1] = Pag2;
-        pageArr[1].enabled =false;
-        pageArr[2] = Pag3;
-        pageArr[2].enabled=false;
+        titles = this.transform.GetChild(0).GetComponent<TextMeshProUGUI>(); 
+        theText = this.transform.GetChild(1).GetComponent<TextMeshProUGUI>();
+        switch(PlayerPrefs.GetInt("day")){
+            case 0:
+                theTitle = theStorage.titles[0];
+                informationOftheDay = theStorage.day0;
+            break;
+            case 1:
+                theTitle = theStorage.titles[1];
+                informationOftheDay = theStorage.day1;
+            break;
+            case 2:
+                theTitle = theStorage.titles[2];
+                informationOftheDay = theStorage.day2;
+            break;
+        }
+        infoSize = informationOftheDay.Length;
+        //Show the Title and initial Text
+        titles.text = theTitle;
+        theText.text = informationOftheDay[0]; 
     }
     public void PreviousPage(){
-        if(index-1 < 0){
-            Activateonlyone(numPages-1);
-            index=2;
+        index--;
+        if(index < 0){
+            index=infoSize-1;
+            theText.text = informationOftheDay[index]; 
         }
         else{
-            Activateonlyone(index-1);
-            index--;
+            theText.text = informationOftheDay[index]; 
         }
     }
     public void NextPage(){
-        if(index+1 == numPages){
-            Activateonlyone(0);
+        index++;
+        if(index >= infoSize){
             index=0;
+            theText.text = informationOftheDay[index]; 
         }
         else{
-            Activateonlyone(index+1);
-            index++;
-        }
-    }
-    public void Activateonlyone(int a){
-        for(int i=0; i<numPages; i++){
-            if(i==a){
-                pageArr[i].enabled=true;
-            }
-            else{
-                pageArr[i].enabled=false;
-            }
+            theText.text = informationOftheDay[index]; 
         }
     }
 }

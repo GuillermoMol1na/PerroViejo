@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using UnityEngine.UI;
 using TMPro;
 
 public class InterWind : MonoBehaviour
@@ -15,11 +14,13 @@ public class InterWind : MonoBehaviour
     private Music_Link musicLink = new Music_Link();
     private Tutorial_1 theTutorial = new Tutorial_1();
     private TMP_FontAsset pixelFont;
-    private Timer_1 timer;
+    private int won=0;
     public delegate void CloseRespectiveTab(int childIndex);
     public static event CloseRespectiveTab closeTheTab;
     public delegate void ActivateTimer();
     public static event ActivateTimer activateTimer;
+    public delegate void DeactivateTimer();
+    public static event DeactivateTimer deactivateTimer;
     public delegate void SetStrike();
     public static event SetStrike setTheStrike;
     void Start()
@@ -31,6 +32,10 @@ public class InterWind : MonoBehaviour
             case string a when a.Contains("Tutorial"):
                 theTutorial.SetFont(pixelFont);
                 this.gameObject.SetActive(true);
+                //If the game has been won
+                if(a.Contains("Won") || theMinigame.HasEnded()){
+                    won=1;
+                }
                 Tutorial();
             break;
             case string b when b.Contains("Website"):
@@ -65,12 +70,19 @@ public class InterWind : MonoBehaviour
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
         if(theMinigame.theRealIndex == i){
-            entry.callback.AddListener( (eventData) => { internetController.NewTabwindow("Window");} );
+            //Mark the Round Complete
+            theMinigame.RoundDone();
+            if(theMinigame.GetRounds()==0){
+                entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Website");} );
+            }
+            else{
+                entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window");} );
+            }  
         }else{
-            entry.callback.AddListener( (eventData) => { /*DeleteWind(); internetController.NewTabwindow("Website");*/ setTheStrike(); } );
+            entry.callback.AddListener( (eventData) => { setTheStrike(); } );
         }
         trigger.triggers.Add(entry);
-        //Setting thew parent
+        //Setting the parent
         link.transform.SetParent(this.transform);
         link.transform.localPosition = thePosition;
         }
@@ -99,16 +111,22 @@ public class InterWind : MonoBehaviour
 
             theMusicLink.transform.SetParent(this.transform);
             theMusicLink.transform.localPosition = new Vector3(-25f,9394f-Yposition);
-            //Yposition = Yposition + 3914.75f;
             Yposition = Yposition + 2000f;
 
             EventTrigger trigger2 = theMusicLink.AddComponent<EventTrigger>();
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             if(listOfRealLinks.Contains(listOfLinks[i])){
-                entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(34,214,40,255);} );
+                //Add a correct link
+                theMinigame.correctLinkClicked();
+                if(theMinigame.IsGameFinished()==0){
+                    entry.callback.AddListener( (eventData) => { deactivateTimer(); DeleteWind(); internetController.NewTabwindow("TutorialWon"); } );
+                }
+                else{
+                    entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(34,214,40,255); } );
+                } 
             }else{
-                entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(181,18,18,255); /*DeleteWind();*/ Debug.Log("GAME OVER");} );
+                entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(181,18,18,255); setTheStrike();} );
             }
             trigger2.triggers.Add(entry);
         }
@@ -122,19 +140,25 @@ public class InterWind : MonoBehaviour
     public void Tutorial(){
         //Declare the Text
         GameObject tutorialT =new GameObject("Tutorial_TextPage");
-        tutorialT = theTutorial.TutorialText(tutorialT);
+        tutorialT = theTutorial.TutorialText(tutorialT,won);
         //Declare the Btton
         GameObject acceptBtnObj = new GameObject("Btn");
         acceptBtnObj = theTutorial.TutorialButton(acceptBtnObj, theMinigame.GetBtn());
         GameObject textBtnObject= new GameObject("Btn_Text");
         textBtnObject = theTutorial.TutorialTextBtn(textBtnObject);
 
+        
         EventTrigger trigger3 = acceptBtnObj.AddComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
-        entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window"); activateTimer(); });
+        if(won==0){
+            entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window"); activateTimer(); });
+        }
+        else{
+            entry.callback.AddListener( (eventData) => { DeleteWind();  theMinigame.SetEnded();});
+        }
         trigger3.triggers.Add(entry);
-
+        
         tutorialT.transform.SetParent(this.transform);
         acceptBtnObj.transform.SetParent(this.transform);
         textBtnObject.transform.SetParent(acceptBtnObj.transform);

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExitPC : MonoBehaviour
@@ -13,7 +11,6 @@ public class ExitPC : MonoBehaviour
         OptionsTab.SetActive(active);
     }
     public void ShoworHideOptions(){
-        Debug.Log("DEBRÍA MOSTRARSEEEE");
         active =!active;
         OptionsTab.SetActive(active);
     }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader3 : MonoBehaviour
 {
+    public int theDay;
     private Animator transition;
     public TMP_Text stairsMSG;
     void Start(){
@@ -12,6 +13,8 @@ public class LevelLoader3 : MonoBehaviour
             stairsMSG.enabled= false;
         }
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
+        //also this
+        PlayerPrefs.SetInt("day",theDay);
     }
     public void LoadLivingRoom(){
         StartCoroutine(TransitionLiving(SceneManager.GetActiveScene().buildIndex -1));

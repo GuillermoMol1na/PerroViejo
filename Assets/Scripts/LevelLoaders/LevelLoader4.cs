@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class LevelLoader4 : MonoBehaviour
 {
-    //Delete this later
     public int theDay;
-    // Start is called before the first frame update
     private Animator transition;
 
     void Start(){
@@ -17,7 +15,15 @@ public class LevelLoader4 : MonoBehaviour
     public void LoadLivingRoom(){
         StartCoroutine(TransitionLiving(SceneManager.GetActiveScene().buildIndex -2));
     }
-    
+    public void LoadGameOver(){
+        StartCoroutine(TransitionLiving(SceneManager.GetActiveScene().buildIndex +2));
+    }
+    void OnEnable(){
+        Timer_1.goToGameOver += LoadGameOver;
+    }
+    void OnDisable(){
+        Timer_1.goToGameOver -= LoadGameOver;
+    }
 
     IEnumerator TransitionLiving(int levelIndex){
         if(transition != null){
@@ -26,6 +32,6 @@ public class LevelLoader4 : MonoBehaviour
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelIndex);
-
     }
+
 }

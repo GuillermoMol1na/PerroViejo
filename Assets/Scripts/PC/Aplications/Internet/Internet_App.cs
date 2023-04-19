@@ -9,10 +9,9 @@ public class Internet_App : MonoBehaviour
  private GameObject internetContent;
  private TabGroup theTabGroup;
  private Internet_1_Controller internetController;
+ private Timer_1 theTimer;
  public delegate void EmptyTabLists();
  public static event EmptyTabLists emptyLists;
- /*public delegate void DestroyAllContent();
- public static event DestroyAllContent destroyInterWinds;*/
  private bool isActive;
     
     void Start()
@@ -20,6 +19,7 @@ public class Internet_App : MonoBehaviour
         internetWindow = GameObject.FindGameObjectWithTag("InternetWindow");
         miniGame_1 = GameObject.FindGameObjectWithTag("Internet_Minigame_1");
         internetContent = GameObject.FindGameObjectWithTag("Internet_Content");
+        theTimer = Timer_1.FindObjectOfType<Timer_1>(true);
         theTabGroup = TabGroup.FindObjectOfType<TabGroup>();
         internetController = Internet_1_Controller.FindObjectOfType<Internet_1_Controller>();
         isActive = false;
@@ -39,7 +39,6 @@ public class Internet_App : MonoBehaviour
         internetController.NewTabwindow("Tutorial");
         break;
         }
-
     }
     public void CloseInternet(){
         emptyLists();
@@ -47,11 +46,13 @@ public class Internet_App : MonoBehaviour
         internetWindow.SetActive(isActive);
     }
     public void CloseMinigame(){
-        emptyLists();
-        isActive=!isActive;
-        miniGame_1.SetActive(isActive);
-        //destroyInterWinds();
-        DestroyAll();
+        if(theTimer.GetActive()==false){
+            emptyLists();
+            isActive=!isActive;
+            miniGame_1.SetActive(isActive);
+            //destroyInterWinds();
+            DestroyAll();
+        }
     }
     public void DestroyAll(){
          foreach (Transform child in internetContent.transform) {

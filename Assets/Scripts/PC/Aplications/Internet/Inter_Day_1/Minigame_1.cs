@@ -15,14 +15,20 @@ public class Minigame_1 : MonoBehaviour
     private Sprite btn;
     private TMP_FontAsset pixelFont;
     public int theRealIndex;
+    private int numberOfRounds=3;
+    private int correctLinks = 3;
+    private bool hasEnded = false;
     private System.Random rand;
     private object[] loadedFakeIcons;
     private object[] loadedRealIcons;
     private object[] loadedFakeAnti;
     List<string> listOfReals;
-    private string[] realLinks = {"hamilton008796465746757394234532.mp3",
+    /*private string[] realLinks = {"hamilton008796465746757394234532.mp3",
                                   "tomjones634268543977413253633245.mp3",
-                                  "julioiglesias8521647932554123974.mp3"};
+                                  "julioiglesias8521647932554123974.mp3"};*/
+    private string[] realLinks = {"LELE1",
+                                  "LELE2",
+                                  "LELE3"};
     private string[] fakeLinks = {"hamilton005898215746757782114532.mp3",
                                   "hamilton008796588741232256917282.mp3",
                                   "hamilton008796536974158458734532.mp3",
@@ -88,6 +94,18 @@ public class Minigame_1 : MonoBehaviour
     public List<string> GetRealLinks(){
         return listOfReals;
     }
+    public void RoundDone(){
+        numberOfRounds=numberOfRounds-1;
+    }
+    public int GetRounds(){
+        return numberOfRounds;
+    }
+    public void correctLinkClicked(){
+        correctLinks--;
+    }
+    public int IsGameFinished(){
+        return correctLinks;
+    }
     public Sprite WebsiteLogo(){
         return websiteLogo;
     }
@@ -96,5 +114,11 @@ public class Minigame_1 : MonoBehaviour
     }
     public TMP_FontAsset GetFont(){
         return pixelFont;
+    }
+    public bool HasEnded(){
+        return hasEnded;
+    }
+    public void SetEnded(){
+        hasEnded = true;
     }
 }

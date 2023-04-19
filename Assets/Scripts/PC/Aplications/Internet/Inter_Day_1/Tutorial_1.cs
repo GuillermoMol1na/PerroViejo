@@ -15,8 +15,10 @@ public class Tutorial_1{
         Sprite btnSprite;
         Vector2 dimensions;
         TMP_FontAsset pixelFontT;
+        string[] gameMessage = {"Estás a punto de iniciar el minijuego, recuerda seguir las recomendaciones del librero, ten en cuenta que no podrás salir de la ventana una vez iniciado. Si te sientes preparado/a, haz click en aceptar.",
+                                "Felicidades, lograste descargar las canciones deseadas sin descargar troyanos. Tus tareas por hoy han finalizado"};
 
-        public GameObject TutorialText(GameObject tutorialT){
+        public GameObject TutorialText(GameObject tutorialT, int won){
             TMP_Text turtorialText = tutorialT.AddComponent<TextMeshProUGUI>();
             transTutorial = tutorialT.GetComponent<RectTransform>();
             transTutorial.sizeDelta=new Vector2(1667f, 466f);
@@ -24,7 +26,7 @@ public class Tutorial_1{
             turtorialText.fontSize=65f;
             turtorialText.color= new Color32(0,0,0,255);
             turtorialText.GetComponent<TextMeshProUGUI>().alignment = TextAlignmentOptions.TopJustified;
-            turtorialText.text="Estás a punto de iniciar el minijuego, recuerda seguir las recomendaciones del librero, Una vez que estés te sientas preparado/a, haz click en aceptar.";
+            turtorialText.text=gameMessage[won];
             return tutorialT;
         }
         public GameObject TutorialButton(GameObject acceptBtnObj, Sprite theSprite){
