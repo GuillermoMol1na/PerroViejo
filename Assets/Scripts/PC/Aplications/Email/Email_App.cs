@@ -13,6 +13,7 @@ public class Email_App : MonoBehaviour
     public TMP_Text emailContent;
     public TMP_Text emailUser;
     public TMP_Text emailAppTitle;
+    public TMP_Text blueLink;
     
     void Start()
     {
@@ -22,7 +23,7 @@ public class Email_App : MonoBehaviour
         isActive = false;
         emailWindow.SetActive(isActive);
         backBtn.SetActive(isActive);
-        emailContent.enabled = emailUser.enabled = false;
+        emailContent.enabled = emailUser.enabled = blueLink.enabled = false;
     }
 
     public void OpenEmails(){
@@ -49,11 +50,12 @@ public class Email_App : MonoBehaviour
         Email.showEmail -= DisplaytheEmail;
     }
 
-    void DisplaytheEmail(string thecontact, string theemail){
-        emailContent.enabled = emailUser.enabled =true;
+    void DisplaytheEmail(string thecontact, string theemail, string thelink){
+        emailContent.enabled = emailUser.enabled = blueLink.enabled= true;
 
         emailUser.text = thecontact;
         emailContent.text = theemail;
+        blueLink.text = thelink;
 
         emailAppTitle.enabled=false;
         backBtn.SetActive(true);

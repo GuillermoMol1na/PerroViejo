@@ -41,7 +41,7 @@ public class Internet_App : MonoBehaviour
         }
     }
     public void CloseInternet(){
-        emptyLists();
+        //emptyLists();
         isActive=!isActive;
         internetWindow.SetActive(isActive);
     }

@@ -55,7 +55,7 @@ public class Email_Manager : MonoBehaviour
             Icon = btnEmail.CreateReadorNot(notRead);
             Icon.transform.SetParent(email.transform);
             //Creating whats left of the email
-            email = btnEmail.CreateBtn(email, i, emailBckround, emailsOftheDay[2,i]);
+            email = btnEmail.CreateBtn(email, i, emailBckround, emailsOftheDay[2,i], emailsOftheDay[3,i]);
             //Putting the email on the Content Parent
             email.transform.SetParent(emailContent.transform);
         }

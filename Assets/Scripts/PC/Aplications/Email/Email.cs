@@ -12,10 +12,10 @@ public class Email : MonoBehaviour
     private GameObject emailWindow;
     private Email_App emailApp;
     public TMP_Text titleEmail;
-    public delegate void ShowEmail(string thecontact, string theemail);
+    public delegate void ShowEmail(string thecontact, string theemail, string thelink);
     public static event ShowEmail showEmail;
-    private Email_Storage emailStorage = new Email_Storage();
     private string theemailtoDisplay;
+    private string theLinkAttatched;
     private Image icon;
     
     void Start(){
@@ -29,7 +29,7 @@ public class Email : MonoBehaviour
     public void OpenEmail(){
         emailApp.ShowHideScrollEmail();
         if(showEmail != null){
-            showEmail(titleEmail.text, theemailtoDisplay);
+            showEmail(titleEmail.text, theemailtoDisplay, theLinkAttatched);
         }
         icon.sprite = Resources.Load<Sprite>("UIIcons_16");
         Debug.Log("Y SE MUESTRA EL EMAIL");
@@ -37,7 +37,8 @@ public class Email : MonoBehaviour
     public void CloseEmail(){
         emailApp.ShowHideScrollEmail();
     }
-    public void SetEmail(string theText){
+    public void SetEmail(string theText, string linkA){
         theemailtoDisplay= theText;
+        theLinkAttatched = linkA;
     }
 }
