@@ -51,7 +51,6 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
     }
     void CheckTabforClose(int winIndex){
         if(this.transform.GetSiblingIndex() == winIndex){
-            Debug.Log("Se está eliminando el TAB con posición: "+this.transform.GetSiblingIndex() );
             DeleteTab();
         }
     }

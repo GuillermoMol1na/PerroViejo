@@ -18,7 +18,6 @@ public class LevelLoader5 : MonoBehaviour
     public void LoadMainMenu(){
         StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex -6));
     }
-
     IEnumerator TransitionTo(int levelIndex){
         if(transition != null){
         transition.SetTrigger("Start");

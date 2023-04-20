@@ -24,6 +24,7 @@ TagManager:
   - Email_Manager
   - Internet_Minigame_1
   - Internet_Content
+  - Timer
   layers:
   - Default
   - TransparentFX

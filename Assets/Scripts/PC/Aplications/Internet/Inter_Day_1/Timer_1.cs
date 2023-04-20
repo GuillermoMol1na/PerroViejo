@@ -3,7 +3,8 @@ using TMPro;
 
 public class Timer_1 : MonoBehaviour
 {
-    private GameObject child;
+    private GameObject childText;
+    private GameObject background;
     private GameObject[] strikes = new GameObject[3];
     private float timeValue = 90;
     private bool isActive;
@@ -12,30 +13,35 @@ public class Timer_1 : MonoBehaviour
     public delegate void GameOver();
     public static event GameOver goToGameOver;
     void Start(){
-        isActive = true;
+        Debug.Log("EL TEMPORIZADOR VIVE");
+
         timerText.transform.SetAsLastSibling();
-        child = this.transform.GetChild(3).gameObject;
-        for(int i =0;i<3;i++){
-            strikes[i] = this.transform.GetChild(i).gameObject;
-            strikes[i].SetActive(false);
+        childText = this.transform.GetChild(4).gameObject;
+        background = this.transform.GetChild(0).gameObject;
+        Debug.Log("Esto no debería ser NULL: "+ childText.name);
+        for(int i =1;i<4;i++){
+            strikes[i-1] = this.transform.GetChild(i).gameObject;
         }
         DeactivateTimer();
     }
     void Update()
     {
-        if(timeValue>0){
-            timeValue -= Time.deltaTime;
-        }else{
-            timeValue = 0;
+        if(isActive){
+            if(timeValue>0){
+                timeValue -= Time.deltaTime;
+            }else{
+                timeValue = 0;
+            }
+            DisplayTime(timeValue);
         }
-        DisplayTime(timeValue);
     }
     void DisplayTime(float timeToDisplay){
         if(timeToDisplay < 0){
             timeToDisplay=0;
-            DeactivateTimer();
             //Time Over->Game Over
             goToGameOver();
+            //Restart time
+            timeValue=90;
         }
         if(timeToDisplay < 11){
             timerText.color = new Color32(255,0,0,255);
@@ -46,19 +52,22 @@ public class Timer_1 : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     public void ActivateTimer(){
-        isActive = !isActive;
-        child.SetActive(isActive);
-        this.gameObject.SetActive(isActive);
+        isActive = true;
+        //this.gameObject.SetActive(isActive);
+        background.SetActive(isActive);
+        childText.SetActive(isActive);
     }
     public void DeactivateTimer(){
-        Debug.Log("Y SE DESACTIVA EL TEMPORIZADOR");
         isActive = false;
-        child.SetActive(isActive);
-        this.gameObject.SetActive(isActive);
+        for(int i =1;i<4;i++){
+            strikes[i-1].SetActive(false);
+        }
+        childText.SetActive(isActive);
+        background.SetActive(isActive);
     }
     public void SetStrike(){
         strikes[strikeCounter].SetActive(true);
-        strikeCounter=strikeCounter+1;
+        strikeCounter++;
         //Game Over for the failure
         if(strikeCounter == 3){
             goToGameOver();
@@ -67,13 +76,13 @@ public class Timer_1 : MonoBehaviour
     public bool GetActive(){
         return isActive;
     }
-    void OnEnable(){
+    /*void OnEnable(){
         InterWind.activateTimer += ActivateTimer;
         InterWind.deactivateTimer += DeactivateTimer;
         InterWind.setTheStrike += SetStrike;
     }
     void OnDisable(){
         InterWind.setTheStrike -= SetStrike;
-    }
+    }*/
 
 }
