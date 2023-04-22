@@ -19,12 +19,6 @@ public class InterWind : MonoBehaviour
     private int won=0;
     public delegate void CloseRespectiveTab(int childIndex);
     public static event CloseRespectiveTab closeTheTab;
-    /*public delegate void ActivateTimer();
-    public static event ActivateTimer activateTimer;
-    public delegate void DeactivateTimer();
-    public static event DeactivateTimer deactivateTimer;
-    public delegate void SetStrike();
-    public static event SetStrike setTheStrike;*/
     void Start()
     {
         theMinigame = Minigame_1.FindObjectOfType<Minigame_1>();

@@ -76,13 +76,4 @@ public class Timer_1 : MonoBehaviour
     public bool GetActive(){
         return isActive;
     }
-    /*void OnEnable(){
-        InterWind.activateTimer += ActivateTimer;
-        InterWind.deactivateTimer += DeactivateTimer;
-        InterWind.setTheStrike += SetStrike;
-    }
-    void OnDisable(){
-        InterWind.setTheStrike -= SetStrike;
-    }*/
-
 }

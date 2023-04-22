@@ -1337,8 +1337,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 3000
-  m_fontSizeBase: 3000
+  m_fontSize: 1800
+  m_fontSizeBase: 1800
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4949,6 +4949,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2132786895}
+        m_TargetAssemblyTypeName: Email_App, Assembly-CSharp
+        m_MethodName: HideImage
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1276388073
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7761,6 +7773,18 @@ MonoBehaviour:
       - m_Target: {fileID: 2132786895}
         m_TargetAssemblyTypeName: Email_App, Assembly-CSharp
         m_MethodName: CloseEmails
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2132786895}
+        m_TargetAssemblyTypeName: Email_App, Assembly-CSharp
+        m_MethodName: HideImage
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
