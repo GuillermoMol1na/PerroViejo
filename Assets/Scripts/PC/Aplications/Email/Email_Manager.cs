@@ -18,8 +18,6 @@ public class Email_Manager : MonoBehaviour
     private EmailBtn_Creation btnEmail = new EmailBtn_Creation();
     private Contact_Subject_Creation subjectAndContact = new Contact_Subject_Creation();
     private Email_Storage eStorage = new Email_Storage();
-    
-    private string[] contacts;
    private void Start(){
         
         //Locating the parent
@@ -30,17 +28,19 @@ public class Email_Manager : MonoBehaviour
         switch(PlayerPrefs.GetInt("day")){
         case 0:
             emailsOftheDay = eStorage.dayZero;
-            emailLength=emailsOftheDay.GetLength(1);
+            emailLength=eStorage.getDay0Length();
         break;
         case 1:
             emailsOftheDay = eStorage.dayOne;
-            emailLength=emailsOftheDay.GetLength(1);
+            emailLength=eStorage.getDay1Length();
         break;
         case 2:
             emailsOftheDay = eStorage.dayTwo;
-            emailLength=emailsOftheDay.GetLength(1);
+            emailLength=eStorage.getDay2Length();
         break;
         }
+        //Get email total to the EmailApp
+        emailWindow.GetComponent<Email_App>().emailsNeeded = emailLength;
 
         for(int i=0; i<emailLength;i++){
             //Creating the email

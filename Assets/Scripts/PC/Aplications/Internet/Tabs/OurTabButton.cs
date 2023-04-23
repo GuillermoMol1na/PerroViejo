@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class OurTabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     public TabGroup tabGroup;
     public Image background;
@@ -55,3 +55,4 @@ public class TabButton : MonoBehaviour, IPointerEnterHandler, IPointerClickHandl
         }
     }
 }
+

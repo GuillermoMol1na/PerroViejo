@@ -4,12 +4,12 @@ using UnityEngine.UI;
 
 public class TabGroup : MonoBehaviour
 {
-    public List<TabButton> tabButtons;
+    public List<OurTabButton> tabButtons;
     private Sprite tabIdle;
     private Sprite tabHover;
     private Sprite tabActive;
-    public TabButton selectedTab;
-    List<TabButton> sublist;
+    public OurTabButton selectedTab;
+    List<OurTabButton> sublist;
     public List<GameObject> objectsToSwap;
     int obj;
     int listsize;
@@ -19,9 +19,9 @@ public class TabGroup : MonoBehaviour
         tabHover=Resources.Load<Sprite>("Tab_Alternatives_0");
         tabActive=Resources.Load<Sprite>("Tab_Alternatives_1");
     }
-    public void TabSystem(TabButton button){   
+    public void TabSystem(OurTabButton button){   
         if(tabButtons==null){
-            tabButtons= new List<TabButton>();
+            tabButtons= new List<OurTabButton>();
         }
         tabButtons.Add(button);
 
@@ -34,7 +34,7 @@ public class TabGroup : MonoBehaviour
         //Adding the new windowtab to the list
         objectsToSwap.Add(window);
     }
-    public void RemoveTab(TabButton button){
+    public void RemoveTab(OurTabButton button){
         tabButtons.Remove(button);
         obj = button.transform.GetSiblingIndex();
         listsize= tabButtons.Count;
@@ -42,7 +42,7 @@ public class TabGroup : MonoBehaviour
         Debug.Log("HAciendo que la lista tenga un tamaño de: "+listsize );*/
         if(listsize > obj){
             sublist = tabButtons.GetRange(obj,listsize-1);
-            foreach(TabButton tab in sublist){
+            foreach(OurTabButton tab in sublist){
                 tab.MoveTab();
             }   
         }
@@ -50,18 +50,18 @@ public class TabGroup : MonoBehaviour
         objectsToSwap.RemoveAt(obj);
 
         if(this.transform.childCount == 1){
-            this.transform.GetChild(0).GetComponent<TabButton>().FirstTabPosition();
+            this.transform.GetChild(0).GetComponent<OurTabButton>().FirstTabPosition();
         }
     }
-    public void OnTabEnter(TabButton button){
+    public void OnTabEnter(OurTabButton button){
         ResetTabs();
         if(selectedTab == null || button != selectedTab)
             button.background.sprite= tabHover;
     }
-    public void OnTabExit(TabButton button){
+    public void OnTabExit(OurTabButton button){
         ResetTabs();
     }
-    public void OnTabSelected(TabButton button){
+    public void OnTabSelected(OurTabButton button){
         selectedTab=button;
         ResetTabs();
         button.background.sprite= tabActive;
@@ -76,7 +76,7 @@ public class TabGroup : MonoBehaviour
 
     }
     public void ResetTabs(){
-        foreach(TabButton button in tabButtons){
+        foreach(OurTabButton button in tabButtons){
             if(selectedTab != null && button == selectedTab) { continue ; }
                 button.background.sprite = tabIdle;
         }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class Create_Tab
 {
     private RectTransform transTab;
-    private TabButton tabScript;
+    private OurTabButton tabScript;
     private Image tabImage;
     private Button tabButton;
     private RectTransform transWin;
@@ -19,7 +19,7 @@ public class Create_Tab
             transTab.pivot = new Vector2(0.5f, 0.5f);
             transTab.localScale = new Vector3(1f/45,1f/45,1f/45);
             //Adding the Tab Script
-            tabScript=theTab.AddComponent<TabButton>();
+            tabScript=theTab.AddComponent<OurTabButton>();
             tabScript.tabGroup=theTabGroup;
             //Adding Tab Image
             tabImage = theTab.AddComponent<Image>();

@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Rendering.Universal;
 using TMPro;
 using UnityEngine.EventSystems;
-
 public class Email_App : MonoBehaviour
 {
+    private UniversalAdditionalCameraData cameraData;
     private GameObject emailWindow;
     private GameObject backBtn;
     private GameObject scrollEmail;
@@ -14,6 +15,8 @@ public class Email_App : MonoBehaviour
     private Vector2 imageSize;
     private Image imageObj;
     private bool isActive;
+    private int emailsRead=0;
+    public int emailsNeeded;
     private string displayedContact;
     public TMP_Text emailContent;
     public TMP_Text emailUser;
@@ -22,9 +25,11 @@ public class Email_App : MonoBehaviour
     private object[] loadedSprites;
     private Sprite [] thesprites;
     private Sprite thesprite;
-    
+    public delegate void GameOver();
+    public static event GameOver goToGameOver;
     void Start()
     {
+        cameraData = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<UniversalAdditionalCameraData>();
         emailWindow = GameObject.FindGameObjectWithTag("EmailWindow");
         backBtn = GameObject.FindGameObjectWithTag("BackBtn");
         scrollEmail = this.transform.Find("Scroll_Email").gameObject;
@@ -40,11 +45,13 @@ public class Email_App : MonoBehaviour
         //Deactivate Image
         obj.SetActive(isActive);
     }
-
     public void OpenEmails(){
         isActive=true;
         backBtn.SetActive(false);
         emailWindow.SetActive(isActive);
+
+        //If the day 0 has ended
+        hasEnded();
     }
     public void CloseEmails(){
         isActive=false;
@@ -69,7 +76,7 @@ public class Email_App : MonoBehaviour
         Email.showEmail -= DisplaytheEmail;
     }
 
-    void DisplaytheEmail(string thecontact, string theemail, string thelink){
+    void DisplaytheEmail(string thecontact, string theemail, string thelink, bool alreadyRead ){
         displayedContact = thecontact;
         emailContent.enabled = emailUser.enabled = true;
 
@@ -82,14 +89,15 @@ public class Email_App : MonoBehaviour
         }
         emailAppTitle.enabled=false;
         backBtn.SetActive(true);
-
-        
+        if(alreadyRead == false){
+            emailsRead++;
+        }
     }
     public void AddtriggerToLink(TMP_Text blueL){
         EventTrigger trigger3 = blueL.gameObject.AddComponent<EventTrigger>();
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
-            entry.callback.AddListener( (eventData) => { Debug.Log("BOTÓN OPRIMIDO"); ModifySprite(); });
+            entry.callback.AddListener( (eventData) => { ModifySprite(); });
         trigger3.triggers.Add(entry);
     }
     public void AddtheImage(){
@@ -119,6 +127,11 @@ public class Email_App : MonoBehaviour
                     AdjustSizeSprite();
                     obj.SetActive(true);
                 break;
+                default:
+                    cameraData.renderPostProcessing = true;
+                    CloseEmails();
+                    goToGameOver();
+                break;
             }
             emailContent.enabled  = blueLink.enabled= false;
     }
@@ -126,5 +139,12 @@ public class Email_App : MonoBehaviour
         imageSize = thesprite.bounds.size*2f;
         transObj.sizeDelta = imageSize;
         imageObj.sprite = thesprite;
+    }
+    public void hasEnded(){
+        if(emailsRead >= emailsNeeded){
+            Debug.Log("All emails READ");
+            emailUser.text="Día Finalizado";
+            emailUser.enabled=true;
+        }
     }
 }
