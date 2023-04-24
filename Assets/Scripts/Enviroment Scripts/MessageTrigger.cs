@@ -30,7 +30,10 @@ public class MessageTrigger : MonoBehaviour
         if(msgManager.Ended()){
             showit= !showit;
             MsgBox.SetActive(showit);
+            //To restart later messages
+            msgManager.hasended = false;
         }
+        
     }
     public void UsetheMessages(Messages newMessages){
         message = newMessages;

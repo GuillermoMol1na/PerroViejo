@@ -1,13 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
 public class MessageManager : MonoBehaviour
 {
     public TMP_Text messageText;
     public Queue<string> messages;
-    private bool hasended=false;
-    // Start is called before the first frame update
+    public bool hasended=false;
     void Start()
     {
         messages = new Queue<string>();
@@ -27,10 +25,12 @@ public class MessageManager : MonoBehaviour
             EndMessages();
             hasended=true;
             return;
+        }else{
+            string message= messages.Dequeue();
+            messageText.text = message;
+            Debug.Log("Aquí se dbería mostrar el mensaje: " + message);
         }
-        string message= messages.Dequeue();
-        Debug.Log("Aquí se dbería mostrar el mensaje: " + message);
-        messageText.text = message;
+        
     }
     public void EndMessages(){
         Debug.Log("Fin de la conversación");

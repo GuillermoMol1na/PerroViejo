@@ -11,9 +11,6 @@ public class GameMaster : MonoBehaviour
     void Start(){
         glassfull=usedRedArrowBook=usedRedArrowPC=true;
     }
-
-    
-
     void Awake(){
         if(instance==null){
             instance= this;

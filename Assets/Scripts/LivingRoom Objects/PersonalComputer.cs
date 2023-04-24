@@ -19,10 +19,9 @@ public class PersonalComputer : MonoBehaviour
  
     void Start()
     {
-        //This is new
         readMsg.Include(readMssg);
         drinkMsg.Include(drinkMssg);
-        //
+
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
@@ -42,22 +41,13 @@ public class PersonalComputer : MonoBehaviour
                 msgTrigg.TriggerMessage();
             }
             else if(gm.usedRedArrowPC){
-                //This is new
                 msgTrigg.UsetheMessages(readMsg);
-                //
                 msgTrigg.TriggerMessage();
             }else
              thelevelLoader.LoadPC();
+             gm.usedRedArrowPC=true;
+             redArrow.RedArrowVanish();
         }
     }
-    /*void OnCollisionStay2D(Collision2D col)
-    {
-        if(col.gameObject.tag=="Player" && Input.GetKeyDown(KeyCode.F)){
-           if(gm.usedRedArrowPC){
-                msgTrigg.TriggerMessage();
-            }else
-             thelevelLoader.LoadPC();
-        }
-    }*/
 
 }

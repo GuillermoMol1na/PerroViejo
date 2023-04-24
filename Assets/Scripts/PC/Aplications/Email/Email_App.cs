@@ -142,8 +142,7 @@ public class Email_App : MonoBehaviour
     }
     public void hasEnded(){
         if(emailsRead >= emailsNeeded){
-            Debug.Log("All emails READ");
-            emailUser.text="Día Finalizado";
+            emailUser.text="Emails leídos";
             emailUser.enabled=true;
         }
     }

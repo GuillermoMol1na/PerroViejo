@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class LevelLoader4 : MonoBehaviour
 {
-    public int theDay;
     private Animator transition;
 
     void Start(){
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
         //also this
-        PlayerPrefs.SetInt("day",theDay);
+        //PlayerPrefs.SetInt("day",theDay);
     }
     public void LoadLivingRoom(){
         StartCoroutine(TransitionNormal(SceneManager.GetActiveScene().buildIndex -2));

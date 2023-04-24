@@ -3846,7 +3846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98ac2626d884ad43898533f93e8edfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theDay: 0
 --- !u!1 &1015504803
 GameObject:
   m_ObjectHideFlags: 0
@@ -3997,7 +3996,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: -1550572308, guid: ea83a4977278f2c418c7a0bf9ec46c90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -5782,7 +5781,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 543277663, guid: ea83a4977278f2c418c7a0bf9ec46c90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7069,7 +7068,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: -566331094, guid: ea83a4977278f2c418c7a0bf9ec46c90, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -8459,6 +8458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd4e8c857779d304e881cd6492d1ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emailsNeeded: 0
   emailContent: {fileID: 358406107}
   emailUser: {fileID: 1627066155}
   emailAppTitle: {fileID: 445385382}
