@@ -144,6 +144,10 @@ public class Email_App : MonoBehaviour
         if(emailsRead >= emailsNeeded){
             emailUser.text="Emails leídos";
             emailUser.enabled=true;
+            //Complete day 0
+            if(PlayerPrefs.GetInt("day")==0){
+                PlayerPrefs.SetInt("dayCompleted",1);
+            }
         }
     }
 }

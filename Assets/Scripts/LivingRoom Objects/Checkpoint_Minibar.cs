@@ -17,6 +17,8 @@ public class Checkpoint_Minibar : MonoBehaviour
     {
          if(player.baseColl.IsTouching(miniBarColl) && Input.GetKeyDown(KeyCode.F)){
             gm.glassfull= false;
+            //New conf
+            PlayerPrefs.SetInt("minibar",0);
             Debug.Log("Se ha vaciado el vaso");
         }
     }

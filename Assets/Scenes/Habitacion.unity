@@ -1355,8 +1355,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tras subir las escaleras...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a7a37449acbacde4fa5a218d70b8b6fd, type: 2}
-  m_sharedMaterial: {fileID: -8368909941995465557, guid: a7a37449acbacde4fa5a218d70b8b6fd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
+  m_sharedMaterial: {fileID: -8328631847259591381, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2534,6 +2534,7 @@ GameObject:
   - component: {fileID: 1601656610}
   - component: {fileID: 1601656612}
   - component: {fileID: 1601656613}
+  - component: {fileID: 1601656614}
   m_Layer: 0
   m_Name: Bed
   m_TagString: Untagged
@@ -2566,7 +2567,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -2650,7 +2651,7 @@ MonoBehaviour:
   bedUnmade: {fileID: -1060784437, guid: d04f63f1210c3fc459e781856de2de33, type: 3}
   bedColl: {fileID: 1601656610}
   confirm: 0
-  player: {fileID: 379722859}
+  com: 0
   redArrow: {fileID: 1753209844}
 --- !u!114 &1601656613
 MonoBehaviour:
@@ -2665,6 +2666,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bedColl: {fileID: 1601656610}
+--- !u!61 &1601656614
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1601656608}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6333333, y: 2.5333333}
+    newSize: {x: 1.6333333, y: 2.5333333}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.54, y: 2.45}
+  m_EdgeRadius: 0
 --- !u!1 &1629442387
 GameObject:
   m_ObjectHideFlags: 0
@@ -3399,8 +3426,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tras bajar las escaleras...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a7a37449acbacde4fa5a218d70b8b6fd, type: 2}
-  m_sharedMaterial: {fileID: -8368909941995465557, guid: a7a37449acbacde4fa5a218d70b8b6fd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
+  m_sharedMaterial: {fileID: -8328631847259591381, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

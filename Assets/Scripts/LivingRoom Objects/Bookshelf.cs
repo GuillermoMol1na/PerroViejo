@@ -14,13 +14,16 @@ public class Bookshelf : MonoBehaviour
        thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
        if(gm.usedRedArrowBook){
             gm.usedRedArrowBook=true;
+            PlayerPrefs.SetInt("bookshelf",1);
             redArrow.RedArrowVanish();
         }
     }
     void Update(){
         if(playerCol.IsTouching(BookShelfColl) && Input.GetKeyDown(KeyCode.F)){
             gm.usedRedArrowBook= true;
+            PlayerPrefs.SetInt("bookshelf",1);
             gm.usedRedArrowPC=false;
+            PlayerPrefs.SetInt("pc",0);
             thelevelLoader.LoadBook();
         }
     }
@@ -32,6 +35,7 @@ public class Bookshelf : MonoBehaviour
     }
     void ActivatetheArrow(){
         redArrow.RedArrowAppear();
+        PlayerPrefs.SetInt("bookshelf",0);
     }
 
 

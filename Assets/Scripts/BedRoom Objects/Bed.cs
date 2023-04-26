@@ -6,9 +6,9 @@ public class Bed : MonoBehaviour
     public Sprite bedUnmade;
     public Collider2D bedColl;
     public bool confirm= false;
+    public bool com;
     private GameMaster  gm;
     private MessageTrigger msgTrigg;
-    [SerializeField] private PlayerMovement player;
     [SerializeField] private RedArrowObj redArrow;
     private string[] confirmSave = {"¿Deseas Guardar la partida?"};
     private string[] acceptSave = {"Partida Guardada"};
@@ -25,13 +25,14 @@ public class Bed : MonoBehaviour
         this.gameObject.GetComponent<SpriteRenderer>().sprite = bedMade;
         else
         this.gameObject.GetComponent<SpriteRenderer>().sprite = bedUnmade;
+        com = Converter(PlayerPrefs.GetInt("dayCompleted"));
     }
     private void showtheAcceptMessages(){
         mkBedMsg.Include(acceptSave);
         msgTrigg.UsetheMessages(mkBedMsg);
         msgTrigg.TriggerMessage();
     }
-    void Update()
+    /*void Update()
     {
         if(player.baseColl.IsTouching(bedColl) && Input.GetKeyDown(KeyCode.F) && !confirm){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = bedMade;
@@ -45,12 +46,36 @@ public class Bed : MonoBehaviour
 
             PlayerPrefs.SetInt("day",1);
         }
+    }*/
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && !confirm){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = bedMade;
+            redArrow.RedArrowVanish();
+            confirm=true;
+        }else if(other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && confirm && com){
+            //GUARDAR PARTIDA y usar PlayerPrefabs para reiniciar glass y demás en GameMaster
+            
+            msgTrigg.UsetheMessages(mkBedMsg);
+            msgTrigg.TriggerMessage();
+            showTheOptions();
+            Debug.Log("Pues ya deberían ser visibles");
+            //PlayerPrefs.SetInt("day",1);
+        }
     }
-        void OnEnable(){
+    void OnEnable(){
         Options_Answers.showAccept += showtheAcceptMessages;
     }
     void OnDisable(){
         Options_Answers.showAccept -= showtheAcceptMessages;
     }
 
+    private bool Converter(int num){
+        if(num == 1){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 }

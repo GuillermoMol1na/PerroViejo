@@ -9,7 +9,13 @@ public class GameMaster : MonoBehaviour
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
 
     void Start(){
-        glassfull=usedRedArrowBook=usedRedArrowPC=true;
+        bool glass= Converter(PlayerPrefs.GetInt("minibar"));
+        bool book= Converter(PlayerPrefs.GetInt("bookshelf"));
+        bool pc= Converter(PlayerPrefs.GetInt("pc"));
+        glassfull= glass;
+        usedRedArrowBook= book;
+        usedRedArrowPC= pc;
+
     }
     void Awake(){
         if(instance==null){
@@ -17,6 +23,14 @@ public class GameMaster : MonoBehaviour
             DontDestroyOnLoad(instance);
         }else{
             Destroy(gameObject);
+        }
+    }
+    public bool Converter(int num){
+        if(num == 1){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 }

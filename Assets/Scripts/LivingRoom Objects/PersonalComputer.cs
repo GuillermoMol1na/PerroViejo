@@ -28,6 +28,7 @@ public class PersonalComputer : MonoBehaviour
         playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
        if(gm.usedRedArrowPC){
             gm.usedRedArrowPC=true;
+            PlayerPrefs.SetInt("pc",1);
             redArrow.RedArrowVanish();
         }
         else{
@@ -46,6 +47,7 @@ public class PersonalComputer : MonoBehaviour
             }else
              thelevelLoader.LoadPC();
              gm.usedRedArrowPC=true;
+             PlayerPrefs.SetInt("pc",1);
              redArrow.RedArrowVanish();
         }
     }
