@@ -9,6 +9,7 @@ public class Bed : MonoBehaviour
     public bool com;
     private GameMaster  gm;
     private MessageTrigger msgTrigg;
+    [SerializeField] private Collider2D playerCol;
     [SerializeField] private RedArrowObj redArrow;
     private string[] confirmSave = {"¿Deseas Guardar la partida?"};
     private string[] acceptSave = {"Partida Guardada"};
@@ -19,6 +20,7 @@ public class Bed : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
         mkBedMsg.Include(confirmSave);
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         if(gm.BedMade)
@@ -32,28 +34,9 @@ public class Bed : MonoBehaviour
         msgTrigg.UsetheMessages(mkBedMsg);
         msgTrigg.TriggerMessage();
     }
-    /*void Update()
+    void Update()
     {
-        if(player.baseColl.IsTouching(bedColl) && Input.GetKeyDown(KeyCode.F) && !confirm){
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bedMade;
-            redArrow.RedArrowVanish();
-            confirm=true;
-        }else if(player.baseColl.IsTouching(bedColl) && Input.GetKeyDown(KeyCode.F) && confirm){
-            //GUARDAR PARTIDA y usar PlayerPrefabs para reiniciar glass y demás en GameMaster
-            msgTrigg.UsetheMessages(mkBedMsg);
-            msgTrigg.TriggerMessage();
-            showTheOptions();
-
-            PlayerPrefs.SetInt("day",1);
-        }
-    }*/
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && !confirm){
-            this.gameObject.GetComponent<SpriteRenderer>().sprite = bedMade;
-            redArrow.RedArrowVanish();
-            confirm=true;
-        }else if(other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && confirm && com){
+        if(playerCol.IsTouching(bedColl) && Input.GetKeyDown(KeyCode.F) && confirm && com){
             //GUARDAR PARTIDA y usar PlayerPrefabs para reiniciar glass y demás en GameMaster
             
             msgTrigg.UsetheMessages(mkBedMsg);
@@ -63,6 +46,26 @@ public class Bed : MonoBehaviour
             //PlayerPrefs.SetInt("day",1);
         }
     }
+    void OnTriggerStay2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.F) && !confirm){
+            this.gameObject.GetComponent<SpriteRenderer>().sprite = bedMade;
+            redArrow.RedArrowVanish();
+            confirm=true;
+        }
+    }
+    /*void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Player" && confirm && com){
+            //GUARDAR PARTIDA y usar PlayerPrefabs para reiniciar glass y demás en GameMaster
+            
+            msgTrigg.UsetheMessages(mkBedMsg);
+            msgTrigg.TriggerMessage();
+            showTheOptions();
+            Debug.Log("Pues ya deberían ser visibles");
+            //PlayerPrefs.SetInt("day",1);
+        }
+    }*/
     void OnEnable(){
         Options_Answers.showAccept += showtheAcceptMessages;
     }

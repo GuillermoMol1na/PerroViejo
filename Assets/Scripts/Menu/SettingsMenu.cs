@@ -3,8 +3,9 @@ using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
-   public void PlayGame()
-   
+    public delegate void LoadNew();
+    public static event LoadNew loadtheNewGame;
+   public void PlayNewGame()
    {
     //Start from Day 0
        PlayerPrefs.SetInt("day",0);
@@ -13,7 +14,8 @@ public class SettingsMenu : MonoBehaviour
        PlayerPrefs.SetInt("minibar",1);
        PlayerPrefs.SetInt("bookshelf",1);
        PlayerPrefs.SetInt("pc",1);
-       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+       //Event to Start a New Game
+       loadtheNewGame();
    }    
 
    public void QuitGame() 
