@@ -6,6 +6,7 @@ using TMPro;
 public class InterWind : MonoBehaviour
 {
     private Minigame_1 theMinigame;
+    private Internet_App interApp;
     private Internet_1_Controller internetController;
     private GameObject pretimer;
     private Timer_1 timer1;
@@ -25,6 +26,7 @@ public class InterWind : MonoBehaviour
         pixelFont= theMinigame.GetFont();
         internetController = Internet_1_Controller.FindObjectOfType<Internet_1_Controller>();
         pretimer = GameObject.FindGameObjectWithTag("Timer");
+        interApp = FindObjectOfType<Internet_App>();
         timer1 = pretimer.GetComponent<Timer_1>();
         switch(this.transform.name){
             case string a when a.Contains("Tutorial"):
@@ -33,6 +35,8 @@ public class InterWind : MonoBehaviour
                 //If the game has been won
                 if(a.Contains("Won") || theMinigame.HasEnded()){
                     won=1;
+                    //Mark the day as completed
+                    PlayerPrefs.SetInt("dayCompleted",1);
                 }
                 Tutorial();
             break;
@@ -153,7 +157,7 @@ public class InterWind : MonoBehaviour
             entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window"); timer1.ActivateTimer(); });
         }
         else{
-            entry.callback.AddListener( (eventData) => { DeleteWind();  theMinigame.SetEnded();});
+            entry.callback.AddListener( (eventData) => { DeleteWind(); interApp.CloseMinigame();  theMinigame.SetEnded();});
         }
         trigger3.triggers.Add(entry);
         

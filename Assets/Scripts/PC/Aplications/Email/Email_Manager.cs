@@ -25,6 +25,7 @@ public class Email_Manager : MonoBehaviour
         emailContent = emailWindow.transform.Find("Scroll_Email").transform.Find("Email_Content").gameObject;
         pixelFont = Resources.Load<TMPro.TMP_FontAsset>("Fonts/Pixel_Font");
         //Getting the day
+        Debug.Log("Para la PC, el día de hoy es: "+PlayerPrefs.GetInt("day"));
         switch(PlayerPrefs.GetInt("day")){
         case 0:
             emailsOftheDay = eStorage.dayZero;
