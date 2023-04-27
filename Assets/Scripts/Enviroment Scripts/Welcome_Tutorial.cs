@@ -27,7 +27,7 @@ public class Welcome_Tutorial : MonoBehaviour
         tut= Converter(PlayerPrefs.GetInt("tutorial"));
         com= Converter(PlayerPrefs.GetInt("dayCompleted"));
         if(tut){
-            Invoke("ShowMeTutorial",2f);
+            Invoke("ShowMeTutorial",3f);
         }
         PlayerPrefs.SetInt("tutorial",0);
         if(com){
@@ -36,6 +36,7 @@ public class Welcome_Tutorial : MonoBehaviour
 
     }
     private void ShowMeTutorial(){
+        //Debug.Log("El tutorial/dia de hoy es: "+PlayerPrefs.GetInt("day"));
         switch(PlayerPrefs.GetInt("day")){
         case 0:
         welcTut.Include(welcomeday0);

@@ -25,14 +25,27 @@ public class LevelLoader : MonoBehaviour
         
     }
     public void LoadLivingRoom(){
-        StartCoroutine(TransitionLivingRoom(SceneManager.GetActiveScene().buildIndex + 1));
+        downStairs.text="Tras bajar las escaleras...";
+        StartCoroutine(TransitionLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
-    IEnumerator TransitionLivingRoom(int levelIndex){
+    public void LoadNextDay(){
+        int ind = PlayerPrefs.GetInt("day");
+        downStairs.enabled=true;
+        downStairs.text="DIA "+ind;
+        StartCoroutine(TransitionLevel(SceneManager.GetActiveScene().buildIndex));
+    }
+    IEnumerator TransitionLevel(int levelIndex){
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelIndex);
+    }
+    void OnEnable(){
+        Options_Answers.nextDay += LoadNextDay;
+    }
+    void OnDisable(){
+        Options_Answers.nextDay -= LoadNextDay;
     }
 
 }   

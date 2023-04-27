@@ -3,12 +3,12 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 public static class SaveSystem
 {
-    public static void SaveDay(int day, bool refre){
+    public static void SaveDay(int day, int dayOver, int tutorial){
         BinaryFormatter formatter = new BinaryFormatter();
         string path= Application.persistentDataPath+"/day.per";
         FileStream stream = new FileStream(path, FileMode.Create);
 
-        DayData data = new DayData(day, refre);
+        DayData data = new DayData(day, dayOver, tutorial);
 
         formatter.Serialize(stream, data);
         stream.Close();
@@ -25,8 +25,9 @@ public static class SaveSystem
 
             return data;
         }else{
-            Debug.LogError("Datos Guardados no se encontraron en: "+path);
-            return null;
+            Debug.Log("Datos Guardados no se encontraron en: "+path);
+            DayData spareData =new DayData(0,0,1);
+            return spareData;
         }
     }
 }

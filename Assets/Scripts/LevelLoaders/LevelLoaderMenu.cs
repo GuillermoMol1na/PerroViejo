@@ -11,11 +11,12 @@ public class LevelLoaderMenu : MonoBehaviour
         titleText.enabled=false;
     }
 
-    public void LoadNewGame(){
-        titleText.text="DIA 0";
-        StartCoroutine(TransitionLivingRoom(SceneManager.GetActiveScene().buildIndex + 1));
+    public void LoadGame(int currentDay){
+        titleText.text="DIA "+currentDay;
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex + 1));
     }
-    IEnumerator TransitionLivingRoom(int levelIndex){
+
+    IEnumerator Transition(int levelIndex){
         transition.SetTrigger("Start");
         titleText.enabled=true;
         yield return new WaitForSeconds(2);
@@ -23,10 +24,10 @@ public class LevelLoaderMenu : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
     void OnEnable(){
-        SettingsMenu.loadtheNewGame += LoadNewGame;
+        SettingsMenu.loadtheNewGame += LoadGame;
     }
     void OnDisable(){
-        SettingsMenu.loadtheNewGame -= LoadNewGame;
+        SettingsMenu.loadtheNewGame -= LoadGame;
     }
 
 }

@@ -31,7 +31,6 @@ public class Minibar : MonoBehaviour
         if(player.baseColl.IsTouching(minibarColl) && Input.GetKeyDown(KeyCode.F) && !confirm){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = GlassEmpty;
             redArrow.RedArrowVanish();
-            //gm.usedRedArrowBook=false;
             if(activatebRedArr!= null){
                 activatebRedArr();
             }

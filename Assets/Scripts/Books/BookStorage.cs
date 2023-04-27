@@ -1,7 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
 public class BookStorage
 {
     public string[] titles = {"Los Gusanos", "Los Troyanos", "El Phishing"};

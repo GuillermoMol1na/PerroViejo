@@ -21,14 +21,12 @@ public class PersonalComputer : MonoBehaviour
     {
         readMsg.Include(readMssg);
         drinkMsg.Include(drinkMssg);
-
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
         playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
        if(gm.usedRedArrowPC){
             gm.usedRedArrowPC=true;
-            PlayerPrefs.SetInt("pc",1);
             redArrow.RedArrowVanish();
         }
         else{
@@ -46,8 +44,7 @@ public class PersonalComputer : MonoBehaviour
                 msgTrigg.TriggerMessage();
             }else
              thelevelLoader.LoadPC();
-             gm.usedRedArrowPC=true;
-             PlayerPrefs.SetInt("pc",1);
+             gm.usedRedArrowPC=true;;
              redArrow.RedArrowVanish();
         }
     }

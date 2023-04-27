@@ -9,13 +9,8 @@ public class GameMaster : MonoBehaviour
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
 
     void Start(){
-        bool glass= Converter(PlayerPrefs.GetInt("minibar"));
-        bool book= Converter(PlayerPrefs.GetInt("bookshelf"));
-        bool pc= Converter(PlayerPrefs.GetInt("pc"));
-        glassfull= glass;
-        usedRedArrowBook= book;
-        usedRedArrowPC= pc;
-
+        int det = PlayerPrefs.GetInt("dayCompleted");
+        glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
     }
     void Awake(){
         if(instance==null){
@@ -24,6 +19,20 @@ public class GameMaster : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
+    }
+    private void RelocateArrowsandBed(){
+        glassfull= usedRedArrowBook= usedRedArrowPC= true;
+        BedMade=false;
+    }
+    public void UpdateSaveDay(){
+       int newDay = PlayerPrefs.GetInt("day") + 1;
+       PlayerPrefs.SetInt("day",newDay);
+       PlayerPrefs.SetInt("dayCompleted",0);
+       PlayerPrefs.SetInt("tutorial",1);
+       //Acomodate Red Arrows
+       RelocateArrowsandBed();
+
+       SaveSystem.SaveDay(newDay,0,1);
     }
     public bool Converter(int num){
         if(num == 1){

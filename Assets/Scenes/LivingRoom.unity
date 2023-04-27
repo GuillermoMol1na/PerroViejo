@@ -1057,10 +1057,10 @@ RectTransform:
   m_Father: {fileID: 8794023693526923349}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36, y: -0.000011444}
-  m_SizeDelta: {x: 340.0906, y: 96.6969}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -459.9094, y: -353.3031}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &672938862
 MonoBehaviour:
@@ -1084,8 +1084,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Tras subir las escaleras...
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a7a37449acbacde4fa5a218d70b8b6fd, type: 2}
-  m_sharedMaterial: {fileID: -8368909941995465557, guid: a7a37449acbacde4fa5a218d70b8b6fd, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
+  m_sharedMaterial: {fileID: -8328631847259591381, guid: 6786a03f25ea0a1419242f3d7c647fd9, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1116,8 +1116,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3294,7 +3294,6 @@ GameObject:
   - component: {fileID: 2024040036}
   - component: {fileID: 2024040038}
   - component: {fileID: 2024040037}
-  - component: {fileID: 2024040039}
   - component: {fileID: 2024040040}
   m_Layer: 0
   m_Name: upstairs_0
@@ -3382,8 +3381,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f8b18b3b98db974da923ef7725fc7c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stairsColl: {fileID: 2024040038}
-  playerCol: {fileID: 0}
 --- !u!61 &2024040038
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3410,18 +3407,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3, y: 1.2}
   m_EdgeRadius: 0
---- !u!114 &2024040039
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2024040034}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03b3117e93542ce498647ea99c5d5ddb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!61 &2024040040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3920,7 +3905,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 36, y: -0.000011444}
+  m_AnchoredPosition: {x: -0.000061035, y: 0.000039419}
   m_SizeDelta: {x: 340.0906, y: 96.6969}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8794023692023049565

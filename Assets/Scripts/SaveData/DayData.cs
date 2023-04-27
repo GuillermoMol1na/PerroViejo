@@ -4,10 +4,12 @@ using UnityEngine;
 public class DayData
 {
     public int theDay;
-    public bool refreshLiving;
+    public int theDayOver;
+    public int theTutorial;
 
-    public DayData(int day, bool refre){
+    public DayData(int day, int dayOver, int tutorial){
         theDay = day;
-        refreshLiving = refre;
+        theDayOver=dayOver;
+        theTutorial=tutorial;
     }
 }

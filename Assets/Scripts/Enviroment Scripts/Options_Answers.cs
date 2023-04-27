@@ -3,14 +3,18 @@ using UnityEngine.EventSystems;
 
 public class Options_Answers : MonoBehaviour
 {
+    private GameMaster gm;
     private MessageTrigger msgTrigg;
     private GameObject[] theChildren;
     int num;
     EventTrigger trigger;
     public delegate void AcceptOffer();
     public static event AcceptOffer showAccept;
+    public delegate void LoadNextD();
+    public static event LoadNextD nextDay;
     void Start()
     {
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         num = this.transform.childCount;
         theChildren = new GameObject[num];
@@ -28,13 +32,18 @@ public class Options_Answers : MonoBehaviour
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             if(i==0){
-                entry.callback.AddListener( (eventData) => { Debug.Log("Partida Guardada");
+                entry.callback.AddListener( (eventData) => {gm.UpdateSaveDay(); 
+                                                            Debug.Log("Partida Guardada");
                                                              msgTrigg.TriggerNextMessage();
                                                              showAccept();
-                                                             HideOptions(); });
+                                                             HideOptions();
+                                                             nextDay(); });
             }
             else{
-                entry.callback.AddListener( (eventData) => { Debug.Log("Partida NO Guardada"); msgTrigg.TriggerNextMessage(); });
+                entry.callback.AddListener( (eventData) => { Debug.Log("Partida NO Guardada");
+                                                             msgTrigg.TriggerNextMessage();
+                                                             HideOptions();
+                                                             nextDay(); });
             }
             trigger.triggers.Add(entry);
         }

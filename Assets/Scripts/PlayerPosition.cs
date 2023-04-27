@@ -27,13 +27,7 @@ void Start(){
                     transform.position = LivingRoominitialPos;
                 }
                 break;
-            }
-        
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        
+            }   
     }
 }
 

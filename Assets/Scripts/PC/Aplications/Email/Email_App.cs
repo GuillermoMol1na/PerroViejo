@@ -56,6 +56,8 @@ public class Email_App : MonoBehaviour
     public void CloseEmails(){
         isActive=false;
         emailWindow.SetActive(isActive);
+        //If the day 0 has ended
+        hasEnded();
     }
     public void ShowHideScrollEmail(){
         isActive=!isActive;

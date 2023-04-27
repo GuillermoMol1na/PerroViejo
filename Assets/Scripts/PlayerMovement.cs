@@ -7,17 +7,9 @@ public class PlayerMovement : MonoBehaviour
      public Rigidbody2D rb; 
      public Collider2D baseColl;
      Vector2 movement;
-
-     public int theDay;
-
       public float moveSpeed = 0.2f;
       public Animator anim;
       private GameMaster gm;
-
-    void Start(){
-        PlayerPrefs.SetInt("day",theDay);
-    }
-    // Update is called once per frame
     void Update()
     {
         movement.x =Input.GetAxisRaw("Horizontal");

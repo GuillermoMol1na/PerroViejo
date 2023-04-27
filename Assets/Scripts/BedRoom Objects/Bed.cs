@@ -11,7 +11,7 @@ public class Bed : MonoBehaviour
     private MessageTrigger msgTrigg;
     [SerializeField] private Collider2D playerCol;
     [SerializeField] private RedArrowObj redArrow;
-    private string[] confirmSave = {"¿Deseas Guardar la partida?"};
+    private string[] confirmSave = {"¿Deseas Guardar la partida?, Es recomendable ya que Erwin dará el día por terminado"};
     private string[] acceptSave = {"Partida Guardada"};
     private Messages mkBedMsg = new Messages();
     public delegate void SelectOptions();
@@ -38,12 +38,9 @@ public class Bed : MonoBehaviour
     {
         if(playerCol.IsTouching(bedColl) && Input.GetKeyDown(KeyCode.F) && confirm && com){
             //GUARDAR PARTIDA y usar PlayerPrefabs para reiniciar glass y demás en GameMaster
-            
             msgTrigg.UsetheMessages(mkBedMsg);
             msgTrigg.TriggerMessage();
             showTheOptions();
-            Debug.Log("Pues ya deberían ser visibles");
-            //PlayerPrefs.SetInt("day",1);
         }
     }
     void OnTriggerStay2D(Collider2D other)
@@ -54,18 +51,6 @@ public class Bed : MonoBehaviour
             confirm=true;
         }
     }
-    /*void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.gameObject.tag == "Player" && confirm && com){
-            //GUARDAR PARTIDA y usar PlayerPrefabs para reiniciar glass y demás en GameMaster
-            
-            msgTrigg.UsetheMessages(mkBedMsg);
-            msgTrigg.TriggerMessage();
-            showTheOptions();
-            Debug.Log("Pues ya deberían ser visibles");
-            //PlayerPrefs.SetInt("day",1);
-        }
-    }*/
     void OnEnable(){
         Options_Answers.showAccept += showtheAcceptMessages;
     }
