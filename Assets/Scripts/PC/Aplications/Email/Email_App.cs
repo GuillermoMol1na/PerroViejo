@@ -25,6 +25,7 @@ public class Email_App : MonoBehaviour
     private object[] loadedSprites;
     private Sprite [] thesprites;
     private Sprite thesprite;
+    private Sprite theReceipt;
     public delegate void GameOver();
     public static event GameOver goToGameOver;
     void Start()
@@ -38,6 +39,7 @@ public class Email_App : MonoBehaviour
         backBtn.SetActive(isActive);
         emailContent.enabled = emailUser.enabled = blueLink.enabled =  false;
         //Load EmailImages
+        theReceipt = Resources.Load("Receipt/ReceiptTrue_0") as Sprite;
         loadedSprites = Resources.LoadAll ("Email_Images",typeof(Sprite)) ;
         thesprites = new Sprite[loadedSprites.Length];
         loadedSprites.CopyTo (thesprites,0);
@@ -126,6 +128,11 @@ public class Email_App : MonoBehaviour
                 break;
                 case string c when c.Contains("Gerardo"):
                     thesprite = thesprites[2];
+                    AdjustSizeSprite();
+                    obj.SetActive(true);
+                break;
+                case string d when d.Contains("VIGO"):
+                    thesprite = theReceipt;
                     AdjustSizeSprite();
                     obj.SetActive(true);
                 break;

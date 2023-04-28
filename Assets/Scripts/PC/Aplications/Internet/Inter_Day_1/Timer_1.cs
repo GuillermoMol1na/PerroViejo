@@ -13,8 +13,6 @@ public class Timer_1 : MonoBehaviour
     public delegate void GameOver();
     public static event GameOver goToGameOver;
     void Start(){
-        Debug.Log("EL TEMPORIZADOR VIVE");
-
         timerText.transform.SetAsLastSibling();
         childText = this.transform.GetChild(4).gameObject;
         background = this.transform.GetChild(0).gameObject;

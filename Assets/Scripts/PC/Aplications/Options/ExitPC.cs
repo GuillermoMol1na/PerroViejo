@@ -11,13 +11,8 @@ public class ExitPC : MonoBehaviour
         OptionsTab.SetActive(active);
     }
     public void ShoworHideOptions(){
+        Debug.Log("MUESTRA/ESCONDE LA OPCIÓN SALIR");
         active =!active;
         OptionsTab.SetActive(active);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
