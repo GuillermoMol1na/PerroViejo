@@ -4,12 +4,19 @@ using UnityEngine;
 
 public class LevelLoader4 : MonoBehaviour
 {
+    private GameMaster gm;
     private Animator transition;
+    private GameObject appCanvas;
 
     void Start(){
+        gm = FindObjectOfType<GameMaster>();
+        appCanvas = GameObject.FindGameObjectWithTag("CanvasApp");
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
     }
     public void LoadLivingRoom(){
+        if(PlayerPrefs.GetInt("day")==2){
+            gm.startMinigame2=true;
+        }
         StartCoroutine(TransitionNormal(SceneManager.GetActiveScene().buildIndex -2));
     }
     public void LoadGameOver(){
@@ -26,6 +33,7 @@ public class LevelLoader4 : MonoBehaviour
 
     IEnumerator TransitionNormal(int levelIndex){
         if(transition != null){
+        appCanvas.SetActive(false);
         transition.SetTrigger("Start");
         }
         yield return new WaitForSeconds(1);

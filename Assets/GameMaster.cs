@@ -6,6 +6,7 @@ public class GameMaster : MonoBehaviour
     public Vector2 lastCheckpointPosBedRoom;
     public Vector2 lastCheckpointPosLivingRoom;
     public bool BedMade;
+    public bool startMinigame2;
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
 
     void Start(){
