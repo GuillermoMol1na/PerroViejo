@@ -3,12 +3,18 @@ using UnityEngine;
 using TMPro;
 public class MessageManager : MonoBehaviour
 {
+    private GameMaster gm;
     public TMP_Text messageText;
     public Queue<string> messages;
     public bool hasended=false;
+    private int theDay;
+    public delegate void ActivateOptions();
+    public static event ActivateOptions showtheOptions;
     void Start()
     {
+        gm = FindObjectOfType<GameMaster>();
         messages = new Queue<string>();
+        theDay = PlayerPrefs.GetInt("day");
     }
     public void StartMessage(Messages anouncement){
         Debug.Log("Mostrando el mensaje deseado");
@@ -21,6 +27,8 @@ public class MessageManager : MonoBehaviour
         DisplayNextMessage();
     }
     public void DisplayNextMessage(){
+        //Activate Options on the Minigame 2
+        DisplayMinigameOptions();
         if(messages.Count ==0){
             EndMessages();
             hasended=true;
@@ -30,7 +38,11 @@ public class MessageManager : MonoBehaviour
             messageText.text = message;
             Debug.Log("Aquí se dbería mostrar el mensaje: " + message);
         }
-        
+    }
+    public void DisplayMinigameOptions(){
+        if(messages.Count==1 && theDay==2 && gm.startMinigame2){
+            showtheOptions();
+        }
     }
     public void EndMessages(){
         Debug.Log("Fin de la conversación");

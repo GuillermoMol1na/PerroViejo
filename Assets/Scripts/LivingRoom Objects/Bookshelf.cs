@@ -18,7 +18,7 @@ public class Bookshelf : MonoBehaviour
         }
     }
     void Update(){
-        if(playerCol.IsTouching(BookShelfColl) && Input.GetKeyDown(KeyCode.F)){
+        if(playerCol.IsTouching(BookShelfColl) && Input.GetKeyDown(KeyCode.F) && !gm.startMinigame2){
             gm.usedRedArrowBook= true;
             gm.usedRedArrowPC=false;
             thelevelLoader.LoadBook();

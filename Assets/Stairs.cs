@@ -17,7 +17,7 @@ public class Stairs : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !gm.startMinigame2)
         {
           if(dayOver==0){
                 msgTrigg.TriggerMessage();

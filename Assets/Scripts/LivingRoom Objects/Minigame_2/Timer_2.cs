@@ -5,7 +5,6 @@ public class Timer_2 : MonoBehaviour
     private GameObject background;
     private float timeValue = 90;
     private bool isActive;
-    private int strikeCounter=0;
     public TMP_Text timerText;
     /*public delegate void GameOver();
     public static event GameOver goToGameOver;*/

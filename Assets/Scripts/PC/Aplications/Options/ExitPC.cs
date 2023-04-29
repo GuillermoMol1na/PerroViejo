@@ -3,16 +3,19 @@ using UnityEngine;
 public class ExitPC : MonoBehaviour
 {
     private GameObject OptionsTab;
+    private Timer_1 theTimer;
     private bool active;
     void Start()
     {
         OptionsTab = GameObject.FindGameObjectWithTag("OptionsTab");
+        theTimer = Timer_1.FindObjectOfType<Timer_1>(true);
         active=false;
         OptionsTab.SetActive(active);
     }
     public void ShoworHideOptions(){
-        Debug.Log("MUESTRA/ESCONDE LA OPCIÓN SALIR");
-        active =!active;
+        if(theTimer.isActive==false){
+            active =!active;
         OptionsTab.SetActive(active);
+        }
     }
 }

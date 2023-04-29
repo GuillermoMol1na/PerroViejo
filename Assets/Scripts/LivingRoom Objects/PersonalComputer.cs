@@ -34,7 +34,7 @@ public class PersonalComputer : MonoBehaviour
         }
     }
     void Update(){
-        if(playerCol.IsTouching(PcColl) && Input.GetKeyDown(KeyCode.F)){
+        if(playerCol.IsTouching(PcColl) && Input.GetKeyDown(KeyCode.F) && !gm.startMinigame2){
             if(gm.glassfull){
                 msgTrigg.UsetheMessages(drinkMsg);
                 msgTrigg.TriggerMessage();

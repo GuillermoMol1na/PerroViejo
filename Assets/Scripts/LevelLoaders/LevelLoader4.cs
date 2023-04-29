@@ -7,8 +7,9 @@ public class LevelLoader4 : MonoBehaviour
     private GameMaster gm;
     private Animator transition;
     private GameObject appCanvas;
-
+    public int theDay;
     void Start(){
+        PlayerPrefs.SetInt("day",theDay);
         gm = FindObjectOfType<GameMaster>();
         appCanvas = GameObject.FindGameObjectWithTag("CanvasApp");
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();

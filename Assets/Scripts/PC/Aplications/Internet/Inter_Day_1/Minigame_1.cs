@@ -1,7 +1,6 @@
 using UnityEngine;
 using System.Linq;
-using System.Collections.Generic;
-using System.Security.Cryptography;   
+using System.Collections.Generic;  
 using TMPro;
 
 

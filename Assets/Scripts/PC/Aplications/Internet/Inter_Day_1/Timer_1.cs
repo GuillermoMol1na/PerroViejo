@@ -7,7 +7,7 @@ public class Timer_1 : MonoBehaviour
     private GameObject background;
     private GameObject[] strikes = new GameObject[3];
     private float timeValue = 90;
-    private bool isActive;
+    public bool isActive;
     private int strikeCounter=0;
     public TMP_Text timerText;
     public delegate void GameOver();
@@ -16,7 +16,6 @@ public class Timer_1 : MonoBehaviour
         timerText.transform.SetAsLastSibling();
         childText = this.transform.GetChild(4).gameObject;
         background = this.transform.GetChild(0).gameObject;
-        Debug.Log("Esto no debería ser NULL: "+ childText.name);
         for(int i =1;i<4;i++){
             strikes[i-1] = this.transform.GetChild(i).gameObject;
         }
