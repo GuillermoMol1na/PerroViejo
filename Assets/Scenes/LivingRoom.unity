@@ -672,7 +672,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -1196,7 +1196,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!1 &531501359
 GameObject:
@@ -1313,6 +1313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageText: {fileID: 1085380782}
   hasended: 0
+  blockLast: 0
 --- !u!4 &630194752
 Transform:
   m_ObjectHideFlags: 0
@@ -2094,7 +2095,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.0595703, y: -202.9099}
+  m_AnchoredPosition: {x: 0, y: 202.2}
   m_SizeDelta: {x: 17343.684, y: 4771.2583}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &875092605
@@ -3136,7 +3137,7 @@ GameObject:
   - component: {fileID: 1344066297}
   m_Layer: 0
   m_Name: Minigame2_Manager
-  m_TagString: Untagged
+  m_TagString: Minigame2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3153,6 +3154,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f77ea8f275b186f43b61cf0c212dfdbd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  numberScams: 0
+  counter: 0
 --- !u!4 &1344066298
 Transform:
   m_ObjectHideFlags: 0
@@ -3868,7 +3871,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 4
   m_Sprite: {fileID: -342777136, guid: 77609dd17a439cd49ba3c0d5f2c444ee, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4372,7 +4375,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 42
+  m_SortingOrder: 1
   m_Sprite: {fileID: -481334031, guid: 0ccf95e52e7377e47a437ef6d13ee6d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

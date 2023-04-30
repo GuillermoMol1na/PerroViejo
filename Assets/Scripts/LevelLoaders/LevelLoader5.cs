@@ -4,16 +4,24 @@ using UnityEngine;
 
 public class LevelLoader5 : MonoBehaviour
 {
-    public int theDay;
     private Animator transition;
+    private int theDay;
+    private int scene;
 
     void Start(){
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
-        //also this
-        PlayerPrefs.SetInt("day",theDay);
+        theDay = PlayerPrefs.GetInt("day");
     }
-    public void LoadPCMenu(){
-        StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex -2));
+    public void LoadContinue(){
+        switch(theDay){
+            case 2:
+                scene= 4;
+            break;
+            default:
+                scene=2;
+            break;
+        }
+        StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex -scene));
     }
     public void LoadMainMenu(){
         StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex -6));

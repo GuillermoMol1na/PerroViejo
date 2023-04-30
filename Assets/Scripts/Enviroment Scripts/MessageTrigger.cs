@@ -14,7 +14,7 @@ public class MessageTrigger : MonoBehaviour
         MsgBox.SetActive(showit);
     }
     void Update(){
-        if(showit && Input.GetKeyDown(KeyCode.Space))
+        if(showit && Input.GetKeyDown(KeyCode.Space) && !msgManager.blockLast)
             TriggerNextMessage();
     }
     public void TriggerMessage(){

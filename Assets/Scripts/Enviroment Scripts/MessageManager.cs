@@ -8,6 +8,7 @@ public class MessageManager : MonoBehaviour
     public Queue<string> messages;
     public bool hasended=false;
     private int theDay;
+    public bool blockLast=false;
     public delegate void ActivateOptions();
     public static event ActivateOptions showtheOptions;
     void Start()
@@ -15,10 +16,11 @@ public class MessageManager : MonoBehaviour
         gm = FindObjectOfType<GameMaster>();
         messages = new Queue<string>();
         theDay = PlayerPrefs.GetInt("day");
+        
     }
     public void StartMessage(Messages anouncement){
         Debug.Log("Mostrando el mensaje deseado");
-        
+        blockLast=false;
         messages.Clear();
 
         foreach (string message in anouncement.messages){
@@ -41,6 +43,7 @@ public class MessageManager : MonoBehaviour
     }
     public void DisplayMinigameOptions(){
         if(messages.Count==1 && theDay==2 && gm.startMinigame2){
+            blockLast=true;
             showtheOptions();
         }
     }

@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1761257141}
         m_TargetAssemblyTypeName: LevelLoader5, Assembly-CSharp
-        m_MethodName: LoadPCMenu
+        m_MethodName: LoadContinue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1178,7 +1178,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0c4861eb7aebb5b48a8b36bd2dfe388b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theDay: 1
 --- !u!4 &1761257142
 Transform:
   m_ObjectHideFlags: 0

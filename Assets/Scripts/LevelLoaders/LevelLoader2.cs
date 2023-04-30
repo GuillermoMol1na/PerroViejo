@@ -19,29 +19,31 @@ public class LevelLoader2 : MonoBehaviour
     }
     public void LoadBedRoom(){
         upStairs.enabled=true;
-        StartCoroutine(TransitionBedRoom(SceneManager.GetActiveScene().buildIndex -1));
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex -1));
     }
     
     public void LoadBook(){
-        StartCoroutine(TransitionBookshelf(SceneManager.GetActiveScene().buildIndex +1));
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex +1));
     }
     public void LoadPC(){
 
-        StartCoroutine(TransitionBookshelf(SceneManager.GetActiveScene().buildIndex +2));
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex +2));
     }
-    IEnumerator TransitionBedRoom(int levelIndex){
+    public void LoadGameOver(){
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex +4));
+    }
+    IEnumerator Transition(int levelIndex){
         transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(1);
 
         SceneManager.LoadScene(levelIndex);
     }
-    IEnumerator TransitionBookshelf(int levelIndex){
-        transition.SetTrigger("Start");
-
-        yield return new WaitForSeconds(1);
-
-        SceneManager.LoadScene(levelIndex);
+    void OnEnable(){
+        Minigame2_Options.goToGameOver += LoadGameOver;
+    }
+    void OnDisable(){
+        Minigame2_Options.goToGameOver -= LoadGameOver;
     }
 }   
 
