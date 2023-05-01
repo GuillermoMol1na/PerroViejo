@@ -20,6 +20,7 @@ public class Minigame_2 : MonoBehaviour
         numberScams=storage.NumberofScams();
         scamMsg = new Messages[numberScams];
         counter=0;
+        Debug.Log("El día de hoy es: "+PlayerPrefs.GetInt("day"));
         //Start the Minigame 2
         StartCoroutine(RingthePhone());
     }
@@ -31,6 +32,9 @@ public class Minigame_2 : MonoBehaviour
             //int[] lel = storage.RandomOrder();
         }
     }*/
+    public void Courutine(){
+        StartCoroutine(RingthePhone());
+    }
     public IEnumerator RingthePhone(){
         if(gm.startMinigame2){
         //Wait 5 seconds before the call

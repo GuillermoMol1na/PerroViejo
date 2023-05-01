@@ -157,7 +157,7 @@ public class InterWind : MonoBehaviour
             entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window"); timer1.ActivateTimer(); });
         }
         else{
-            entry.callback.AddListener( (eventData) => { DeleteWind(); interApp.CloseMinigame();  theMinigame.SetEnded();});
+            entry.callback.AddListener( (eventData) => { DeleteWind(); /*interApp.CloseMinigame();*/  theMinigame.SetEnded();});
         }
         trigger3.triggers.Add(entry);
         

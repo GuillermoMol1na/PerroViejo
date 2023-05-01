@@ -40,7 +40,8 @@ public class Minigame2_Options : MonoBehaviour
         entry2.callback.AddListener( (eventData) => {Debug.Log("AQUÍ COLGÓ");
                                                     player.PickHangPhone();
                                                     msgTrigg.TriggerNextMessage();
-                                                    Invoke("MakingTime",2f);
+                                                    //Trigger the next call
+                                                    MakingTime();
                                                     ShowHideOptions();
                                                     });
         trigger2.triggers.Add(entry2);
@@ -52,7 +53,7 @@ public class Minigame2_Options : MonoBehaviour
     }
     private void MakingTime(){
         if(minigame.counter < minigame.numberScams){
-            minigame.RingthePhone();
+            minigame.Courutine();
         }   
     }
     void OnEnable(){
