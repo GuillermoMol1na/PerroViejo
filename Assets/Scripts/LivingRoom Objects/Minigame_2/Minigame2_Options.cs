@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Minigame2_Options : MonoBehaviour
 {
     private Minigame_2 minigame;
+    private PlayerMovement player;
     private bool isActive;
     EventTrigger trigger1;
     EventTrigger trigger2;
@@ -16,6 +17,7 @@ public class Minigame2_Options : MonoBehaviour
         isActive = true;
         firstOption = transform.GetChild(0).gameObject;
         secondOption = transform.GetChild(1).gameObject;
+        player = FindObjectOfType<PlayerMovement>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         minigame = GameObject.FindGameObjectWithTag("Minigame2").GetComponent<Minigame_2>();
         AddFunctionality();
@@ -36,6 +38,7 @@ public class Minigame2_Options : MonoBehaviour
         EventTrigger.Entry entry2 = new EventTrigger.Entry();
         entry2.eventID = EventTriggerType.PointerClick;
         entry2.callback.AddListener( (eventData) => {Debug.Log("AQUÍ COLGÓ");
+                                                    player.PickHangPhone();
                                                     msgTrigg.TriggerNextMessage();
                                                     Invoke("MakingTime",2f);
                                                     ShowHideOptions();
@@ -49,7 +52,7 @@ public class Minigame2_Options : MonoBehaviour
     }
     private void MakingTime(){
         if(minigame.counter < minigame.numberScams){
-            minigame.StartOrHangUp();
+            minigame.RingthePhone();
         }   
     }
     void OnEnable(){

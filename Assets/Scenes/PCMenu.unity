@@ -3847,7 +3847,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f98ac2626d884ad43898533f93e8edfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theDay: 2
+  theDay: 1
 --- !u!1 &1015504803
 GameObject:
   m_ObjectHideFlags: 0
