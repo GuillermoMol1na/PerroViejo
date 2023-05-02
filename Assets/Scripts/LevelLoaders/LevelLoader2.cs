@@ -41,9 +41,11 @@ public class LevelLoader2 : MonoBehaviour
     }
     void OnEnable(){
         Minigame2_Options.goToGameOver += LoadGameOver;
+        Timer_2.goToGameOver += LoadGameOver;
     }
     void OnDisable(){
         Minigame2_Options.goToGameOver -= LoadGameOver;
+        Timer_2.goToGameOver -= LoadGameOver;
     }
 }   
 

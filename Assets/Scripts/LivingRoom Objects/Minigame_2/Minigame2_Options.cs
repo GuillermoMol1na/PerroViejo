@@ -28,9 +28,11 @@ public class Minigame2_Options : MonoBehaviour
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener( (eventData) => {Debug.Log("AQUÍ RESPONDE");
-                                                    msgTrigg.TriggerNextMessage();
+                                                    /*msgTrigg.TriggerNextMessage();
+                                                    //End Game
                                                     goToGameOver();
-                                                    ShowHideOptions();
+                                                    ShowHideOptions();*/
+                                                    LeftButton();
                                                     });
         trigger1.triggers.Add(entry);
 
@@ -38,11 +40,12 @@ public class Minigame2_Options : MonoBehaviour
         EventTrigger.Entry entry2 = new EventTrigger.Entry();
         entry2.eventID = EventTriggerType.PointerClick;
         entry2.callback.AddListener( (eventData) => {Debug.Log("AQUÍ COLGÓ");
-                                                    player.PickHangPhone();
+                                                    /*player.PickHangPhone();
                                                     msgTrigg.TriggerNextMessage();
                                                     //Trigger the next call
-                                                    MakingTime();
-                                                    ShowHideOptions();
+                                                    minigame.Courutine();
+                                                    ShowHideOptions();*/
+                                                    RightButton();
                                                     });
         trigger2.triggers.Add(entry2);
     }
@@ -51,10 +54,31 @@ public class Minigame2_Options : MonoBehaviour
         firstOption.SetActive(isActive);
         secondOption.SetActive(isActive);
     }
-    private void MakingTime(){
+    private void LeftButton(){
+        msgTrigg.TriggerNextMessage();
         if(minigame.counter < minigame.numberScams){
+            goToGameOver();
+        }else if(minigame.counter == minigame.numberScams)
+        {
+            player.PickHangPhone();
+            Debug.Log("JUEGO GANADO");
+            
+            //WINGAME
+            PlayerPrefs.SetInt("dayCompleted",1);
+            minigame.GameEnded();
+        }
+        ShowHideOptions();
+    }
+    private void RightButton(){
+        msgTrigg.TriggerNextMessage();
+        if(minigame.counter <= minigame.numberScams){
+            player.PickHangPhone();
             minigame.Courutine();
-        }   
+        }else if(minigame.counter > minigame.numberScams)
+        {
+            goToGameOver();
+        }
+        ShowHideOptions();
     }
     void OnEnable(){
         MessageManager.showtheOptions += ShowHideOptions;

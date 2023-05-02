@@ -9,11 +9,22 @@ private System.Random rand;
                                     {"Muy buenas tardes señor Ritchzen, le habla un representante de VIGO, como sabrá, nuestra base de datos ha sido comprometida, complicando en demasía el servicio que nosotros proporcionamos a usuarios del paquete plata como usted,", "sobre todo en zonas cercanas a la calle Ecuador, donde sabemos que el servicio puede ser deficiente a ratos. Permítame su contraseña y nro de tarjeta y estos problemas se solucionarán en breve."},
                                     {"Saludos don Eduardo, le habla un representante de VIGO, sabemos por lo que usted debe estar pasando", "por lo que le pido que me proporcione su contraseña cuanto antes para solucionar este contratiempo."}
                                  };
+    public string[,] realCall = {
+                                    {"Hola, la presente es la llamada verdadera", "¿Qué me dices?"}
+                                };
     public string[] ScamConv(int index){
         int lenght = scamCalls.GetLength(1);
         string[] theArray = new string[lenght];
         for(int i=0;i<lenght;i++){
             theArray[i]= scamCalls[index,i];
+        }
+        return theArray;
+    }
+    public string[] RealCall(){
+        int lenght = realCall.GetLength(1);
+        string[] theArray = new string[lenght];
+        for(int i=0;i<lenght;i++){
+            theArray[i]= realCall[0,i];
         }
         return theArray;
     }

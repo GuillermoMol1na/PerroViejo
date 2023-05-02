@@ -3,11 +3,11 @@ using TMPro;
 public class Timer_2 : MonoBehaviour
 {
     private GameObject background;
-    private float timeValue = 90;
+    private float timeValue = 120;
     private bool isActive;
     public TMP_Text timerText;
-    /*public delegate void GameOver();
-    public static event GameOver goToGameOver;*/
+    public delegate void GameOver();
+    public static event GameOver goToGameOver;
     void Start(){
         timerText.transform.SetAsLastSibling();
         background = this.transform.GetChild(0).gameObject;
@@ -28,8 +28,10 @@ public class Timer_2 : MonoBehaviour
         if(timeToDisplay < 0){
             timeToDisplay=0;
             //Time Over->Game Over
+            goToGameOver();
             //Restart time
-            timeValue=90;
+            //timeValue=90;
+            DeactivateTimer();
         }
         if(timeToDisplay < 11){
             timerText.color = new Color32(255,0,0,255);

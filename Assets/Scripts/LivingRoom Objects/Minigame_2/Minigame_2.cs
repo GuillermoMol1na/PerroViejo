@@ -7,8 +7,10 @@ public class Minigame_2 : MonoBehaviour
     private Timer_2 timer;
     private MessageTrigger msgTrigg;
     private Messages[] scamMsg;
+    private Messages realMsg;
     private Dialogue_Storage storage = new Dialogue_Storage();
     string[] dialog;
+    int[] randOrder;
     public int numberScams;
     public int counter;
     void Start()
@@ -19,6 +21,8 @@ public class Minigame_2 : MonoBehaviour
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         numberScams=storage.NumberofScams();
         scamMsg = new Messages[numberScams];
+        //Get the random indexes
+        randOrder = storage.RandomOrder();
         counter=0;
         Debug.Log("El día de hoy es: "+PlayerPrefs.GetInt("day"));
         //Start the Minigame 2
@@ -37,25 +41,42 @@ public class Minigame_2 : MonoBehaviour
     }
     public IEnumerator RingthePhone(){
         if(gm.startMinigame2){
-        //Wait 5 seconds before the call
-        yield return new WaitForSeconds(5f);
-        Debug.Log("The RINGING STARTS");
-        yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.F) );
-        Debug.Log("the RINGING STOPS");
-        //Activate the Animation
-        player.PickHangPhone();
-        //Answering the call
-        StartOrHangUp();
+            //Wait 5 seconds before the call
+            yield return new WaitForSeconds(5f);
+            Debug.Log("The RINGING STARTS");
+            yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.F) );
+            Debug.Log("the RINGING STOPS");
+            timer.ActivateTimer();
+            //Activate the Animation
+            player.PickHangPhone();
+            //Answering the call
+            if(counter < numberScams){
+                StartOrHangUp();
+            }else if(counter == numberScams){
+                PickRealCall();
+            }
+            
         }
 
     }
     public void StartOrHangUp(){
-        scamMsg[counter] = new Messages();
-        dialog = storage.ScamConv(counter);
-        scamMsg[counter].Include(dialog);
-        msgTrigg.UsetheMessages(scamMsg[counter]);
+        int index = randOrder[counter];
+        scamMsg[index] = new Messages();
+        dialog = storage.ScamConv(index);
+        scamMsg[index].Include(dialog);
+        msgTrigg.UsetheMessages(scamMsg[index]);
         msgTrigg.TriggerMessage();
         if(counter <= numberScams)
             counter++;
+    }
+    public void PickRealCall(){
+        realMsg = new Messages();
+        dialog = storage.RealCall();
+        realMsg.Include(dialog);
+        msgTrigg.UsetheMessages(realMsg);
+        msgTrigg.TriggerMessage();
+    }
+    public void GameEnded(){
+        gm.startMinigame2 =false;
     }
 }

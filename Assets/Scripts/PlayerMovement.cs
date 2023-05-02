@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour
      public float moveSpeed = 0.2f;
      public bool talkonThePhone=false;
      public Animator anim;
+     public int theDay;
 
     void Start(){
+        PlayerPrefs.SetInt("day",theDay);
         anim.SetBool("onThePhone", talkonThePhone);
     }
     void Update()
