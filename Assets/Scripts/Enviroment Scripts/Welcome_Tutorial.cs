@@ -19,7 +19,9 @@ public class Welcome_Tutorial : MonoBehaviour
                                     "Al parecer nada.",
                                     "No hay nada claro de momento, por lo que Erwin debe seguir su rutina como siempre.",
                                     "Buena suerte."};
-    private string[] enday = {"Eso es todo por hoy", "Erwin debe descansar y prepararse para el día siguiente"};
+    private string[] enday0 = {"Eso es todo por hoy", "Erwin debe descansar y prepararse para el día siguiente"};
+    private string[] enday1;
+    private string[] enday2;
     private Messages welcTut = new Messages();
     void Start()
     {
@@ -52,7 +54,19 @@ public class Welcome_Tutorial : MonoBehaviour
         msgTrigg.TriggerMessage();
     }
     private void ShowMeEndDayMessage(){
-        welcTut.Include(enday);
+        switch(PlayerPrefs.GetInt("day")){
+        case 0:
+        welcTut.Include(enday0);
+        break;
+        case 1:
+        enday1 = new string[] {"Eso es todo por hoy", "Lograste finalizar el reto del día en: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"), "Erwin debe descansar y prepararse para el día siguiente"};
+        welcTut.Include(enday1);
+        break;
+        case 2:
+        enday2= new string[] {"Eso es todo por hoy","Lograste evitar las estafas en: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"), "Eso concluye todo, Erwin debe ir a la cama para finalizar el juego"};
+        welcTut.Include(enday2);
+        break;
+        }
         msgTrigg.UsetheMessages(welcTut);
         msgTrigg.TriggerMessage();
     }

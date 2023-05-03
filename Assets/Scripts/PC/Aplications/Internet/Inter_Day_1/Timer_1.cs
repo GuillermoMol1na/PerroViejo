@@ -10,6 +10,8 @@ public class Timer_1 : MonoBehaviour
     public bool isActive;
     private int strikeCounter=0;
     public TMP_Text timerText;
+    private float minutes;
+    private float seconds;
     public delegate void GameOver();
     public static event GameOver goToGameOver;
     void Start(){
@@ -43,8 +45,11 @@ public class Timer_1 : MonoBehaviour
         if(timeToDisplay < 11){
             timerText.color = new Color32(255,0,0,255);
         }
-        float minutes = Mathf.FloorToInt(timeToDisplay / 60);
-        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+         minutes= Mathf.FloorToInt(timeToDisplay / 60);
+         seconds = Mathf.FloorToInt(timeToDisplay % 60);
+         //Save value for results
+         PlayerPrefs.SetFloat("minutes",minutes);
+         PlayerPrefs.SetFloat("seconds",seconds);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
@@ -55,6 +60,7 @@ public class Timer_1 : MonoBehaviour
         childText.SetActive(isActive);
     }
     public void DeactivateTimer(){
+        
         isActive = false;
         for(int i =1;i<4;i++){
             strikes[i-1].SetActive(false);

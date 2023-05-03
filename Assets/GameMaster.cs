@@ -30,10 +30,12 @@ public class GameMaster : MonoBehaviour
        PlayerPrefs.SetInt("day",newDay);
        PlayerPrefs.SetInt("dayCompleted",0);
        PlayerPrefs.SetInt("tutorial",1);
+       float min = PlayerPrefs.GetFloat("minutes");
+       float sec = PlayerPrefs.GetFloat("seconds");
        //Acomodate Red Arrows
        RelocateArrowsandBed();
 
-       SaveSystem.SaveDay(newDay,0,1);
+       SaveSystem.SaveDay(newDay,0,1,min,sec);
     }
     public bool Converter(int num){
         if(num == 1){

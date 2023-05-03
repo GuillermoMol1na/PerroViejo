@@ -685,6 +685,7 @@ MonoBehaviour:
   lastCheckpointPosBedRoom: {x: 0, y: 0}
   lastCheckpointPosLivingRoom: {x: 0, y: 0}
   BedMade: 0
+  startMinigame2: 0
   glassfull: 0
   usedRedArrowBook: 0
   usedRedArrowPC: 0
@@ -1042,7 +1043,9 @@ MonoBehaviour:
   rb: {fileID: 379722860}
   baseColl: {fileID: 379722862}
   moveSpeed: 5
+  talkonThePhone: 0
   anim: {fileID: 379722861}
+  theDay: 0
 --- !u!50 &379722860
 Rigidbody2D:
   serializedVersion: 4
@@ -3532,6 +3535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageText: {fileID: 998418482}
   hasended: 0
+  blockLast: 0
 --- !u!4 &2054786840
 Transform:
   m_ObjectHideFlags: 0

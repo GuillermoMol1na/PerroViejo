@@ -29,16 +29,24 @@ public class LevelLoader : MonoBehaviour
         StartCoroutine(TransitionLevel(SceneManager.GetActiveScene().buildIndex + 1));
     }
     public void LoadNextDay(){
-        int ind = PlayerPrefs.GetInt("day");
         downStairs.enabled=true;
-        downStairs.text="DIA "+ind;
-        StartCoroutine(TransitionLevel(SceneManager.GetActiveScene().buildIndex));
+        int ind = PlayerPrefs.GetInt("day");
+        if(ind<3){
+            downStairs.text="DIA "+ind;
+            StartCoroutine(TransitionDay(SceneManager.GetActiveScene().buildIndex));
+        }else{
+            downStairs.text="GRACIAS POR JUGAR"+ System.Environment.NewLine+ "Creado por: GUILLERMO MOLINA y RAFAEL URQUIDI";
+            StartCoroutine(TransitionDay(0));
+        }
     }
     IEnumerator TransitionLevel(int levelIndex){
         transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(1);
-
+        SceneManager.LoadScene(levelIndex);
+    }
+    IEnumerator TransitionDay(int levelIndex){
+        transition.SetTrigger("Start");
+        yield return new WaitForSeconds(4);
         SceneManager.LoadScene(levelIndex);
     }
     void OnEnable(){

@@ -13,14 +13,14 @@ public class PersonalComputer : MonoBehaviour
     //This is new
     private string[] readMssg = {"Debes leer acerca de los peligros del malware primero"};
     private string[] drinkMssg = {"Erwin no inicia el día sin un buen vaso de brandy"};
+    private string[] dayDone = {"El día ha finalizado, regresa a tu habitación para terminar el día"};
     
-    private Messages readMsg = new Messages();
-    private Messages drinkMsg = new Messages();
+    private Messages msg = new Messages();
+
  
     void Start()
     {
-        readMsg.Include(readMssg);
-        drinkMsg.Include(drinkMssg);
+
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
@@ -36,16 +36,26 @@ public class PersonalComputer : MonoBehaviour
     void Update(){
         if(playerCol.IsTouching(PcColl) && Input.GetKeyDown(KeyCode.F) && !gm.startMinigame2){
             if(gm.glassfull){
-                msgTrigg.UsetheMessages(drinkMsg);
+                msg.Include(readMssg);
+                msgTrigg.UsetheMessages(msg);
                 msgTrigg.TriggerMessage();
             }
             else if(gm.usedRedArrowPC){
-                msgTrigg.UsetheMessages(readMsg);
+                msg.Include(drinkMssg);
+                msgTrigg.UsetheMessages(msg);
                 msgTrigg.TriggerMessage();
-            }else
-             thelevelLoader.LoadPC();
-             gm.usedRedArrowPC=true;;
-             redArrow.RedArrowVanish();
+            }
+            else if(PlayerPrefs.GetInt("dayCompleted")==1){
+                msg.Include(dayDone);
+                msgTrigg.UsetheMessages(msg);
+                msgTrigg.TriggerMessage();
+            }
+            else{
+                thelevelLoader.LoadPC();
+                gm.usedRedArrowPC=true;;
+                redArrow.RedArrowVanish();
+            }
+             
         }
     }
 

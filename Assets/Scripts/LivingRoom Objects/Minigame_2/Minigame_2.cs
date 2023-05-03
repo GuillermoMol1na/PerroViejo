@@ -77,6 +77,7 @@ public class Minigame_2 : MonoBehaviour
         msgTrigg.TriggerMessage();
     }
     public void GameEnded(){
+        timer.DeactivateTimer();
         gm.startMinigame2 =false;
     }
 }

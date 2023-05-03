@@ -30,6 +30,7 @@ private System.Random rand;
     }
     public int[] RandomOrder(){
         rand = new System.Random();
+        //int length = rand.Next(0,8);
         int lenght = scamCalls.GetLength(0);
         int[] thefill = new int[lenght];
         for(int i=0;i<lenght;i++){
