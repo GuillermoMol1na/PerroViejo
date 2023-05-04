@@ -31,6 +31,9 @@ public class GameMaster : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex != 1){
         min = PlayerPrefs.GetFloat("minutes");
         sec = PlayerPrefs.GetFloat("seconds");
+        }else{
+            //Acomodate Red Arrows
+             RelocateArrowsandBed();
         }
         
     }
@@ -43,11 +46,10 @@ public class GameMaster : MonoBehaviour
        PlayerPrefs.SetInt("day",newDay);
        PlayerPrefs.SetInt("dayCompleted",0);
        PlayerPrefs.SetInt("tutorial",1);
+       int diff = PlayerPrefs.GetInt("difficulty");
        
-       //Acomodate Red Arrows
-       RelocateArrowsandBed();
 
-       SaveSystem.SaveDay(newDay,0,1,min,sec);
+       SaveSystem.SaveDay(newDay,0,1,diff,min,sec);
 
        //RestarDay
        glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);

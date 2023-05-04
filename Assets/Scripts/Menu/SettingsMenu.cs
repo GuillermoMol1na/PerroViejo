@@ -9,6 +9,7 @@ public class SettingsMenu : MonoBehaviour
     private int continueDay;
     private int continueDayOver;
     private int continueTutorial;
+    private int difficulty;
     private float minutes;
     private float seconds;
    public void PlayNewGame()
@@ -17,6 +18,7 @@ public class SettingsMenu : MonoBehaviour
        PlayerPrefs.SetInt("day",0);
        PlayerPrefs.SetInt("dayCompleted",0);
        PlayerPrefs.SetInt("tutorial",1);
+       PlayerPrefs.SetInt("difficulty",0);
        PlayerPrefs.SetFloat("minutes",0);
        PlayerPrefs.SetFloat("seconds",0);
        //Event to Start a New Game
@@ -28,6 +30,7 @@ public class SettingsMenu : MonoBehaviour
         continueDay = data.theDay;
         continueDayOver=data.theDayOver;
         continueTutorial=data.theTutorial;
+        difficulty=data.theDifficulty;
         minutes=data.theMinutes;
         seconds=data.theSeconds;
 
@@ -35,6 +38,7 @@ public class SettingsMenu : MonoBehaviour
        PlayerPrefs.SetInt("day",continueDay);
        PlayerPrefs.SetInt("dayCompleted",continueDayOver);
        PlayerPrefs.SetInt("tutorial",continueTutorial);
+       PlayerPrefs.SetInt("difficulty",difficulty);
        PlayerPrefs.SetFloat("minutes",minutes);
        PlayerPrefs.SetFloat("seconds",seconds);
        //Event to continue Day

@@ -8,7 +8,6 @@ public class Minigame_1 : MonoBehaviour
 {
     private Sprite[] fakes;
     private Sprite[] reals;
-    private Sprite[] fakesShuffled;
     private Sprite theReal;
     private Sprite websiteLogo;
     private Sprite btn;
@@ -20,7 +19,7 @@ public class Minigame_1 : MonoBehaviour
     private System.Random rand;
     private object[] loadedFakeIcons;
     private object[] loadedRealIcons;
-    private object[] loadedFakeAnti;
+    //private Difficulty_Minigame1 difficulty = new Difficulty_Minigame1();
     List<string> listOfReals;
     /*private string[] realLinks = {"hamilton008796465746757394234532.mp3",
                                   "tomjones634268543977413253633245.mp3",
@@ -58,6 +57,7 @@ public class Minigame_1 : MonoBehaviour
         websiteLogo = Resources.Load("FreeMusic_Logo") as Sprite;
         //Get a list of the True Links
         OrganizeRealLinks();
+
     }
     public Sprite[] Reshuffle(){
     Sprite[] newList = new Sprite[15];
