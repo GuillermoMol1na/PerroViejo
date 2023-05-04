@@ -13,10 +13,10 @@ public class Stairs : MonoBehaviour
         upstairsMsg.Include(finishDayFirst);
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         msgTrigg.UsetheMessages(upstairsMsg);
-        dayOver = PlayerPrefs.GetInt("dayCompleted");
+        
     }
     void OnTriggerEnter2D(Collider2D other)
-    {
+    {   dayOver = PlayerPrefs.GetInt("dayCompleted");
         if (other.gameObject.tag == "Player" && !gm.startMinigame2)
         {
           if(dayOver==0){

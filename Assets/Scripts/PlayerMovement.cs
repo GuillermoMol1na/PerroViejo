@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start(){
         /*PlayerPrefs.SetInt("day",theDay);
         PlayerPrefs.SetInt("dayCompleted",completed);*/
-        //Debug.Log("LOS MINUTOS: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"));
+        Debug.Log("LOS MINUTOS: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"));
         anim.SetBool("onThePhone", talkonThePhone);
     }
     void Update()

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Welcome_Tutorial : MonoBehaviour
 {
-    private GameMaster  gm;
+    private GameMaster gm;
     private MessageTrigger msgTrigg;
     private bool tut=true;
     private bool com;
@@ -24,7 +24,8 @@ public class Welcome_Tutorial : MonoBehaviour
     private string[] enday2;
     private Messages welcTut = new Messages();
     void Start()
-    {
+    {  
+        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         tut= Converter(PlayerPrefs.GetInt("tutorial"));
         com= Converter(PlayerPrefs.GetInt("dayCompleted"));
@@ -54,16 +55,17 @@ public class Welcome_Tutorial : MonoBehaviour
         msgTrigg.TriggerMessage();
     }
     private void ShowMeEndDayMessage(){
+        
         switch(PlayerPrefs.GetInt("day")){
         case 0:
         welcTut.Include(enday0);
         break;
         case 1:
-        enday1 = new string[] {"Eso es todo por hoy", "Lograste finalizar el reto del día en: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"), "Erwin debe descansar y prepararse para el día siguiente"};
+        enday1 = new string[] {"Eso es todo por hoy", "Lograste finalizar el reto del día en: "+gm.min+":"+gm.sec, "Erwin debe descansar y prepararse para el día siguiente"};
         welcTut.Include(enday1);
         break;
         case 2:
-        enday2= new string[] {"Eso es todo por hoy","Lograste evitar las estafas en: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"), "Eso concluye todo, Erwin debe ir a la cama para finalizar el juego"};
+        enday2= new string[] {"Eso es todo por hoy","Lograste evitar las estafas en: "+gm.min+":"+gm.sec, "Eso concluye todo, Erwin debe ir a la cama para finalizar el juego"};
         welcTut.Include(enday2);
         break;
         }
