@@ -5,6 +5,8 @@ public class SettingsMenu : MonoBehaviour
 {
     public delegate void LoadNew(int currentDay);
     public static event LoadNew loadtheNewGame;
+    public delegate void LoadReturn();
+    public static event LoadReturn loadtheReturn;
 
     private int continueDay;
     private int continueDayOver;
@@ -33,16 +35,22 @@ public class SettingsMenu : MonoBehaviour
         difficulty=data.theDifficulty;
         minutes=data.theMinutes;
         seconds=data.theSeconds;
-
-        //Continue from Day
-       PlayerPrefs.SetInt("day",continueDay);
-       PlayerPrefs.SetInt("dayCompleted",continueDayOver);
-       PlayerPrefs.SetInt("tutorial",continueTutorial);
-       PlayerPrefs.SetInt("difficulty",difficulty);
-       PlayerPrefs.SetFloat("minutes",minutes);
-       PlayerPrefs.SetFloat("seconds",seconds);
-       //Event to continue Day
-        loadtheNewGame(continueDay);
+        if(continueDay < 2){
+            //Continue from Day
+            PlayerPrefs.SetInt("day",continueDay);
+            PlayerPrefs.SetInt("dayCompleted",continueDayOver);
+            PlayerPrefs.SetInt("tutorial",continueTutorial);
+            PlayerPrefs.SetInt("difficulty",difficulty);
+            PlayerPrefs.SetFloat("minutes",minutes);
+            PlayerPrefs.SetFloat("seconds",seconds);
+            //Event to continue Day
+             loadtheNewGame(continueDay);
+        }
+        else{
+            //Thaks for playing
+            loadtheReturn();
+        }
+        
    }    
 
    public void QuitGame() 
