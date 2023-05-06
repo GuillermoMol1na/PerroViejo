@@ -49,6 +49,8 @@ public class Options_Answers : MonoBehaviour
         }
     }
     public void ShowOptions(){
+        //Avoid Skiping message with space
+        msgTrigg.BlockforSave();
         for (int i = 0; i < num; ++i){
              theChildren[i].SetActive(true);
         }

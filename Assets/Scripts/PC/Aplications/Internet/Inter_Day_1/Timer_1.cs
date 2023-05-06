@@ -6,12 +6,14 @@ public class Timer_1 : MonoBehaviour
     private GameObject childText;
     private GameObject background;
     private GameObject[] strikes = new GameObject[3];
-    private float timeValue = 90;
+    private float timeValue;
+    private float refresh;
     public bool isActive;
     private int strikeCounter=0;
     public TMP_Text timerText;
     private float minutes;
     private float seconds;
+    private Difficulty_Minigame1 difficulty = new Difficulty_Minigame1();
     public delegate void GameOver();
     public static event GameOver goToGameOver;
     void Start(){
@@ -22,6 +24,20 @@ public class Timer_1 : MonoBehaviour
             strikes[i-1] = this.transform.GetChild(i).gameObject;
         }
         DeactivateTimer();
+
+        //Get the DIFFICULTY OF THE DAY
+        switch(PlayerPrefs.GetInt("difficulty")){
+            case 0:
+                timeValue = difficulty.EasyTime();
+            break;
+            case 1:
+                timeValue = difficulty.MediumTime();
+            break;
+            case 2:
+                timeValue = difficulty.HardTime();
+            break;
+        }
+        refresh = timeValue;
     }
     void Update()
     {
@@ -40,7 +56,7 @@ public class Timer_1 : MonoBehaviour
             //Time Over->Game Over
             goToGameOver();
             //Restart time
-            timeValue=90;
+            timeValue=refresh;
         }
         if(timeToDisplay < 11){
             timerText.color = new Color32(255,0,0,255);

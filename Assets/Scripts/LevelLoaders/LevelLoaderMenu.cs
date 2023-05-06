@@ -15,6 +15,11 @@ public class LevelLoaderMenu : MonoBehaviour
         titleText.text="DIA "+currentDay;
         StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex + 1));
     }
+    public void ReturnToStart(){
+        titleText.text="GRACIAS POR JUGAR";
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex));
+    }
+
 
     IEnumerator Transition(int levelIndex){
         transition.SetTrigger("Start");
@@ -25,9 +30,11 @@ public class LevelLoaderMenu : MonoBehaviour
     }
     void OnEnable(){
         SettingsMenu.loadtheNewGame += LoadGame;
+        SettingsMenu.loadtheReturn += ReturnToStart;
     }
     void OnDisable(){
         SettingsMenu.loadtheNewGame -= LoadGame;
+        SettingsMenu.loadtheReturn -= ReturnToStart;
     }
 
 }

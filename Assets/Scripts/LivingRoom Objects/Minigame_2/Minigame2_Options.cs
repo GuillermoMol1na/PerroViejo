@@ -64,7 +64,6 @@ public class Minigame2_Options : MonoBehaviour
             Debug.Log("JUEGO GANADO");
             
             //WINGAME
-            
             PlayerPrefs.SetInt("dayCompleted",1);
             minigame.GameEnded();
         }

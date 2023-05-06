@@ -39,4 +39,7 @@ public class MessageTrigger : MonoBehaviour
         message = newMessages;
         Debug.Log("Nuevos mensajes recibidos");
     }
+    public void BlockforSave(){
+        msgManager.blockLast = true;
+    }
 }

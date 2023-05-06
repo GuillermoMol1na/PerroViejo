@@ -35,26 +35,28 @@ public class PersonalComputer : MonoBehaviour
     }
     void Update(){
         if(playerCol.IsTouching(PcColl) && Input.GetKeyDown(KeyCode.F) && !gm.startMinigame2){
-            if(gm.glassfull){
-                msg.Include(readMssg);
-                msgTrigg.UsetheMessages(msg);
-                msgTrigg.TriggerMessage();
-            }
-            else if(gm.usedRedArrowPC){
+            if(PlayerPrefs.GetInt("dayCompleted")==0){
+                if(gm.glassfull){
                 msg.Include(drinkMssg);
                 msgTrigg.UsetheMessages(msg);
                 msgTrigg.TriggerMessage();
-            }
-            else if(PlayerPrefs.GetInt("dayCompleted")==1){
-                msg.Include(dayDone);
+                }
+                else if(!gm.usedRedArrowBook){
+                msg.Include(readMssg);
                 msgTrigg.UsetheMessages(msg);
                 msgTrigg.TriggerMessage();
+                }
+                else{
+                    thelevelLoader.LoadPC();
+                    gm.usedRedArrowPC=true;;
+                    redArrow.RedArrowVanish();
+                }
+            }else{
+                msg.Include(dayDone);
+                    msgTrigg.UsetheMessages(msg);
+                    msgTrigg.TriggerMessage();
             }
-            else{
-                thelevelLoader.LoadPC();
-                gm.usedRedArrowPC=true;;
-                redArrow.RedArrowVanish();
-            }
+            
              
         }
     }
