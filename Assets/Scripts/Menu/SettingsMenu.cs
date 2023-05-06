@@ -13,6 +13,10 @@ public class SettingsMenu : MonoBehaviour
     private int difficulty;
     private float minutes;
     private float seconds;
+    void Start(){
+        //IN case the difficulty isn't selected, this will be easy
+        PlayerPrefs.SetInt("difficulty",0);
+    }
    public void PlayNewGame()
    {
        //Start from Day 0

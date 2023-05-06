@@ -32,7 +32,7 @@ public class Options_Answers : MonoBehaviour
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             if(i==0){
-                entry.callback.AddListener( (eventData) => {gm.UpdateSaveDay(); 
+                entry.callback.AddListener( (eventData) => {gm.UpdateDay(true); 
                                                             Debug.Log("Partida Guardada");
                                                              msgTrigg.TriggerNextMessage();
                                                              showAccept();
@@ -40,7 +40,8 @@ public class Options_Answers : MonoBehaviour
                                                              nextDay(); });
             }
             else{
-                entry.callback.AddListener( (eventData) => { Debug.Log("Partida NO Guardada");
+                entry.callback.AddListener( (eventData) => { gm.UpdateDay(false); 
+                                                             Debug.Log("Partida NO Guardada");
                                                              msgTrigg.TriggerNextMessage();
                                                              HideOptions();
                                                              nextDay(); });

@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
      public int completed;*/
 
     void Start(){
+        Debug.Log("DIFICULTAD IMPUESTA: "+PlayerPrefs.GetInt("difficulty"));
         /*PlayerPrefs.SetInt("day",theDay);
         PlayerPrefs.SetInt("dayCompleted",completed);*/
         Debug.Log("LOS MINUTOS: "+PlayerPrefs.GetFloat("minutes")+":"+PlayerPrefs.GetFloat("seconds"));

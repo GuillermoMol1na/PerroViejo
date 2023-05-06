@@ -13,6 +13,7 @@ public class GameMaster : MonoBehaviour
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
 
     void Start(){
+        Debug.Log("DIFICULTAD IMPUESTA: "+PlayerPrefs.GetInt("difficulty"));
         det = PlayerPrefs.GetInt("dayCompleted");
         glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
         min=PlayerPrefs.GetFloat("minutes");
@@ -44,18 +45,17 @@ public class GameMaster : MonoBehaviour
         usedRedArrowBook= usedRedArrowPC= true;
         BedMade=false;*/
     }
-    public void UpdateSaveDay(){
+    public void UpdateDay(bool save){
        int newDay = PlayerPrefs.GetInt("day") + 1;
        PlayerPrefs.SetInt("day",newDay);
        PlayerPrefs.SetInt("dayCompleted",0);
        PlayerPrefs.SetInt("tutorial",1);
-       int diff = PlayerPrefs.GetInt("difficulty");
-       
-
-       SaveSystem.SaveDay(newDay,0,1,diff,min,sec);
-
+       int diff = PlayerPrefs.GetInt("difficulty");  
+        if(save){
+            SaveSystem.SaveDay(newDay,0,1,diff,min,sec);
+        }
        //RestarDay
-       glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
+       glassfull= usedRedArrowBook= usedRedArrowPC= true;
     }
     public bool Converter(int num){
         if(num == 1){
