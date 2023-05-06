@@ -29,9 +29,6 @@ public class GameMaster : MonoBehaviour
         }
     }
     void OnLevelWasLoaded(){
-        /*Debug.Log("El vaso lleno es: "+glassfull);
-        Debug.Log("La flecha usada del librero es: "+usedRedArrowBook);
-        Debug.Log("La flecha usada del PC es: "+usedRedArrowPC);*/
         det = PlayerPrefs.GetInt("dayCompleted");
         if(SceneManager.GetActiveScene().buildIndex != 1){
         min = PlayerPrefs.GetFloat("minutes");

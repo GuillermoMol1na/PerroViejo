@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SettingsMenu : MonoBehaviour
 {
@@ -20,11 +19,13 @@ public class SettingsMenu : MonoBehaviour
        PlayerPrefs.SetInt("day",0);
        PlayerPrefs.SetInt("dayCompleted",0);
        PlayerPrefs.SetInt("tutorial",1);
-       PlayerPrefs.SetInt("difficulty",0);
        PlayerPrefs.SetFloat("minutes",0);
        PlayerPrefs.SetFloat("seconds",0);
        //Event to Start a New Game
        loadtheNewGame(0);
+   }
+   public void SetDifficulty(int i){
+        PlayerPrefs.SetInt("difficulty",i);
    }
    public void ContinueGame()
    {
