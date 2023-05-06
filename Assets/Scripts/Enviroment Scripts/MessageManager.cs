@@ -47,6 +47,9 @@ public class MessageManager : MonoBehaviour
             showtheOptions();
         }
     }
+    public void BlockSaveSkip(){
+        blockLast=true;
+    }
     public void EndMessages(){
         Debug.Log("Fin de la conversación");
     }
