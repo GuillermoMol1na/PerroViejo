@@ -5,7 +5,7 @@ public class GameMaster : MonoBehaviour
     private static GameMaster instance;
     public Vector2 lastCheckpointPosBedRoom;
     public Vector2 lastCheckpointPosLivingRoom;
-    private int det;
+    public int det;
     public float min;
     public float sec;
     public bool BedMade;
@@ -17,6 +17,8 @@ public class GameMaster : MonoBehaviour
         glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
         min=PlayerPrefs.GetFloat("minutes");
         sec=PlayerPrefs.GetFloat("seconds");
+
+        
     }
     void Awake(){
         if(instance==null){
@@ -27,6 +29,9 @@ public class GameMaster : MonoBehaviour
         }
     }
     void OnLevelWasLoaded(){
+        /*Debug.Log("El vaso lleno es: "+glassfull);
+        Debug.Log("La flecha usada del librero es: "+usedRedArrowBook);
+        Debug.Log("La flecha usada del PC es: "+usedRedArrowPC);*/
         det = PlayerPrefs.GetInt("dayCompleted");
         if(SceneManager.GetActiveScene().buildIndex != 1){
         min = PlayerPrefs.GetFloat("minutes");
@@ -38,8 +43,9 @@ public class GameMaster : MonoBehaviour
         
     }
     private void RelocateArrowsandBed(){
-        glassfull= usedRedArrowBook= usedRedArrowPC= true;
-        BedMade=false;
+        /*glassfull=false;
+        usedRedArrowBook= usedRedArrowPC= true;
+        BedMade=false;*/
     }
     public void UpdateSaveDay(){
        int newDay = PlayerPrefs.GetInt("day") + 1;

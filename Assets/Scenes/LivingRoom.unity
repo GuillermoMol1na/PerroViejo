@@ -1609,7 +1609,6 @@ GameObject:
   - component: {fileID: 715868688}
   - component: {fileID: 715868689}
   - component: {fileID: 715868691}
-  - component: {fileID: 715868690}
   m_Layer: 0
   m_Name: Minibar
   m_TagString: Untagged
@@ -1710,19 +1709,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.96666664, y: 0.9966775}
   m_EdgeRadius: 0
---- !u!114 &715868690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 715868686}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3916642d20a1e2d479a3fccf10df39f5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  miniBarColl: {fileID: 715868689}
 --- !u!114 &715868691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1738,7 +1724,6 @@ MonoBehaviour:
   GlassFull: {fileID: -632807901, guid: 3d506378630d3654c87fde3ee54b41f0, type: 3}
   GlassEmpty: {fileID: -1763435669, guid: 0a0421c3231c531489cd04e01c5ea57a, type: 3}
   minibarColl: {fileID: 715868689}
-  confirm: 0
   redArrow: {fileID: 1708071534}
 --- !u!1 &734332158
 GameObject:
