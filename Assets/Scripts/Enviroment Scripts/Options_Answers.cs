@@ -37,14 +37,16 @@ public class Options_Answers : MonoBehaviour
                                                              msgTrigg.TriggerNextMessage();
                                                              showAccept();
                                                              HideOptions();
-                                                             nextDay(); });
+                                                             nextDay();
+                                                              });
             }
             else{
                 entry.callback.AddListener( (eventData) => { gm.UpdateDay(false); 
                                                              Debug.Log("Partida NO Guardada");
                                                              msgTrigg.TriggerNextMessage();
                                                              HideOptions();
-                                                             nextDay(); });
+                                                             nextDay();
+                                                              });
             }
             trigger.triggers.Add(entry);
         }

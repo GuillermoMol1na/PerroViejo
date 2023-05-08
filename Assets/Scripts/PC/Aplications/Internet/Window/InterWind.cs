@@ -144,28 +144,30 @@ public class InterWind : MonoBehaviour
         GameObject tutorialT =new GameObject("Tutorial_TextPage");
         tutorialT = theTutorial.TutorialText(tutorialT,won);
         //Declare the Btton
-        GameObject acceptBtnObj = new GameObject("Btn");
-        acceptBtnObj = theTutorial.TutorialButton(acceptBtnObj, theMinigame.GetBtn());
-        GameObject textBtnObject= new GameObject("Btn_Text");
-        textBtnObject = theTutorial.TutorialTextBtn(textBtnObject);
-
-        
-        EventTrigger trigger3 = acceptBtnObj.AddComponent<EventTrigger>();
-        EventTrigger.Entry entry = new EventTrigger.Entry();
-        entry.eventID = EventTriggerType.PointerClick;
         if(won==0){
+            GameObject acceptBtnObj = new GameObject("Btn");
+            acceptBtnObj = theTutorial.TutorialButton(acceptBtnObj, theMinigame.GetBtn());
+            GameObject textBtnObject= new GameObject("Btn_Text");
+            textBtnObject = theTutorial.TutorialTextBtn(textBtnObject);
+
+            EventTrigger trigger3 = acceptBtnObj.AddComponent<EventTrigger>();
+            EventTrigger.Entry entry = new EventTrigger.Entry();
+            entry.eventID = EventTriggerType.PointerClick;
+    
             entry.callback.AddListener( (eventData) => { DeleteWind(); internetController.NewTabwindow("Window"); timer1.ActivateTimer(); });
+
+            trigger3.triggers.Add(entry);
+
+            acceptBtnObj.transform.SetParent(this.transform);
+            textBtnObject.transform.SetParent(acceptBtnObj.transform);
+            acceptBtnObj.transform.localPosition=new Vector3(-216f, -10765f, 0);
+        }else{
+            theMinigame.SetEnded();
         }
-        else{
-            entry.callback.AddListener( (eventData) => { DeleteWind(); /*interApp.CloseMinigame();*/  theMinigame.SetEnded();});
-        }
-        trigger3.triggers.Add(entry);
-        
         tutorialT.transform.SetParent(this.transform);
-        acceptBtnObj.transform.SetParent(this.transform);
-        textBtnObject.transform.SetParent(acceptBtnObj.transform);
+        
         tutorialT.transform.localPosition=new Vector3(0f, 4616f, 0);
-        acceptBtnObj.transform.localPosition=new Vector3(-216f, -10765f, 0);
+        
     }
 
 }

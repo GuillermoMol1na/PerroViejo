@@ -40,7 +40,7 @@ public class SettingsMenu : MonoBehaviour
         difficulty=data.theDifficulty;
         minutes=data.theMinutes;
         seconds=data.theSeconds;
-        if(continueDay < 2){
+        if(continueDay < 3){
             //Continue from Day
             PlayerPrefs.SetInt("day",continueDay);
             PlayerPrefs.SetInt("dayCompleted",continueDayOver);

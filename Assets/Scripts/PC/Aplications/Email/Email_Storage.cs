@@ -17,7 +17,7 @@ public class Email_Storage
                                {"", "", "","",""}   };
   public string[,] dayTwo = { {"Contacto1","VIGO","Contacto3", "Contacto4", "Contacto5"},
                                 {"Subject1", "Inf Usuario", "Subject3", "Subject4", "Subjects5"},
-                               {"Email1", "Le entregamos su factura del mes mientras que notificamos a todos nuestros usuarios que la base de datos se borró requieriendo algunas confirmaciones. Un representante de VIGO le llamará más tarde hoy."+ System.Environment.NewLine+" Gracias por la comprensión.",
+                               {"Email1", "02/05/23"+ System.Environment.NewLine+"Le entregamos su factura del mes mientras que notificamos a todos nuestros usuarios que la base de datos se borró requieriendo algunas confirmaciones. Un representante de VIGO le llamará más tarde hoy."+ System.Environment.NewLine+" Gracias por la comprensión.",
                                 " Algo","Email4","Email5"},
                                {"", "factura_vigo.jpg", "","",""}   };
   public int getDay0Length(){

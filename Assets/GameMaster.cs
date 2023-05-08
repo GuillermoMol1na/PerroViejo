@@ -13,7 +13,7 @@ public class GameMaster : MonoBehaviour
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
 
     void Start(){
-        Debug.Log("DIFICULTAD IMPUESTA: "+PlayerPrefs.GetInt("difficulty"));
+        
         det = PlayerPrefs.GetInt("dayCompleted");
         glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
         min=PlayerPrefs.GetFloat("minutes");
@@ -46,6 +46,8 @@ public class GameMaster : MonoBehaviour
         BedMade=false;*/
     }
     public void UpdateDay(bool save){
+        BedMade=false;
+       //Update the Player Prefas for the next Day
        int newDay = PlayerPrefs.GetInt("day") + 1;
        PlayerPrefs.SetInt("day",newDay);
        PlayerPrefs.SetInt("dayCompleted",0);
