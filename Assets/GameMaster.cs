@@ -11,15 +11,12 @@ public class GameMaster : MonoBehaviour
     public bool BedMade;
     public bool startMinigame2;
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
-
     void Start(){
         
         det = PlayerPrefs.GetInt("dayCompleted");
         glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
         min=PlayerPrefs.GetFloat("minutes");
-        sec=PlayerPrefs.GetFloat("seconds");
-
-        
+        sec=PlayerPrefs.GetFloat("seconds");  
     }
     void Awake(){
         if(instance==null){
