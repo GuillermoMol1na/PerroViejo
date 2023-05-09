@@ -49,7 +49,7 @@ public class Minigame2_Options : MonoBehaviour
         msgTrigg.TriggerNextMessage();
         if(minigame.counter < minigame.numberScams){
             goToGameOver();
-        }else if(minigame.counter == minigame.numberScams)
+        }else if(minigame.counter >= minigame.numberScams)
         {
             player.PickHangPhone();
             Debug.Log("JUEGO GANADO");
