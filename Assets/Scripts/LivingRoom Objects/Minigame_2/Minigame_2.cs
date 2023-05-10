@@ -62,7 +62,6 @@ public class Minigame_2 : MonoBehaviour
                 PickRealCall();
             }
             counter++;
-            
         }
     }
     public void StartOrHangUp(){

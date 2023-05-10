@@ -26,6 +26,7 @@ TagManager:
   - Internet_Content
   - Timer
   - Minigame2
+  - Audio_Manager
   layers:
   - Default
   - TransparentFX

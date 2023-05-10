@@ -5,11 +5,13 @@ public class Bookshelf : MonoBehaviour
     public Collider2D BookShelfColl;
     public Collider2D playerCol;
     private GameMaster  gm;
+    private Music_Manager mm;
     private LevelLoader2 thelevelLoader;
     [SerializeField] private RedArrowObj redArrow;
 
     void Start(){
        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+       mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
        playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
        thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
        if(gm.usedRedArrowBook){
@@ -23,6 +25,8 @@ public class Bookshelf : MonoBehaviour
             if(gm.det == 0){
                 gm.usedRedArrowPC=false;
             }
+            //Stop the music before proceding
+            mm.StopMain();
             thelevelLoader.LoadBook();
         }
     }

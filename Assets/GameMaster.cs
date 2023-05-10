@@ -26,17 +26,6 @@ public class GameMaster : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void OnLevelWasLoaded(){
-        det = PlayerPrefs.GetInt("dayCompleted");
-        if(SceneManager.GetActiveScene().buildIndex != 1){
-        min = PlayerPrefs.GetFloat("minutes");
-        sec = PlayerPrefs.GetFloat("seconds");
-        }else{
-            //Acomodate Red Arrows
-             RelocateArrowsandBed();
-        }
-        
-    }
     private void RelocateArrowsandBed(){
         /*glassfull=false;
         usedRedArrowBook= usedRedArrowPC= true;
@@ -62,6 +51,25 @@ public class GameMaster : MonoBehaviour
         }
         else{
             return false;
+        }
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }     
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        det = PlayerPrefs.GetInt("dayCompleted");
+        if(scene.buildIndex != 1){
+        min = PlayerPrefs.GetFloat("minutes");
+        sec = PlayerPrefs.GetFloat("seconds");
+        }else{
+            //Acomodate Red Arrows
+             RelocateArrowsandBed();
         }
     }
 }

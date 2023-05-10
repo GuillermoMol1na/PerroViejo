@@ -827,7 +827,7 @@ GameObject:
   - component: {fileID: 344047731}
   m_Layer: 0
   m_Name: Audio_Manager
-  m_TagString: Untagged
+  m_TagString: Audio_Manager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -844,6 +844,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5abd76114e7757140903735ac71daddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sounds: []
 --- !u!82 &344047732
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3883,6 +3884,10 @@ PrefabInstance:
     - target: {fileID: 3438202884645839679, guid: 67b0ba69a2e579d4eb41e2fc0b581905, type: 3}
       propertyPath: m_Name
       value: RedArrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 3438202885498039784, guid: 67b0ba69a2e579d4eb41e2fc0b581905, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 3438202885498039785, guid: 67b0ba69a2e579d4eb41e2fc0b581905, type: 3}
       propertyPath: m_LocalPosition.x

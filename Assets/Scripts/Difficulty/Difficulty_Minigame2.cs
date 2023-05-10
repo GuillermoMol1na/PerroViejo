@@ -17,14 +17,14 @@ public class Difficulty_Minigame2
     }
     public int numberOfCallsEasy(){
         rand = new System.Random();
-        return rand.Next(3,5);
+        return rand.Next(3,6);
     }
     public int numberOfCallsMedium(){
         rand = new System.Random();
-        return rand.Next(5,9);
+        return rand.Next(6,10);
     }
     public int numberOfCallsHard(){
         rand = new System.Random();
-        return rand.Next(10,13);
+        return rand.Next(11,15);
     }
 }
