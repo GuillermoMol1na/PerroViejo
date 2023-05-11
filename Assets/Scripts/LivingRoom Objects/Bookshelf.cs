@@ -25,8 +25,6 @@ public class Bookshelf : MonoBehaviour
             if(gm.det == 0){
                 gm.usedRedArrowPC=false;
             }
-            //Stop the music before proceding
-            mm.StopMain();
             thelevelLoader.LoadBook();
         }
     }
