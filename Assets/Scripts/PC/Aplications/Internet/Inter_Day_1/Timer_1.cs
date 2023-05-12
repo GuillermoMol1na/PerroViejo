@@ -6,6 +6,7 @@ public class Timer_1 : MonoBehaviour
     private GameObject childText;
     private GameObject background;
     private GameObject[] strikes = new GameObject[3];
+    private Music_Manager mm;
     private float timeValue;
     private float refresh;
     public bool isActive;
@@ -17,6 +18,9 @@ public class Timer_1 : MonoBehaviour
     public delegate void GameOver();
     public static event GameOver goToGameOver;
     void Start(){
+        //Music Manager
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
+        mm.Volume("Track7-Strike",1f);
         timerText.transform.SetAsLastSibling();
         childText = this.transform.GetChild(4).gameObject;
         background = this.transform.GetChild(0).gameObject;
@@ -38,6 +42,7 @@ public class Timer_1 : MonoBehaviour
             break;
         }
         refresh = timeValue;
+        
     }
     void Update()
     {
@@ -70,13 +75,14 @@ public class Timer_1 : MonoBehaviour
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
     public void ActivateTimer(){
+        mm.Play("Track11-Minigame1",true);
         isActive = true;
         //this.gameObject.SetActive(isActive);
         background.SetActive(isActive);
         childText.SetActive(isActive);
     }
     public void DeactivateTimer(){
-        
+        mm.Stop("Track11-Minigame1");
         isActive = false;
         for(int i =1;i<4;i++){
             strikes[i-1].SetActive(false);
@@ -85,6 +91,7 @@ public class Timer_1 : MonoBehaviour
         background.SetActive(isActive);
     }
     public void SetStrike(){
+        mm.Play("Track7-Strike",false);
         strikes[strikeCounter].SetActive(true);
         strikeCounter++;
         //Game Over for the failure

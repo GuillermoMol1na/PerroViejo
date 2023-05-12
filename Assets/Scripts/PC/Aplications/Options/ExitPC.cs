@@ -13,6 +13,7 @@ public class ExitPC : MonoBehaviour
         OptionsTab.SetActive(active);
     }
     public void ShoworHideOptions(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         if(theTimer.isActive==false){
             active =!active;
         OptionsTab.SetActive(active);

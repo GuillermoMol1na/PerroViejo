@@ -102,6 +102,12 @@ public class Music_Manager : MonoBehaviour
             return;
         s.source.Stop();
     }
+    public void Volume(string name, float vol){
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+            return;
+        s.source.volume = vol;
+    }
     void OnEnable()
     {
         SceneManager.sceneLoaded += OnLevelFinishedLoading;

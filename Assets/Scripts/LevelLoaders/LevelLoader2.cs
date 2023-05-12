@@ -9,7 +9,7 @@ public class LevelLoader2 : MonoBehaviour
 [SerializeField] private PlayerMovement player;
 [SerializeField] private Bookshelf bookshelf;
 [SerializeField] private PersonalComputer computer;
-    private Music_Manager mm;
+   private Music_Manager mm;
    public TMP_Text downStairs;
    public TMP_Text upStairs;
    public Animator transition;

@@ -1,6 +1,6 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
-public class BookTutorial : MonoBehaviour, IPointerClickHandler
+
+public class BookTutorial : MonoBehaviour
 {
     [SerializeField] private Texture2D cursorTexture;
     private Vector2 cursorHotSpot;
@@ -13,8 +13,5 @@ public class BookTutorial : MonoBehaviour, IPointerClickHandler
         cursorHotSpot= new Vector2(cursorTexture.width / 2, cursorTexture.height /2);
         Cursor.SetCursor(cursorTexture, cursorHotSpot, CursorMode.Auto);
     }
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        mm.Play("Track6-Click",false);
-    }
+    
 }

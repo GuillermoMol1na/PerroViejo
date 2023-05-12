@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Trash_App : MonoBehaviour
@@ -15,10 +13,12 @@ public class Trash_App : MonoBehaviour
     }
 
     public void OpenTrash(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         isActive=!isActive;
         trashWindow.SetActive(isActive);
     }
     public void CloseTrash(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         isActive=!isActive;
         trashWindow.SetActive(isActive);
     }

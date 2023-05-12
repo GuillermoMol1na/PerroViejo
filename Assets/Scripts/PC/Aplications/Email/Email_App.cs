@@ -48,6 +48,7 @@ public class Email_App : MonoBehaviour
         obj.SetActive(isActive);
     }
     public void OpenEmails(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         isActive=true;
         backBtn.SetActive(false);
         emailWindow.SetActive(isActive);
@@ -137,6 +138,7 @@ public class Email_App : MonoBehaviour
                     obj.SetActive(true);
                 break;
                 default:
+                    FindObjectOfType<Music_Manager>().Play("Track5-PCFallando",true);
                     cameraData.renderPostProcessing = true;
                     CloseEmails();
                     goToGameOver();
@@ -155,6 +157,7 @@ public class Email_App : MonoBehaviour
             emailUser.enabled=true;
             //Complete day 0
             if(PlayerPrefs.GetInt("day")==0){
+                FindObjectOfType<Music_Manager>().Play("Track1-Nivel_Pasado",false);
                 PlayerPrefs.SetInt("dayCompleted",1);
             }
         }
