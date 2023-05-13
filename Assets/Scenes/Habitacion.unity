@@ -3563,6 +3563,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 307871285600293458, guid: 858248039b330fe4bbb009e1d5789fe0, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 307871286449395231, guid: 858248039b330fe4bbb009e1d5789fe0, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 307871286582637037, guid: 858248039b330fe4bbb009e1d5789fe0, type: 3}
       propertyPath: m_Name
       value: CanvasPausa
@@ -3649,6 +3657,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 307871286582637038, guid: 858248039b330fe4bbb009e1d5789fe0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5493096853457472760, guid: 858248039b330fe4bbb009e1d5789fe0, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245094885116789901, guid: 858248039b330fe4bbb009e1d5789fe0, type: 3}
+      propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
