@@ -44,7 +44,7 @@ public class Music_Manager : MonoBehaviour
     void Start()
     {
         lastSceneIndex =SceneManager.GetActiveScene().buildIndex;
-        StartMain();
+        Play("Track0_MainMenu",true);
     }
     public void Play(string name, bool loop){
         Sound s = Array.Find(sounds, sound => sound.name == name);

@@ -52,6 +52,7 @@ public class Minigame2_Options : MonoBehaviour
         }else if(minigame.counter >= minigame.numberScams)
         {
             player.PickHangPhone();
+            FindObjectOfType<Music_Manager>().Play("Track1-Nivel_Pasado",false);
             Debug.Log("JUEGO GANADO");
             
             //WINGAME

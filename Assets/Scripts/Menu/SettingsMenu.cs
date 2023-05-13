@@ -6,7 +6,6 @@ public class SettingsMenu : MonoBehaviour
     public static event LoadNew loadtheNewGame;
     public delegate void LoadReturn();
     public static event LoadReturn loadtheReturn;
-
     private int continueDay;
     private int continueDayOver;
     private int continueTutorial;

@@ -34,6 +34,7 @@ public class LevelLoader2 : MonoBehaviour
     }
     public void LoadGameOver(){
         StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex +4));
+        mm.Stop("Track12-Minigame2");
     }
     IEnumerator Transition(int levelIndex){
         transition.SetTrigger("Start");

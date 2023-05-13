@@ -1,9 +1,9 @@
 using System.Linq;
 public class Difficulty_Minigame2
 {
-    private float theTimeEasy= 420;
-    private float theTimeMedium = 300;
-    private float theTimeHard = 180;
+    private float theTimeEasy= 480;
+    private float theTimeMedium = 360;
+    private float theTimeHard = 240;
     private System.Random rand;
     
     public float EasyTime(){

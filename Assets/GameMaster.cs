@@ -8,6 +8,7 @@ public class GameMaster : MonoBehaviour
     public int det;
     public float min;
     public float sec;
+    public int strikes;
     public bool BedMade;
     public bool startMinigame2;
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
@@ -25,11 +26,6 @@ public class GameMaster : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
-    }
-    private void RelocateArrowsandBed(){
-        /*glassfull=false;
-        usedRedArrowBook= usedRedArrowPC= true;
-        BedMade=false;*/
     }
     public void UpdateDay(bool save){
         BedMade=false;
@@ -67,9 +63,7 @@ public class GameMaster : MonoBehaviour
         if(scene.buildIndex != 1){
         min = PlayerPrefs.GetFloat("minutes");
         sec = PlayerPrefs.GetFloat("seconds");
-        }else{
-            //Acomodate Red Arrows
-             RelocateArrowsandBed();
+        strikes = PlayerPrefs.GetInt("strike");
         }
     }
 }

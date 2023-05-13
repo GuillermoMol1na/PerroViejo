@@ -3,6 +3,7 @@ using System.Collections;
 public class Minigame_2 : MonoBehaviour
 {
     private GameMaster gm;
+    private Music_Manager mm;
     private PlayerMovement player;
     private Timer_2 timer;
     private MessageTrigger msgTrigg;
@@ -17,9 +18,11 @@ public class Minigame_2 : MonoBehaviour
     void Start()
     {
         gm = FindObjectOfType<GameMaster>();
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
         player = FindObjectOfType<PlayerMovement>();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer_2>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
+        mm.Volume("Track2-LlamadaTelefonica",0.8f);
         counter=0;
         switch(PlayerPrefs.GetInt("difficulty")){
             case 0:
@@ -47,11 +50,14 @@ public class Minigame_2 : MonoBehaviour
     }
     public IEnumerator RingthePhone(){
         if(gm.startMinigame2){
+            mm.StopMain();
             //Wait 5 seconds before the call
             yield return new WaitForSeconds(5f);
             Debug.Log("The RINGING STARTS");
+            mm.Play("Track2-LlamadaTelefonica",true);
             yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.F) );
             Debug.Log("the RINGING STOPS");
+            mm.Stop("Track2-LlamadaTelefonica");
             timer.ActivateTimer();
             //Activate the Animation
             player.PickHangPhone();

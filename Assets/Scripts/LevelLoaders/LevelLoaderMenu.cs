@@ -1,14 +1,17 @@
 using System.Collections;
-using System.Collections.Generic;using TMPro;
-using UnityEngine.SceneManagement;using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine;
 
 public class LevelLoaderMenu : MonoBehaviour
 {
     public TMP_Text titleText;
     public Animator transition;
+    private Music_Manager mm;
 
     void Start(){
         titleText.enabled=false;
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
     }
 
     public void LoadGame(int currentDay){
@@ -24,8 +27,9 @@ public class LevelLoaderMenu : MonoBehaviour
     IEnumerator Transition(int levelIndex){
         transition.SetTrigger("Start");
         titleText.enabled=true;
+        mm.SlowStop("Track0_MainMenu");
         yield return new WaitForSeconds(2);
-
+        mm.StartMain();
         SceneManager.LoadScene(levelIndex);
     }
     void OnEnable(){
