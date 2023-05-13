@@ -7,6 +7,7 @@ public class LevelLoader3 : MonoBehaviour
 {
     private Animator transition;
     public TMP_Text stairsMSG;
+
     void Start(){
         if(stairsMSG != null){
             stairsMSG.enabled= false;
@@ -14,6 +15,7 @@ public class LevelLoader3 : MonoBehaviour
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
     }
     public void LoadLivingRoom(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         StartCoroutine(TransitionLiving(SceneManager.GetActiveScene().buildIndex -1));
     }
     IEnumerator TransitionLiving(int levelIndex){

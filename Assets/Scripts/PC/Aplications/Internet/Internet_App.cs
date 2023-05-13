@@ -28,6 +28,7 @@ public class Internet_App : MonoBehaviour
     }
 
     public void OpenInternet(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         switch(PlayerPrefs.GetInt("day")){
         case 1:
         isActive=!isActive;
@@ -41,12 +42,14 @@ public class Internet_App : MonoBehaviour
         }
     }
     public void CloseInternet(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         //emptyLists();
         isActive=!isActive;
         internetWindow.SetActive(isActive);
     }
     public void CloseMinigame(){
         if(theTimer.GetActive()==false){
+            FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
             emptyLists();
             isActive=!isActive;
             miniGame_1.SetActive(isActive);

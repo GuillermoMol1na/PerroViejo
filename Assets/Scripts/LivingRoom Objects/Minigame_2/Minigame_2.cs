@@ -3,12 +3,14 @@ using System.Collections;
 public class Minigame_2 : MonoBehaviour
 {
     private GameMaster gm;
+    private Music_Manager mm;
     private PlayerMovement player;
     private Timer_2 timer;
     private MessageTrigger msgTrigg;
     private Messages[] scamMsg;
     private Messages realMsg;
     private Dialogue_Storage storage = new Dialogue_Storage();
+    private Difficulty_Minigame2 difficulty = new Difficulty_Minigame2();
     string[] dialog;
     int[] randOrder;
     public int numberScams;
@@ -16,36 +18,46 @@ public class Minigame_2 : MonoBehaviour
     void Start()
     {
         gm = FindObjectOfType<GameMaster>();
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
         player = FindObjectOfType<PlayerMovement>();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer_2>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
-        numberScams=storage.NumberofScams();
-        scamMsg = new Messages[numberScams];
-        //Get the random indexes
-        randOrder = storage.RandomOrder();
+        mm.Volume("Track2-LlamadaTelefonica",0.8f);
         counter=0;
-        Debug.Log("El día de hoy es: "+PlayerPrefs.GetInt("day"));
+        switch(PlayerPrefs.GetInt("difficulty")){
+            case 0:
+                numberScams = difficulty.numberOfCallsEasy();
+            break;
+            case 1:
+                numberScams = difficulty.numberOfCallsMedium();
+            break;
+            case 2:
+                numberScams = difficulty.numberOfCallsHard();
+            break;
+        }
+        //Get the random indexes
+        randOrder = storage.RandomOrder(numberScams);
+        scamMsg = new Messages[numberScams];
+        foreach(var lel in randOrder){
+            Debug.Log("Random Oreder Array is: "+lel);
+        }
+        
         //Start the Minigame 2
         StartCoroutine(RingthePhone());
     }
-    /*private void StartMinigame2(){
-        if(gm.startMinigame2){
-            timer.ActivateTimer();
-            //Start with the messages
-            StartOrHangUp();
-            //int[] lel = storage.RandomOrder();
-        }
-    }*/
     public void Courutine(){
         StartCoroutine(RingthePhone());
     }
     public IEnumerator RingthePhone(){
         if(gm.startMinigame2){
+            mm.StopMain();
             //Wait 5 seconds before the call
             yield return new WaitForSeconds(5f);
             Debug.Log("The RINGING STARTS");
+            mm.Play("Track2-LlamadaTelefonica",true);
             yield return new WaitUntil(()=> Input.GetKeyDown(KeyCode.F) );
             Debug.Log("the RINGING STOPS");
+            mm.Stop("Track2-LlamadaTelefonica");
             timer.ActivateTimer();
             //Activate the Animation
             player.PickHangPhone();
@@ -55,9 +67,8 @@ public class Minigame_2 : MonoBehaviour
             }else if(counter == numberScams){
                 PickRealCall();
             }
-            
+            counter++;
         }
-
     }
     public void StartOrHangUp(){
         int index = randOrder[counter];
@@ -66,8 +77,8 @@ public class Minigame_2 : MonoBehaviour
         scamMsg[index].Include(dialog);
         msgTrigg.UsetheMessages(scamMsg[index]);
         msgTrigg.TriggerMessage();
-        if(counter <= numberScams)
-            counter++;
+        /*if(counter <= numberScams)
+            counter++;*/
     }
     public void PickRealCall(){
         realMsg = new Messages();

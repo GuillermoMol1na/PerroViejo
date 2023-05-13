@@ -8,17 +8,16 @@ public class GameMaster : MonoBehaviour
     public int det;
     public float min;
     public float sec;
+    public int strikes;
     public bool BedMade;
     public bool startMinigame2;
     public bool glassfull,usedRedArrowBook,usedRedArrowPC;
-
     void Start(){
+        
         det = PlayerPrefs.GetInt("dayCompleted");
         glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
         min=PlayerPrefs.GetFloat("minutes");
-        sec=PlayerPrefs.GetFloat("seconds");
-
-        
+        sec=PlayerPrefs.GetFloat("seconds");  
     }
     void Awake(){
         if(instance==null){
@@ -28,37 +27,19 @@ public class GameMaster : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void OnLevelWasLoaded(){
-        /*Debug.Log("El vaso lleno es: "+glassfull);
-        Debug.Log("La flecha usada del librero es: "+usedRedArrowBook);
-        Debug.Log("La flecha usada del PC es: "+usedRedArrowPC);*/
-        det = PlayerPrefs.GetInt("dayCompleted");
-        if(SceneManager.GetActiveScene().buildIndex != 1){
-        min = PlayerPrefs.GetFloat("minutes");
-        sec = PlayerPrefs.GetFloat("seconds");
-        }else{
-            //Acomodate Red Arrows
-             RelocateArrowsandBed();
-        }
-        
-    }
-    private void RelocateArrowsandBed(){
-        /*glassfull=false;
-        usedRedArrowBook= usedRedArrowPC= true;
-        BedMade=false;*/
-    }
-    public void UpdateSaveDay(){
+    public void UpdateDay(bool save){
+        BedMade=false;
+       //Update the Player Prefas for the next Day
        int newDay = PlayerPrefs.GetInt("day") + 1;
        PlayerPrefs.SetInt("day",newDay);
        PlayerPrefs.SetInt("dayCompleted",0);
        PlayerPrefs.SetInt("tutorial",1);
-       int diff = PlayerPrefs.GetInt("difficulty");
-       
-
-       SaveSystem.SaveDay(newDay,0,1,diff,min,sec);
-
+       int diff = PlayerPrefs.GetInt("difficulty");  
+        if(save){
+            SaveSystem.SaveDay(newDay,0,1,diff,min,sec);
+        }
        //RestarDay
-       glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
+       glassfull= usedRedArrowBook= usedRedArrowPC= true;
     }
     public bool Converter(int num){
         if(num == 1){
@@ -66,6 +47,23 @@ public class GameMaster : MonoBehaviour
         }
         else{
             return false;
+        }
+    }
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnLevelFinishedLoading;
+    }     
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnLevelFinishedLoading;
+    }
+    void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
+    {
+        det = PlayerPrefs.GetInt("dayCompleted");
+        if(scene.buildIndex != 1){
+        min = PlayerPrefs.GetFloat("minutes");
+        sec = PlayerPrefs.GetFloat("seconds");
+        strikes = PlayerPrefs.GetInt("strike");
         }
     }
 }

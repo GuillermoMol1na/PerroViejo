@@ -28,10 +28,6 @@ public class Minigame2_Options : MonoBehaviour
         EventTrigger.Entry entry = new EventTrigger.Entry();
         entry.eventID = EventTriggerType.PointerClick;
         entry.callback.AddListener( (eventData) => {Debug.Log("AQUÍ RESPONDE");
-                                                    /*msgTrigg.TriggerNextMessage();
-                                                    //End Game
-                                                    goToGameOver();
-                                                    ShowHideOptions();*/
                                                     LeftButton();
                                                     });
         trigger1.triggers.Add(entry);
@@ -40,11 +36,6 @@ public class Minigame2_Options : MonoBehaviour
         EventTrigger.Entry entry2 = new EventTrigger.Entry();
         entry2.eventID = EventTriggerType.PointerClick;
         entry2.callback.AddListener( (eventData) => {Debug.Log("AQUÍ COLGÓ");
-                                                    /*player.PickHangPhone();
-                                                    msgTrigg.TriggerNextMessage();
-                                                    //Trigger the next call
-                                                    minigame.Courutine();
-                                                    ShowHideOptions();*/
                                                     RightButton();
                                                     });
         trigger2.triggers.Add(entry2);
@@ -58,9 +49,10 @@ public class Minigame2_Options : MonoBehaviour
         msgTrigg.TriggerNextMessage();
         if(minigame.counter < minigame.numberScams){
             goToGameOver();
-        }else if(minigame.counter == minigame.numberScams)
+        }else if(minigame.counter >= minigame.numberScams)
         {
             player.PickHangPhone();
+            FindObjectOfType<Music_Manager>().Play("Track1-Nivel_Pasado",false);
             Debug.Log("JUEGO GANADO");
             
             //WINGAME
@@ -74,7 +66,8 @@ public class Minigame2_Options : MonoBehaviour
         if(minigame.counter <= minigame.numberScams){
             player.PickHangPhone();
             minigame.Courutine();
-        }else if(minigame.counter > minigame.numberScams)
+        }
+        if(minigame.counter > minigame.numberScams)
         {
             goToGameOver();
         }

@@ -4,6 +4,7 @@ using UnityEngine.EventSystems;
 public class Options_Answers : MonoBehaviour
 {
     private GameMaster gm;
+    private Music_Manager mm;
     private MessageTrigger msgTrigg;
     private GameObject[] theChildren;
     int num;
@@ -15,6 +16,7 @@ public class Options_Answers : MonoBehaviour
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
         num = this.transform.childCount;
         theChildren = new GameObject[num];
@@ -32,18 +34,23 @@ public class Options_Answers : MonoBehaviour
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             if(i==0){
-                entry.callback.AddListener( (eventData) => {gm.UpdateSaveDay(); 
+                entry.callback.AddListener( (eventData) => {mm.StopMain();
+                                                            gm.UpdateDay(true); 
                                                             Debug.Log("Partida Guardada");
                                                              msgTrigg.TriggerNextMessage();
                                                              showAccept();
                                                              HideOptions();
-                                                             nextDay(); });
+                                                             nextDay();
+                                                              });
             }
             else{
-                entry.callback.AddListener( (eventData) => { Debug.Log("Partida NO Guardada");
+                entry.callback.AddListener( (eventData) => { mm.StartMain();
+                                                             gm.UpdateDay(false); 
+                                                             Debug.Log("Partida NO Guardada");
                                                              msgTrigg.TriggerNextMessage();
                                                              HideOptions();
-                                                             nextDay(); });
+                                                             nextDay();
+                                                              });
             }
             trigger.triggers.Add(entry);
         }

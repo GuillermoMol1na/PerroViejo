@@ -15,10 +15,12 @@ public class Antivirus_App : MonoBehaviour
     }
 
     public void OpenAntiVirus(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         isActive=!isActive;
         antivirusWindow.SetActive(isActive);
     }
     public void CloseAntivirus(){
+        FindObjectOfType<Music_Manager>().Play("Track6-Click",false);
         isActive=!isActive;
         antivirusWindow.SetActive(isActive);
     }

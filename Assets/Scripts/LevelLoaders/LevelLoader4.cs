@@ -5,10 +5,12 @@ using UnityEngine;
 public class LevelLoader4 : MonoBehaviour
 {
     private GameMaster gm;
+    private Music_Manager mm;
     private Animator transition;
     private GameObject appCanvas;
     void Start(){
         gm = FindObjectOfType<GameMaster>();
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
         appCanvas = GameObject.FindGameObjectWithTag("CanvasApp");
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
     }
@@ -44,6 +46,8 @@ public class LevelLoader4 : MonoBehaviour
         if(transition != null){
         transition.SetTrigger("Start");
         }
+        mm.Stop("Track5-PCFallando");
+        mm.Stop("Track11-Minigame1");
         SceneManager.LoadScene(levelIndex);
     }
 

@@ -118,6 +118,7 @@ public class Minigame_1 : MonoBehaviour
         return hasEnded;
     }
     public void SetEnded(){
+        FindObjectOfType<Music_Manager>().Play("Track1-Nivel_Pasado",false);
         hasEnded = true;
     }
 }

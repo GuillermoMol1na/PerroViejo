@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     private Collider2D stairsColl;
+    private Music_Manager mm;
     private PlayerMovement player;
     public TMP_Text downStairs;
     public TMP_Text upStairs;
@@ -14,6 +15,7 @@ public class LevelLoader : MonoBehaviour
         downStairs.enabled= false;
         upStairs.enabled= false;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
         stairsColl = GameObject.FindGameObjectWithTag("Stairs").GetComponent<Collider2D>();
     }
     void Update()
@@ -48,6 +50,7 @@ public class LevelLoader : MonoBehaviour
         transition.SetTrigger("Start");
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(levelIndex);
+        mm.StartMain();
     }
     void OnEnable(){
         Options_Answers.nextDay += LoadNextDay;

@@ -29,6 +29,7 @@ public class Minibar : MonoBehaviour
     {
         if(player.baseColl.IsTouching(minibarColl) && Input.GetKeyDown(KeyCode.F) && gm.glassfull){
             this.gameObject.GetComponent<SpriteRenderer>().sprite = GlassEmpty;
+            FindObjectOfType<Music_Manager>().Play("Track8-TomarTrago",false);
             redArrow.RedArrowVanish();
             if(activatebRedArr!= null){
                 activatebRedArr();

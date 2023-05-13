@@ -13,7 +13,7 @@ public class Game_Over_text : MonoBehaviour
             endGame = "Un gusano infectó la PC de Erwin";
         break;
         case 1:
-            endGame = "Un gusano infectó la PC de Erwin";
+            endGame = "Erwin descargó un troyano";
         break;
         case 2:
             endGame = "Erwin fue estafado mediante Phishing";
