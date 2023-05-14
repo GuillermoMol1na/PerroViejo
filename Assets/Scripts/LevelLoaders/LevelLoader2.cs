@@ -33,7 +33,7 @@ public class LevelLoader2 : MonoBehaviour
         mm.Play("Track10-PcEncendida",false);
     }
     public void LoadGameOver(){
-        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex +4));
+        StartCoroutine(Transition(SceneManager.GetActiveScene().buildIndex +3));
         mm.Stop("Track12-Minigame2");
     }
     IEnumerator Transition(int levelIndex){

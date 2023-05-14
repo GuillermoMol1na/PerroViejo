@@ -22,7 +22,6 @@ public class Minigame_2 : MonoBehaviour
         player = FindObjectOfType<PlayerMovement>();
         timer = GameObject.FindGameObjectWithTag("Timer").GetComponent<Timer_2>();
         msgTrigg = GameObject.FindGameObjectWithTag("Trgg_Messag").GetComponent<MessageTrigger>();
-        mm.Volume("Track2-LlamadaTelefonica",0.8f);
         counter=0;
         switch(PlayerPrefs.GetInt("difficulty")){
             case 0:

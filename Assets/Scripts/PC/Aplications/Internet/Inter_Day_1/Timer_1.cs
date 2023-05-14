@@ -27,7 +27,6 @@ public class Timer_1 : MonoBehaviour
         internetMinigame = GameObject.FindGameObjectWithTag("Internet_Minigame_1");
         //Music Manager
         mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
-        mm.Volume("Track7-Strike",1f);
         timerText.transform.SetAsLastSibling();
         childText = this.transform.GetChild(4).gameObject;
         background = this.transform.GetChild(0).gameObject;
