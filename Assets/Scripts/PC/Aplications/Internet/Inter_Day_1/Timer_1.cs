@@ -17,8 +17,6 @@ public class Timer_1 : MonoBehaviour
     public TMP_Text timerText;
     private float minutes;
     private float seconds;
-    private float min;
-    private float sec;
     private Difficulty_Minigame1 difficulty = new Difficulty_Minigame1();
     public delegate void GameOver();
     public static event GameOver goToGameOver;
@@ -73,12 +71,7 @@ public class Timer_1 : MonoBehaviour
             timerText.color = new Color32(255,0,0,255);
         }
          minutes=  Mathf.FloorToInt(timeToDisplay / 60);
-         seconds = Mathf.FloorToInt(timeToDisplay % 60);
-         min = refresh - minutes;
-         sec = refresh - seconds;
-         //Save value for results
-         PlayerPrefs.SetFloat("minutes",min);
-         PlayerPrefs.SetFloat("seconds",sec);
+         seconds = Mathf.FloorToInt(timeToDisplay % 60); 
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }
@@ -93,6 +86,9 @@ public class Timer_1 : MonoBehaviour
     public void DeactivateTimer(){
         mm.Stop("Track11-Minigame1");
         isActive = false;
+        //Save value for results
+         PlayerPrefs.SetFloat("minutes",minutes);
+         PlayerPrefs.SetFloat("seconds",seconds);
         for(int i =1;i<4;i++){
             strikes[i-1].SetActive(false);
         }

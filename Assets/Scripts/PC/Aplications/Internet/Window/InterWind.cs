@@ -119,14 +119,8 @@ public class InterWind : MonoBehaviour
             EventTrigger.Entry entry = new EventTrigger.Entry();
             entry.eventID = EventTriggerType.PointerClick;
             if(listOfRealLinks.Contains(listOfLinks[i])){
-                //Add a correct link
-                theMinigame.correctLinkClicked();
-                if(theMinigame.IsGameFinished()==0){
-                    entry.callback.AddListener( (eventData) => { timer1.DeactivateTimer(); DeleteWind(); internetController.NewTabwindow("TutorialWon"); } );
-                }
-                else{
-                    entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(34,214,40,255); } );
-                } 
+                bool repeatSafe=true;
+                entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(34,214,40,255); theMinigame.correctLinkClicked(repeatSafe); repeatSafe=false;} );
             }else{
                 entry.callback.AddListener( (eventData) => { downloadLinkText.color = new Color32(181,18,18,255); timer1.SetStrike();} );
             }
@@ -166,8 +160,18 @@ public class InterWind : MonoBehaviour
         }
         tutorialT.transform.SetParent(this.transform);
         
-        tutorialT.transform.localPosition=new Vector3(0f, 4616f, 0);
-        
+        tutorialT.transform.localPosition=new Vector3(0f, 4616f, 0);      
+    }
+    private void FinishTheGame(){
+        timer1.DeactivateTimer(); 
+        DeleteWind(); 
+        internetController.NewTabwindow("TutorialWon");
+    }
+    void OnEnable(){
+        Minigame_1.goToVictory += FinishTheGame;
+    }
+    void OnDisable(){
+        Minigame_1.goToVictory -= FinishTheGame;
     }
 
 }

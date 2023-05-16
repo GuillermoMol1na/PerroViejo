@@ -57,9 +57,6 @@ public class Timer_2 : MonoBehaviour
         }
         minutes = Mathf.FloorToInt(timeToDisplay / 60);
         seconds = Mathf.FloorToInt(timeToDisplay % 60);
-        //Save value for results
-        PlayerPrefs.SetFloat("minutes",refresh - minutes);
-        PlayerPrefs.SetFloat("seconds",refresh - seconds);
 
         timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
     }

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Email_Storage
 { 
-  public string[,] dayZero = { {"Tutorial","Hijo","Gladys","Gerardo", "Promociones","Seguro", "Mejores aplicaciones"},
+  public string[,] dayZero = { {"Tutorial","Hijo","Gladys","Gerardo", "Promociones","Seguro", "Mejores apps"},
                                {"Recomendaciones", "Encontré esto", "Musica","Ya te tengo", "MIRA ESTO","Documentos", "DESCARGA AQUÍ"},
                                {"Recuerda, no debes abrir links sospechosos enviados por personas que no conozcas. El día de hoy solo debes abrir tus emails sin hacer click en nada feo. ¿Sencillo verdad?",
                                 "Hola Pa, encontré una vieja foto entre mis archivos, la adjunto en el link.", "Hola erwin, espero que te encuentres bien, estoy enterada acerca de la mudanza de tu hijo. Las cosas van a mejorar, hay formas de lidiar con la soledad, como la música. Hablando de eso, encontré un nuevo sitio para descargar música. ¿Podrías descargar algunas canciones para mí mañana?","Tal vez te hayas salido con la tuya hace algunos años, pero ya se termino tu suerte jaja."+System.Environment.NewLine+System.Environment.NewLine+"Peón a G7", "Descarga la última sensación","Buenas tardes Don Erwin, le escribo para que pueda ir completando los pasos para su jubilación. sabemos que una decisión no muy fácil, por lo que le pedimos únicamente una revisión previa a su firma, muchas gracias.","haz click en el enlace"},
