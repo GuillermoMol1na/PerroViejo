@@ -7,8 +7,10 @@ using UnityEngine.SceneManagement;
 public class Music_Manager : MonoBehaviour
 {
     private static Music_Manager instance;
+    private AudioMixerGroup mixer;
     private object[] loadedMusic;
     public Sound[] sounds;
+    public float volRecord=1f;
     private int lastSceneIndex;
     private int newSceneIndex;
     private AudioClip[] theclips;
@@ -20,7 +22,8 @@ public class Music_Manager : MonoBehaviour
         }else{
             Destroy(gameObject);
         }
-        loadedMusic = Resources.LoadAll ("Music",typeof(AudioClip)) ;
+        loadedMusic = Resources.LoadAll ("Music",typeof(AudioClip));
+        mixer = Resources.Load<AudioMixerGroup>("AudioMixer/MainMixer") as AudioMixerGroup;
         theclips = new AudioClip[loadedMusic.Length];
         sounds = new Sound[loadedMusic.Length];
         loadedMusic.CopyTo (theclips,0);
@@ -30,6 +33,7 @@ public class Music_Manager : MonoBehaviour
         //Add AudioSource to each Sound 
         foreach(Sound s in sounds){
             s.source = gameObject.AddComponent<AudioSource>();
+            s.source.outputAudioMixerGroup = mixer;
             s.source.name = s.name;
             s.source.volume = s.volume;
             s.source.loop = s.loop;
@@ -39,6 +43,7 @@ public class Music_Manager : MonoBehaviour
             sounds[i].source.clip = theclips[i];
             sounds[i].clip = theclips[i];
             sounds[i].name = theclips[i].name;
+
         }
     }
     void Start()
@@ -101,12 +106,6 @@ public class Music_Manager : MonoBehaviour
         if(s == null)
             return;
         s.source.Stop();
-    }
-    public void Volume(string name, float vol){
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
-            return;
-        s.source.volume = vol;
     }
     void OnEnable()
     {

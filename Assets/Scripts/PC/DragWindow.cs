@@ -5,7 +5,6 @@ public class DragWindow : MonoBehaviour, IDragHandler, IPointerDownHandler
 {
     [SerializeField] private    RectTransform dragRectTransform;
     private Canvas theCanvas;
-
     private void Awake(){
         if(dragRectTransform == null){
             dragRectTransform = transform.parent.GetComponent<RectTransform>();

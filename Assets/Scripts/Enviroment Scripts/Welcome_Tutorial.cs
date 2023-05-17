@@ -61,7 +61,7 @@ public class Welcome_Tutorial : MonoBehaviour
         welcTut.Include(enday0);
         break;
         case 1:
-        enday1 = new string[] {"Eso es todo por hoy", "Lograste finalizar el reto del día en: "+gm.min+":"+gm.sec, "Erwin debe descansar y prepararse para el día siguiente"};
+        enday1 = new string[] {"Eso es todo por hoy", "Lograste finalizar el reto del día en: "+gm.min+":"+gm.sec + " y te equivocaste: "+gm.strikes+" veces", "Erwin debe descansar y prepararse para el día siguiente"};
         welcTut.Include(enday1);
         break;
         case 2:

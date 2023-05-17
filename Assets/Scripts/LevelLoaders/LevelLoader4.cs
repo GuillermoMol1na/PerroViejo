@@ -21,7 +21,7 @@ public class LevelLoader4 : MonoBehaviour
         StartCoroutine(TransitionNormal(SceneManager.GetActiveScene().buildIndex -2));
     }
     public void LoadGameOver(){
-        StartCoroutine(TransitionGO(SceneManager.GetActiveScene().buildIndex +2));
+        StartCoroutine(TransitionGO(SceneManager.GetActiveScene().buildIndex +1));
     }
     void OnEnable(){
         Timer_1.goToGameOver += LoadGameOver;

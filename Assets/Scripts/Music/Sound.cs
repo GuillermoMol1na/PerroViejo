@@ -9,6 +9,6 @@ public class Sound
     public AudioSource source;
     public string name;
     public bool loop;
-    public float volume=0.5f;
+    public float volume=1f;
 
 }

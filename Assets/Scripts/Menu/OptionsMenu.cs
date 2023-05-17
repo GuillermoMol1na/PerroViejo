@@ -8,13 +8,14 @@ using TMPro;
 
 public class OptionsMenu : MonoBehaviour
 {
-
+    private Music_Manager mm;
     public AudioMixer audioMixer;
     public TMP_Dropdown resolutionDropdown;
     Resolution[] resolutions;
     
     void Start ()
     {
+        mm = GameObject.FindGameObjectWithTag("Audio_Manager").GetComponent<Music_Manager>();
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();
@@ -46,6 +47,8 @@ public class OptionsMenu : MonoBehaviour
    
    {
      audioMixer.SetFloat("volume", volume);
+     mm.volRecord = volume;
+     Debug.Log("último valor GUARDADO: " + volume);
    }
 
    public void SetQ (int qualityIndex)
