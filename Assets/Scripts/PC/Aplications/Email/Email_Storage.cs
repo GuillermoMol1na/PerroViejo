@@ -4,7 +4,7 @@ public class Email_Storage
 { 
   public string[,] dayZero = { {"Tutorial","Hijo","Gladys","Gerardo", "Promociones","Seguro", "Mejores apps"},
                                {"Recomendaciones", "Encontré esto", "Musica","Ya te tengo", "MIRA ESTO","Documentos", "DESCARGA AQUÍ"},
-                               {"Recuerda, no debes abrir links sospechosos enviados por personas que no conozcas. El día de hoy solo debes abrir tus emails sin hacer click en nada feo. ¿Sencillo verdad?",
+                               {"Siempre es bueno revisar tus correos."+ System.Environment.NewLine+"Recuerda, no debes abrir links sospechosos enviados por personas que no conozcas. El día de hoy solo debes abrir tus emails sin hacer click en nada feo. ¿Sencillo verdad?",
                                 "Hola Pa, encontré una vieja foto entre mis archivos, la adjunto en el link.", "Hola erwin, espero que te encuentres bien, estoy enterada acerca de la mudanza de tu hijo. Las cosas van a mejorar, hay formas de lidiar con la soledad, como la música. Hablando de eso, encontré un nuevo sitio para descargar música. ¿Podrías descargar algunas canciones para mí mañana?","Tal vez te hayas salido con la tuya hace algunos años, pero ya se termino tu suerte jaja."+System.Environment.NewLine+System.Environment.NewLine+"Peón a G7", "Descarga la última sensación","Buenas tardes Don Erwin, le escribo para que pueda ir completando los pasos para su jubilación. sabemos que una decisión no muy fácil, por lo que le pedimos únicamente una revisión previa a su firma, muchas gracias.","haz click en el enlace"},
                                {"", "unaviejafoto.jpg", "","ChessWorldScreenshot.png","www.miraesto.com","form1.doc","http://buenasfotos.com"} };
 
@@ -17,7 +17,7 @@ public class Email_Storage
                                {"", "", ""}  };
   public string[,] dayTwo = { {"Tutorial","VIGO",},
                               {"Llamadas", "Inf Usuario"},
-                              {"Para contestar llamadas debes oprimir la tecla [F], presta atención a los datos que te da fuentes confiables.", "02/05/23"+ System.Environment.NewLine+"Le entregamos su factura del mes mientras que notificamos a todos nuestros usuarios que la base de datos se borró requieriendo algunas confirmaciones. Un representante de VIGO le llamará más tarde hoy."+ System.Environment.NewLine+" Gracias por la comprensión.",},
+                              {"Para contestar llamadas debes oprimir la tecla [F], presta atención a los datos que te da fuentes confiables. Tan pronto te sientas preparado/a, puedes salir a la sala, tal vez tengas que contestar unas llamadas.", "02/05/23"+ System.Environment.NewLine+"Le entregamos su factura del mes mientras que notificamos a todos nuestros usuarios que la base de datos se borró requieriendo algunas confirmaciones. Un representante de VIGO le llamará más tarde hoy."+ System.Environment.NewLine+" Gracias por la comprensión.",},
                               {"", "factura_vigo.jpg"}   };
   public int getDay0Length(){
     return dayZero.GetLength(1);

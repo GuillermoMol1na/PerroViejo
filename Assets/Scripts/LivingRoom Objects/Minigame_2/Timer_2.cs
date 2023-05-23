@@ -68,11 +68,11 @@ public class Timer_2 : MonoBehaviour
         timerText.enabled = isActive;
     }
     public void DeactivateTimer(){
+        isActive = false;
         mm.Stop("Track12-Minigame2");
         //Save value of results
         PlayerPrefs.SetFloat("minutes",minutes);
         PlayerPrefs.SetFloat("seconds",seconds);
-        isActive = false;
         background.SetActive(isActive);
         timerText.enabled = isActive;
     }

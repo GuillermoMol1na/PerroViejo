@@ -60,7 +60,7 @@ public class GameMaster : MonoBehaviour
     void OnLevelFinishedLoading(Scene scene, LoadSceneMode mode)
     {
         det = PlayerPrefs.GetInt("dayCompleted");
-        if(scene.buildIndex != 1){
+        if(scene.buildIndex != 1 || (det==1 && PlayerPrefs.GetInt("day")==2)){
         min = PlayerPrefs.GetFloat("minutes");
         sec = PlayerPrefs.GetFloat("seconds");
         strikes = PlayerPrefs.GetInt("strike");

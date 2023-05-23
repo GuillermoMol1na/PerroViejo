@@ -8,7 +8,6 @@ public class LevelLoader5 : MonoBehaviour
     private Music_Manager mm;
     private int theDay;
     private int scene;
-
     void Start(){
         transition = GameObject.FindGameObjectWithTag("Transition").GetComponent<Animator>();
         theDay = PlayerPrefs.GetInt("day");
@@ -20,10 +19,10 @@ public class LevelLoader5 : MonoBehaviour
         mm.Play("Track6-Click",false);
         switch(theDay){
             case 2:
-                scene= 4;
+                scene= 3;
             break;
             default:
-                scene=2;
+                scene= 1;
             break;
         }
         StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex -scene));
