@@ -15,7 +15,8 @@ public class GameMaster : MonoBehaviour
     void Start(){
         
         det = PlayerPrefs.GetInt("dayCompleted");
-        glassfull= usedRedArrowBook= usedRedArrowPC= !Converter(det);
+        glassfull= usedRedArrowPC= !Converter(det);
+        usedRedArrowBook= Converter(det);
         min=PlayerPrefs.GetFloat("minutes");
         sec=PlayerPrefs.GetFloat("seconds");  
     }

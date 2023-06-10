@@ -39,6 +39,7 @@ public class LevelLoader : MonoBehaviour
         }else{
             downStairs.text="GRACIAS POR JUGAR"+ System.Environment.NewLine+ "Creado por: GUILLERMO MOLINA y RAFAEL URQUIDI";
             StartCoroutine(TransitionDay(0));
+            mm.Play("Track0_MainMenu",true);
         }
     }
     IEnumerator TransitionLevel(int levelIndex){
