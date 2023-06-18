@@ -12,10 +12,10 @@ public class Bookshelf : MonoBehaviour
        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
        playerCol = GameObject.FindGameObjectWithTag("Player").GetComponent<Collider2D>();
        thelevelLoader = LevelLoader2.FindObjectOfType<LevelLoader2>();
-       if(gm.usedRedArrowBook){
-            gm.usedRedArrowBook=true;
+       //if(gm.usedRedArrowBook){
+            //gm.usedRedArrowBook=true;
             redArrow.RedArrowVanish();
-        }
+        //}
     }
     void Update(){
         if(playerCol.IsTouching(BookShelfColl) && Input.GetKeyDown(KeyCode.F) && !gm.startMinigame2){
