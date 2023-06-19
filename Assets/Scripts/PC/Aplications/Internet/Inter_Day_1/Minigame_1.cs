@@ -23,24 +23,24 @@ public class Minigame_1 : MonoBehaviour
     public static event GameWon goToVictory;
     //private Difficulty_Minigame1 difficulty = new Difficulty_Minigame1();
     List<string> listOfReals;
-    private string[] realLinks = {"hamilton008796465746757394234532.mp3",
-                                  "tomjones634268543977413253633245.mp3",
-                                  "julioiglesias8521647932554123974.mp3"};
-    /*private string[] realLinks = {"LELE1",
-                                  "LELE2",
-                                  "LELE3"};*/
-    private string[] fakeLinks = {"hamilton005898215746757782114532.mp3",
-                                  "hamilton008796588741232256917282.mp3",
-                                  "hamilton008796536974158458734532.mp3",
-                                  "hamilton789368752146388965415365.mp3",
-                                  "tomjones634268543977413225698743.mp3",
-                                  "tomjones412395543977413253633245.mp3",
-                                  "tomjones634219738246584379153245.mp3",
-                                  "tomjones336547453955321741258364.mp3",
-                                  "julioiglesias8521647932557532145.mp3",
-                                  "julioiglesias2365499932554123974.mp3",
-                                  "julioiglesias4682315752369874552.mp3",
-                                  "julioiglesias8521677771111113974.mp3"};
+    private string[] realLinks = {"hamilton008796465744234532.mp3",
+                                  "tomjones634268543973633245.mp3",
+                                  "julioiglesias8521644123974.mp3"};
+    /*private string[] realLinks = {"L
+                                  "L
+                                  "LELE*/
+    private string[] fakeLinks = {"hamilton005898215742114532.mp3",
+                                  "hamilton008796588746917282.mp3",
+                                  "hamilton008796536978734532.mp3",
+                                  "hamilton789368752145415365.mp3",
+                                  "tomjones634268543975698743.mp3",
+                                  "tomjones412395543973633245.mp3",
+                                  "tomjones634219738249153245.mp3",
+                                  "tomjones336547453951258364.mp3",
+                                  "julioiglesias8521647532145.mp3",
+                                  "julioiglesias2365494123974.mp3",
+                                  "julioiglesias4682319874552.mp3",
+                                  "julioiglesias8521671113974.mp3"};
     void Start(){
         //Load Fake download icons
         correctLinks =3;

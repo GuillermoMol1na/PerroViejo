@@ -71,6 +71,8 @@ public class Timer_2 : MonoBehaviour
         isActive = false;
         mm.Stop("Track12-Minigame2");
         //Save value of results
+        minutes = Mathf.FloorToInt((refresh - timeValue) / 60);
+        seconds = Mathf.FloorToInt((refresh - timeValue) % 60);
         PlayerPrefs.SetFloat("minutes",minutes);
         PlayerPrefs.SetFloat("seconds",seconds);
         background.SetActive(isActive);

@@ -87,6 +87,8 @@ public class Timer_1 : MonoBehaviour
         mm.Stop("Track11-Minigame1");
         isActive = false;
         //Save value for results
+        minutes = Mathf.FloorToInt((refresh - timeValue) / 60);
+        seconds = Mathf.FloorToInt((refresh - timeValue) % 60);
          PlayerPrefs.SetFloat("minutes",minutes);
          PlayerPrefs.SetFloat("seconds",seconds);
         for(int i =1;i<4;i++){
