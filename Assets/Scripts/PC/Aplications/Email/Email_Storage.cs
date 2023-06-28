@@ -11,10 +11,11 @@ public class Email_Storage
   public string[,] dayOne = { {"Tutorial","Gladys","Gerardos"},
                                 {"Recomendaciones", "Descargar Canciones", "JAJA"},
                                {"Recuerda no hacer clic en enlaces muy vistosos o insistentes o  que contengan errores de ortografía. Abre la aplicación de Internet para activar la actividad del día.", "Muchas gracias por descargar las canciones Erwin, no soy buena con éstas cosas, por lo que aprecio muchísimo tu ayuda. Por cierto ¿Cómo va tu muchacho? Espero que se encuentre muy bien. Besos y abrazos, listaré las canciones a descargar: "+ System.Environment.NewLine+System.Environment.NewLine+
-                                "hamilton008796465746757394234532.mp3"+ System.Environment.NewLine+
-                               "tomjones634268543977413253633245.mp3"+ System.Environment.NewLine+
-                               "julioiglesias8521647932554123974.mp3", "De seguro te sigues lamiendo las heridas ¿Eh? No te sientas mal, tan solo estuviste extendiendo tu fracaso por... ¿Digamos unos 3 meses?"+ System.Environment.NewLine+"PD: Acmoda el tablero para la siguiente"},
+                                "hamilton008796465744234532.mp3"+ System.Environment.NewLine+
+                               "tomjones634268543973633245.mp3"+ System.Environment.NewLine+
+                               "julioiglesias8521644123974.mp3", "De seguro te sigues lamiendo las heridas ¿Eh? No te sientas mal, tan solo estuviste extendiendo tu fracaso por... ¿Digamos unos 3 meses?"+ System.Environment.NewLine+"PD: Acmoda el tablero para la siguiente"},
                                {"", "", ""}  };
+
   public string[,] dayTwo = { {"Tutorial","VIGO",},
                               {"Llamadas", "Inf Usuario"},
                               {"Para contestar llamadas debes oprimir la tecla [F], presta atención a los datos que te da fuentes confiables. Tan pronto te sientas preparado/a, puedes salir a la sala, tal vez tengas que contestar unas llamadas.", "02/05/23"+ System.Environment.NewLine+"Le entregamos su factura del mes mientras que notificamos a todos nuestros usuarios que la base de datos se borró requieriendo algunas confirmaciones. Un representante de VIGO le llamará más tarde hoy."+ System.Environment.NewLine+" Gracias por la comprensión.",},

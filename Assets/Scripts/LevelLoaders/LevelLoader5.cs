@@ -17,19 +17,11 @@ public class LevelLoader5 : MonoBehaviour
     }
     public void LoadContinue(){
         mm.Play("Track6-Click",false);
-        /*switch(theDay){
-            case 2:
-                scene= 3;
-            break;
-            default:
-                scene= 1;
-            break;
-        }*/
         StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex - 1));
     }
     public void LoadMainMenu(){
         mm.Play("Track6-Click",false);
-        StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex - 6));
+        StartCoroutine(TransitionTo(SceneManager.GetActiveScene().buildIndex - 5));
     }
     IEnumerator TransitionTo(int levelIndex){
         if(transition != null){
