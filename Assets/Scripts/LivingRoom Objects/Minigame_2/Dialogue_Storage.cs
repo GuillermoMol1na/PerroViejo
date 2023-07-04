@@ -20,9 +20,7 @@ private System.Random rand;
                                     {"Saludos cordiales señor Erwin, le habla un representante de VIGO, de antemano deseo agradecer su preferencia de ya 4 meses en el paquete plata al mismo tiempo que pido disculpas en nombre de la empresa por la pérdida de datos.","Tan solo debe brindarnos su contraseña como ya lleva haciendo todo éste tiempo, y le garantizamos la duración de la banda ancha para usted y el resto de la familia Holden Trujillo."},
                                     {"Hola qué tal señor Erwin, le habla un representante de VIGO, su proveedora de servicios de telecomunicación favorita. Pedimos disculpas por los inconvenientes mientras que agradecemos su preferencia desde enero.","Le prometemos restituir sus registros en un santiamén y mantener activo su paquete platino en cuanto nos dicte su número de tarjeta."},
                                  };
-    /*public string[,] realCall = {
-                                    {"Hola, la presente es la llamada verdadera", "¿Qué me dices?"}
-                                };*/
+
     public string[,] realCall = {
                                     {"Bueno días Sr. Ritchzen le habla Mónica De la Guardia de la compañía Vigo, antes que nada disculparnos por los inconvenientes de estos días respecto al problema técnico que tuvimos en nuestras bases de datos",
                                     "y agradecemos como compañía su cooperación y paciencia, nos encontramos realizando un sondeo para poder brindar ayuda a nuestros clientes, su cuenta asociada es #C3842JGR con dirección Av. Jubal #372, según nuestro datos su plan Plata de 4 meses fue uno de los tantos afectados",
@@ -53,7 +51,4 @@ private System.Random rand;
         thefill = thefill.OrderBy(x=>rand.Next(0,lenght)).ToArray();
         return thefill;
     }
-    /*public int NumberofScams(){
-        return scamCalls.GetLength(0);
-    }*/
 }

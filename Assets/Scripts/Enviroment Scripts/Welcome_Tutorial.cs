@@ -12,14 +12,14 @@ public class Welcome_Tutorial : MonoBehaviour
                                     "No te olvides beber algo y leer un poco antes de encender tu PC.",
                                     "Buena suerte."};
     private string[] welcomeday1 = {"El día de ayer fue informativo, pero el día de hoy las cosas no serán tan sencillas.",
-                                    "erwin debe seguir su rutina, pero al finalizar debe revisar su correo.",
+                                    "Erwin debe seguir su rutina, pero al finalizar debe revisar su correo.",
                                     "Su amiga Gladys le pidió un favor ayer de todas formas.",
                                     "Buena suerte."};
     private string[] welcomeday2 = {"El día de hoy debes hacer...",
                                     "Al parecer nada.",
                                     "No hay nada claro de momento, por lo que Erwin debe seguir su rutina como siempre.",
                                     "Buena suerte."};
-    private string[] enday0 = {"Eso es todo por hoy", "Erwin debe descansar y prepararse para el día siguiente"};
+    private string[] enday0 = {"Eso es todo por hoy", "Erwin debe descansar y prepararse para el día siguiente."};
     private string[] enday1;
     private string[] enday2;
     private Messages welcTut = new Messages();

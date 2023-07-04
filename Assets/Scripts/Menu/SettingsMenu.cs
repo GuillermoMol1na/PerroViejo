@@ -56,9 +56,7 @@ public class SettingsMenu : MonoBehaviour
         }
         
    }    
-
    public void QuitGame() 
-
    {
        Debug.Log("Quit!");
        Application.Quit();
